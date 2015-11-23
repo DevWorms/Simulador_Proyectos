@@ -6,7 +6,7 @@ class Connector {
     protected $DB_HOST = "localhost";
     protected $DB_USER = "root";
     protected $DB_PASS = "";
-    protected $DB_NAME = "mydb";
+    protected $DB_NAME = "simuladoruc";
     private $conn = null;
 
     public function __construct() {
@@ -110,3 +110,4 @@ if ($db->execute($query)) {
     }
 }
 */
+?>
