@@ -161,7 +161,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                             if ($login_email == null || $login_pass == null) {
                                 notificacion($msj = "Por favor complete todos los campos");
                             } else {
-                                $consulta = "SELECT * FROM profesor WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
+                                $consulta = "SELECT Nombre, Ap_pat, Ap_mat, Edad, Sexo, Telefono, Celular, email, Domicilio, CP, ID_prof FROM profesor WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
                                 $db->execute($consulta);
                                 /*
                                  * Ejecuta la consulta
@@ -173,6 +173,15 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                     while ($resultado = $result->fetch_assoc()) {
                                         session_start();
                                         $_SESSION["Nombre"] = $resultado['Nombre'];
+                                        $_SESSION["Ap_pat"] = $resultado['Ap_pat'];
+                                        $_SESSION["Ap_mat"] = $resultado['Ap_mat'];
+                                        $_SESSION["Edad"] = $resultado['Edad'];
+                                        $_SESSION["Sexo"] = $resultado['Sexo'];
+                                        $_SESSION["Telefono"] = $resultado['Telefono'];
+                                        $_SESSION["Celular"] = $resultado['Celular'];
+                                        $_SESSION["email"] = $resultado['email'];
+                                        $_SESSION["Domicilio"] = $resultado['Domicilio'];
+                                        $_SESSION["CP"] = $resultado['CP'];
                                         $_SESSION["Id"] = $resultado['ID_prof'];
                                         $_SESSION["Tipo_Usuario"] = "profesor";
                                         session_write_close();
@@ -220,12 +229,21 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                             if ($login_email == null || $login_pass == null) {
                                 notificacion($msj = "Por favor complete todos los campos");
                             } else {
-                                $consulta = "SELECT Nombre, ID_alumno FROM alumno WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
+                                $consulta = "SELECT Nombre, Ap_pat, Ap_mat, Edad, Sexo, Telefono, Celular, email, Domicilio, CP, ID_alumno FROM alumno WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
                                 $db->execute($consulta);
                                 if ($result->num_rows == 1) {
                                     while ($resultado = $result->fetch_assoc()) {
                                         session_start();
                                         $_SESSION["Nombre"] = $resultado['Nombre'];
+                                        $_SESSION["Ap_pat"] = $resultado['Ap_pat'];
+                                        $_SESSION["Ap_mat"] = $resultado['Ap_mat'];
+                                        $_SESSION["Edad"] = $resultado['Edad'];
+                                        $_SESSION["Sexo"] = $resultado['Sexo'];
+                                        $_SESSION["Telefono"] = $resultado['Telefono'];
+                                        $_SESSION["Celular"] = $resultado['Celular'];
+                                        $_SESSION["email"] = $resultado['email'];
+                                        $_SESSION["Domicilio"] = $resultado['Domicilio'];
+                                        $_SESSION["CP"] = $resultado['CP'];
                                         $_SESSION["Id"] = $resultado['ID_alumno'];
                                         $_SESSION["Tipo_Usuario"] = "alumno";
                                         session_write_close();
