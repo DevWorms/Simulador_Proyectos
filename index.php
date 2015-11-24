@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
 session_start();
+error_reporting(0);
 
 include('class/Connector.php');
 $db = new Connector();
@@ -88,6 +88,12 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                         <div class="col-md-8 col-md-offset-2">
 
                             <!-- Trigger the modal with a button -->
+                            <?php 
+                            if (!empty($_SESSION['Id']) && !empty($_SESSION['Nombre'])) {
+                                echo '<a href="panel/" type="button" class="btn btn-info btn-lg">Panel de Control</a>
+                                <br><br>';   
+                            }
+                            ?>
                             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ModalProfesores">Acceso Profesores</button>
                             <br><br>
                             <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#ModalAlumnos">Acceso Alumnos</button>
@@ -123,7 +129,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
         <footer>
             <div class="container text-center">
                 <hr>
-                <p style="color:#545B60">Copyright &copy; Universidad del Caribe 2015</p>
+                <p style="color:#545B60">Copyright &copy; <a href="index.php">Universidad del Caribe</a> 2015</p>
             </div>
         </footer>
 
@@ -155,7 +161,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                             if ($login_email == null || $login_pass == null) {
                                 notificacion($msj = "Por favor complete todos los campos");
                             } else {
-                                $consulta = "SELECT Nombre, ID_prof FROM profesor WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
+                                $consulta = "SELECT * FROM profesor WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
                                 $db->execute($consulta);
                                 /*
                                  * Ejecuta la consulta
@@ -165,14 +171,15 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                  */
                                 if ($result->num_rows == 1) {
                                     while ($resultado = $result->fetch_assoc()) {
-                                        $_SESSION["Nombre"] = $resultado[0];
-                                        $_SESSION["Id"] = $resultado[1];
+                                        session_start();
+                                        $_SESSION["Nombre"] = $resultado['Nombre'];
+                                        $_SESSION["Id"] = $resultado['ID_prof'];
+                                        session_write_close();
                                     }
                                     echo "<script language='javascript'>
-                                        alert('Bienvenido');
-                                        window.location.href = 'profesor/';
+                                        alert('Bienvenido ".$_SESSION['Nombre']."');
+                                        window.location.href = 'panel/';
                                     </script>";
-                                    notificacion($msj = "Bienvenido");
                                 } else {
                                     notificacion($msj = "El usuario o contraseña son incorrectos, vuelve a intentar.");
                                 }
@@ -216,14 +223,15 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                 $db->execute($consulta);
                                 if ($result->num_rows == 1) {
                                     while ($resultado = $result->fetch_assoc()) {
-                                        $_SESSION["Nombre"] = $resultado[0];
-                                        $_SESSION["Id"] = $resultado[1];
+                                        session_start();
+                                        $_SESSION["Nombre"] = $resultado['Nombre'];
+                                        $_SESSION["Id"] = $resultado['ID_prof'];
+                                        session_write_close();
                                     }
                                     echo "<script language='javascript'>
                                         alert('Bienvenido');
-                                        window.location.href = 'alumno/';
+                                        alert('Bienvenido ".$_SESSION['Nombre']."');
                                     </script>";
-                                    notificacion($msj = "Bienvenido");
                                 } else {
                                     notificacion($msj = "El usuario o contraseña son incorrectos, vuelve a intentar.");
                                 }
