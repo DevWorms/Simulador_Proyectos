@@ -174,6 +174,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                         session_start();
                                         $_SESSION["Nombre"] = $resultado['Nombre'];
                                         $_SESSION["Id"] = $resultado['ID_prof'];
+                                        $_SESSION["Tipo_Usuario"] = "profesor";
                                         session_write_close();
                                     }
                                     echo "<script language='javascript'>
@@ -226,6 +227,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                         session_start();
                                         $_SESSION["Nombre"] = $resultado['Nombre'];
                                         $_SESSION["Id"] = $resultado['ID_prof'];
+                                        $_SESSION["Tipo_Usuario"] = "alumno";
                                         session_write_close();
                                     }
                                     echo "<script language='javascript'>
