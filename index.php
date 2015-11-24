@@ -231,8 +231,8 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                         session_write_close();
                                     }
                                     echo "<script language='javascript'>
-                                        alert('Bienvenido');
                                         alert('Bienvenido ".$_SESSION['Nombre']."');
+                                        window.location.href = 'panel/';
                                     </script>";
                                 } else {
                                     notificacion($msj = "El usuario o contraseña son incorrectos, vuelve a intentar.");
