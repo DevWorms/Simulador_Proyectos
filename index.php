@@ -226,7 +226,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                     while ($resultado = $result->fetch_assoc()) {
                                         session_start();
                                         $_SESSION["Nombre"] = $resultado['Nombre'];
-                                        $_SESSION["Id"] = $resultado['ID_prof'];
+                                        $_SESSION["Id"] = $resultado['ID_alumno'];
                                         $_SESSION["Tipo_Usuario"] = "alumno";
                                         session_write_close();
                                     }
