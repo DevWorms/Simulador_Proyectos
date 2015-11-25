@@ -58,7 +58,23 @@ $db = new Connector();
                 <div class="tabbable">
                   <div class="tab-content">
                     <div class="tab-pane active" id="A">
-                      <div class="well well-sm">I'm in Section A.</div>
+                      <div class="well well-sm">
+                        <div class="row">
+                            <div class="col-md-4"> 
+                              <br>Nombre<input type="nombre_proyectodef01" class="form-control"><br>
+                              Tipo <select id="tipo_proyectodef01" class="form-control">
+                                <option value="Producto">Producto</option>
+                                <option value="Servicio">Servicio</option>
+                              </select><br>
+                              Unidad de medida<input type="unidadmedida_proyectodef01" class="form-control">
+                            </div>
+                            <div class="col-md-5">
+                              <br>Descripci&oacute;n<textarea id="descripcion_proyecto_def01" class="form-control"></textarea><br>
+                              Caracte&iacute;sticas<textarea id="caracteristicas_proyecto_def01" class="form-control"></textarea><br>
+                              <button class="btn btn-success"> LISTO </button>
+                            </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="tab-pane" id="B">
                       <div class="well well-sm">Howdy, I'm in Section B.</div>
