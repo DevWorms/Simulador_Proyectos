@@ -27,7 +27,18 @@ include('Connector.php');
 
 		}
 
-		function insert_proyectodef_01(){
+		public function __destruct() {
+     
+			$this->id_proyecto = "";
+			$this->descripcion = "";
+			$this->tipo = "";
+			$this->unidad_medida = "";
+			$this->caracteristicas ="";
+			$this->nombre = "";
+			$this->id_alumno = "";
+    	}
+
+		public function insert_proyectodef_01(){
 
 			$query = "INSERT INTO proyectodef_01(ID_proyecto,Concepto,Descripción,Tipo,Unidad_medida,Caracteristicas,
 					Nombre,ID_alumno) VALUES(".$this->id_proyecto.",'".$this->nombre."','".$this->descripcion."','".$this->tipo."','".
