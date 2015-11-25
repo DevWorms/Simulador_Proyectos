@@ -4,8 +4,8 @@ class Connector {
 
     // Datos de conexion a la BBDD
     protected $DB_HOST = "localhost";
-    protected $DB_USER = "root";
-    protected $DB_PASS = "";
+    protected $DB_USER = "";//
+    protected $DB_PASS = "";//
     protected $DB_NAME = "simuladoruc";
     private $conn = null;
 
