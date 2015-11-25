@@ -218,7 +218,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                             <p><button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                 <input type="submit" class="btn btn-primary" name="a_enviar_login" value="Acceder">
                             <hr />
-                            <a href="WebMaster.html">¿Olvidaste tu Contraseña?</a> | <a href="#" data-toggle="modal" data-target="#RegistroAlumno">Registrarse</a>
+                            <a href="class/recpass.php?tipo=alumno">¿Olvidaste tu Contraseña?</a> | <a href="#" data-toggle="modal" data-target="#RegistroAlumno">Registrarse</a>
                             </p>
                         </form>
                         <?php
