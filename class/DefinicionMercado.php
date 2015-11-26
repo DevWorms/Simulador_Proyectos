@@ -55,7 +55,5 @@ include('Connector.php');
 		}
 
 	}
-$test = new DefinicionMercado(1,1,0,0,1,"t1","t2","t3","t4");
 
-echo $test-> insert_def_merc02();
 ?>

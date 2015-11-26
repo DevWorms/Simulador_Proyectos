@@ -65,24 +65,26 @@ session_start();
                                                 <div class="step well">
                                                     <h2>Definición del Producto / Servicio</h2>
                                                     <div class="row">
-                                                        <div class="col-md-4"> 
-                                                            <br>Nombre<input type="nombre_proyectodef01" class="form-control"><br>
+                                                        <div class="col-md-4">
+                                                            <br>Nombre del Proyecto<input type="text" id="nombre_proyectodef01" class="form-control"><br>
                                                             Tipo <select id="tipo_proyectodef01" class="form-control">
-                                                                <option value="Producto">Producto</option>
-                                                                <option value="Servicio">Servicio</option>
-                                                            </select><br>
-                                                            Unidad de medida<input type="unidadmedida_proyectodef01" class="form-control">
+                                                                    <option value="Producto">Producto</option>
+                                                                    <option value="Servicio">Servicio</option>
+                                                                </select><br>
+                                                            Unidad de medida<input type="text" id="unidadmedida_proyectodef01" class="form-control">
                                                         </div>
                                                         <div class="col-md-5">
-                                                            <br>Descripci&oacute;n<textarea id="descripcion_proyecto_def01" class="form-control"></textarea><br>
-                                                            Caracte&iacute;sticas<textarea id="caracteristicas_proyecto_def01" class="form-control"></textarea><br>
+                                                          <br>
+                                                          <br>Descripci&oacute;n<textarea id="descripcion_proyecto_def01" class="form-control"></textarea><br>
+                                                          Caracte&iacute;sticas<textarea id="caracteristicas_proyecto_def01" class="form-control"></textarea><br>
+                                                          <button class="btn btn-success" id="btnDefinirProy"> LISTO </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="step well">
                                                     Definición del Mercado Potencial
                                                     <!-- Formulario -->
-
+                                                    
                                                     <!-- -->
                                                 </div>
                                                 <div class="step well">
@@ -130,8 +132,8 @@ session_start();
                                                     <!-- -->
                                                 </div>
 
-                                                <button class="action next btn btn-info">Siguiente</button>
-                                                <button class="action submit btn btn-success">Enviar</button>
+                                                <button class="action next btn btn-info" id="btnSiguiente" style="display:none">Siguiente</button>
+                                                <!-- <button class="action submit btn btn-success">Enviar</button>-->
                                             </div>
                                         </div> <!-- /tabbable -->
                                     </div>
@@ -162,5 +164,6 @@ session_start();
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/scripts.js"></script>
         <script src="js/multistep.js"></script>
+        <script src="../js/PostFormularios.js"></script>
     </body>
 </html>

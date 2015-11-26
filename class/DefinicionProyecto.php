@@ -11,12 +11,11 @@ include('Connector.php');
 		private $nombre;
 		private $id_alumno;
 		private $conn;
-		
-		public function __construct($id_proyecto,$descripcion,$tipo,$unidad_medida,
+		//hola
+		public function __construct($descripcion,$tipo,$unidad_medida,
 									$caracteristicas,$nombre,$id_alumno) {
 
 			$this->conn = new Connector();
-			$this->id_proyecto = $this->conn->sec($id_proyecto);
 			$this->descripcion = $this->conn->sec($descripcion);
 			$this->tipo = $this->conn->sec($tipo);
 			$this->unidad_medida = $this->conn->sec($unidad_medida);
@@ -29,7 +28,6 @@ include('Connector.php');
 
 		public function __destruct() {
      
-			$this->id_proyecto = "";
 			$this->descripcion = "";
 			$this->tipo = "";
 			$this->unidad_medida = "";
@@ -40,8 +38,8 @@ include('Connector.php');
 
 		public function insert_proyectodef_01(){
 
-			$query = "INSERT INTO proyectodef_01(ID_proyecto,Concepto,Descripción,Tipo,Unidad_medida,Caracteristicas,
-					Nombre,ID_alumno) VALUES(".$this->id_proyecto.",'".$this->nombre."','".$this->descripcion."','".$this->tipo."','".
+			$query = "INSERT INTO proyectodef_01(Concepto,Descripcion,Tipo,Unidad_medida,Caracteristicas,
+					Nombre,ID_alumno) VALUES('".$this->nombre."','".$this->descripcion."','".$this->tipo."','".
 					$this->unidad_medida."','".$this->caracteristicas."','".$this->nombre."',".$this->id_alumno.")";
 
 			
