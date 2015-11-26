@@ -1,5 +1,5 @@
 <?php
-include('Connector.php');
+
 
 	class DefinicionMercado{
 
@@ -49,7 +49,7 @@ include('Connector.php');
 			$query = "INSERT INTO def_merc02(ID_proyecto,Local,Regional,Nacional,Extranjero,NSE,Escolaridad,Rango_edad,Descripción) VALUES(".
 					$this->id_proyecto.",".$this->local.",".$this->regional.",".$this->nacional.",".$this->extranjero.",'".$this->nse.
 					"','".$this->escolaridad."','".$this->rango_edad."','".$this->descripcion."')";
-
+			
 			return $this->conn->execute($query);
 			
 		}

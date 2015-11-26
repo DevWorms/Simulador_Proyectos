@@ -1,5 +1,5 @@
 <?php
-include('Connector.php');
+
 
 	 class DefinicionProyecto{
 

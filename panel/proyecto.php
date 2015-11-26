@@ -82,9 +82,54 @@ session_start();
                                                     </div>
                                                 </div>
                                                 <div class="step well">
-                                                    Definición del Mercado Potencial
+                                                    <H2>Definición del Mercado Potencial</H2>
                                                     <!-- Formulario -->
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                        <br>Tipo de mercado <br>
+                                                           Local<input id="defmerc_local" type="checkbox" class="form-control"/><br>
+                                                           Regional<input id="defmerc_regional" type="checkbox" class="form-control"/><br>
+                                                           Nacional<input id="defmerc_nacional" type="checkbox" class="form-control"/><br>
+                                                           Extranjero<input id="defmerc_extranjero" type="checkbox" class="form-control"/><br>
+                                                        </div>
                                                     
+                                                    <div class="col-md-4">
+                                                        NSE <br>
+                                                        <select id="defmerc_nse" class="form-control">
+                                                            <option value="AB">AB</option>
+                                                            <option value="C+">C+</option>
+                                                            <option value="C">C</option>
+                                                            <option value="D+">D+</option>
+                                                            <option value="D">D</option>
+                                                            <option value="E">E</option>
+                                                        </select><br>
+                                                        Escolaridad
+                                                        <select id="defmerc_escolaridad" class="form-control">
+                                                            <option value="Ninguna">Ninguna</option>
+                                                            <option value="Primnaria">Primnaria</option>
+                                                            <option value="Secundaria">Secundaria</option>
+                                                            <option value="Bachillerato">Bachillerato</option>
+                                                            <option value="Licenciatura">Licenciatura</option>
+                                                            <option value="Posgrado">Posgrado</option>
+                                                        </select><br>
+                                                        Rango de edad
+                                                        <select id="defmerc_rangoedad" class="form-control">
+                                                            <option value="0-4">0-4</option>
+                                                            <option value="5-12">5-12</option>
+                                                            <option value="12-17">12-17</option>
+                                                            <option value="18-22">18-22</option>
+                                                            <option value="23-30">23-30</option>
+                                                            <option value="30-45">30-45</option>
+                                                            <option value="45-60">45-60</option>
+                                                            <option value="60+">60+</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        Descripci&oacute;n <br>
+                                                        <textarea id="defmerc_descripcion" class="form-control"></textarea><br>
+                                                        <button class="btn btn-success" id="btnDefMerc">LISTO</button>
+                                                    </div>
+                                                    </div>
                                                     <!-- -->
                                                 </div>
                                                 <div class="step well">
