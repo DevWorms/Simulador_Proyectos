@@ -1,27 +1,27 @@
-function PostFormulario(){}
+function PostFormulario() {}
 
-function defeinicionProyecto01(){ //pantalla 01
-    
+function defeinicionProyecto01() { //pantalla 01
+
     var nombre = $("#nombre_proyectodef01").val();
-	var tipo = $("#tipo_proyectodef01").val();
-	var unidad = $("#unidadmedida_proyectodef01").val();
-	var descripcion = $("#descripcion_proyecto_def01").val();
-	var caracterisitcas = $("#caracteristicas_proyecto_def01").val();
+    var tipo = $("#tipo_proyectodef01").val();
+    var unidad = $("#unidadmedida_proyectodef01").val();
+    var descripcion = $("#descripcion_proyecto_def01").val();
+    var caracterisitcas = $("#caracteristicas_proyecto_def01").val();
 
-	var strPost = "nombre="+nombre+"&tipo="+tipo+"&unidad="+unidad+"&descripcion="+
-					descripcion+"&caracterisitcas="+caracterisitcas;
-	$.ajax({scriptCharset: "utf-8",
+    var strPost = "nombre=" + nombre + "&tipo=" + tipo + "&unidad=" + unidad + "&descripcion=" +
+            descripcion + "&caracterisitcas=" + caracterisitcas;
+    $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
-        type: "POST", 
-        data: strPost+"&ID_pantalla=01",
+        type: "POST",
+        data: strPost + "&ID_pantalla=01",
         dataType: "text",
-        url: "../class/PostTransaccion.php", 
-        success: function (info) {          
-        	if(info =="1"){
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {
                 $("#btnSiguiente").show();
                 $("#btnDefinirProy").hide();
-        	}
+            }
         },
         error: function (error) {
             console.log(error);
@@ -29,26 +29,26 @@ function defeinicionProyecto01(){ //pantalla 01
     });
 }
 
-function definicionMercado02(){ //pantalla 02
-    if($("#defmerc_local").is(":checked")){
-       var local = 1; 
-    }else{
+function definicionMercado02() { //pantalla 02
+    if ($("#defmerc_local").is(":checked")) {
+        var local = 1;
+    } else {
         var local = 0;
     }
-    
-    if($("#defmerc_regional").is(":checked")){
-       var regional = 1; 
-    }else{
+
+    if ($("#defmerc_regional").is(":checked")) {
+        var regional = 1;
+    } else {
         var regional = 0;
     }
-    if($("#defmerc_nacional").is(":checked")){
-       var nacional = 1; 
-    }else{
+    if ($("#defmerc_nacional").is(":checked")) {
+        var nacional = 1;
+    } else {
         var nacional = 0;
     }
-    if($("#defmerc_extranjero").is(":checked")){
-       var extranjero = 1; 
-    }else{
+    if ($("#defmerc_extranjero").is(":checked")) {
+        var extranjero = 1;
+    } else {
         var extranjero = 0;
     }
 
@@ -57,17 +57,17 @@ function definicionMercado02(){ //pantalla 02
     var rangoedad = $("#defmerc_rangoedad").val();
     var descripcion = $("#defmerc_descripcion").val();
 
-    var strPost = "local="+local+"&regional="+regional+"&nacional="+nacional+"&extranjero="+extranjero+
-                    "&nse="+nse+"&escolaridad="+escolaridad+"&rangoedad="+rangoedad+"&descripcion="+descripcion;
+    var strPost = "local=" + local + "&regional=" + regional + "&nacional=" + nacional + "&extranjero=" + extranjero +
+            "&nse=" + nse + "&escolaridad=" + escolaridad + "&rangoedad=" + rangoedad + "&descripcion=" + descripcion;
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
-        type: "POST", 
-        data: strPost+"&ID_pantalla=02",
+        type: "POST",
+        data: strPost + "&ID_pantalla=02",
         dataType: "text",
-        url: "../class/PostTransaccion.php", 
-        success: function (info) {          
-            if(info =="1"){
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {
                 $("#btnSiguiente").show();
                 $("#btnDefMerc").hide();
             }
@@ -78,15 +78,165 @@ function definicionMercado02(){ //pantalla 02
     });
 }
 
-$(document).ready(function(){
+function inversionInicialActivos05A() { //pantalla 05 - A
+    var concepto1 = $("#invAct_Concepto1").val();
+    var concepto2 = $("#invAct_Concepto2").val();
+    var concepto3 = $("#invAct_Concepto3").val();
+    var concepto4 = $("#invAct_Concepto4").val();
+    var concepto5 = $("#invAct_Concepto5").val();
+    var concepto6 = $("#invAct_Concepto6").val();
+    var concepto7 = $("#invAct_Concepto7").val();
+
+    var unidad1 = $("#invAct_Unidad1").val();
+    var unidad2 = $("#invAct_Unidad2").val();
+    var unidad3 = $("#invAct_Unidad3").val();
+    var unidad4 = $("#invAct_Unidad4").val();
+    var unidad5 = $("#invAct_Unidad5").val();
+    var unidad6 = $("#invAct_Unidad6").val();
+    var unidad7 = $("#invAct_Unidad7").val();
+
+    var cantidad1 = $("#invAct_Cantidad1").val();
+    var cantidad2 = $("#invAct_Cantidad2").val();
+    var cantidad3 = $("#invAct_Cantidad3").val();
+    var cantidad4 = $("#invAct_Cantidad4").val();
+    var cantidad5 = $("#invAct_Cantidad5").val();
+    var cantidad6 = $("#invAct_Cantidad6").val();
+    var cantidad7 = $("#invAct_Cantidad7").val();
+
+    var precio1 = $("#invAct_Precio1").val();
+    var precio2 = $("#invAct_Precio2").val();
+    var precio3 = $("#invAct_Precio3").val();
+    var precio4 = $("#invAct_Precio4").val();
+    var precio5 = $("#invAct_Precio5").val();
+    var precio6 = $("#invAct_Precio6").val();
+    var precio7 = $("#invAct_Precio7").val();
+
+    var total1 = $("#invAct_Total1").val();
+    var total2 = $("#invAct_Total2").val();
+    var total3 = $("#invAct_Total3").val();
+    var total4 = $("#invAct_Total4").val();
+    var total5 = $("#invAct_Total5").val();
+    var total6 = $("#invAct_Total6").val();
+    var total7 = $("#invAct_Total7").val();
+
+    var strPost = "concepto1=" + concepto1 + "&concepto2=" + concepto2 + 
+            "&concepto3=" + concepto3 + "&concepto4=" + concepto4 + 
+            "&concepto5=" + concepto5 + "&concepto6=" + concepto6 + 
+            "&concepto7=" + concepto7 + "&unidad1=" + unidad1 + 
+            "&unidad2=" + unidad2 + "&unidad3=" + unidad3 + 
+            "&unidad4=" + unidad4 + "&unidad5=" + unidad5 + 
+            "&unidad6=" + unidad6 + "&unidad7=" + unidad7 + 
+            "&cantidad1=" + cantidad1 + "&cantidad2=" + cantidad2 + 
+            "&cantidad3=" + cantidad3 + "&cantidad4=" + cantidad4 + 
+            "&cantidad5=" + cantidad5 + "&cantidad6=" + cantidad6 + 
+            "&cantidad7=" + cantidad7 + "&precio1=" + precio1 + 
+            "&precio2=" + precio2 + "&precio3=" + precio3 + 
+            "&precio4=" + precio4 + "&precio5=" + precio5 + 
+            "&precio6=" + precio6 + "&precio7=" + precio7 + 
+            "&total1=" + total1 + "&total2=" + total2 + "&total3=" + total3 + 
+            "&total4=" + total4 + "&total5=" + total5 + "&total6=" + total6 + 
+            "&total7=" + total7;
+     
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=05A",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {
+                inversionInicialActivos05B();
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function inversionInicialActivos05B() { //pantalla 05 - A
+    var concepto1b = $("#invActb_Concepto1").val();
+    var concepto2b = $("#invActb_Concepto2").val();
+    var concepto3b = $("#invActb_Concepto3").val();
+    var concepto4b = $("#invActb_Concepto4").val();
+    
+    var monto1 = $("#invActb_Monto1").val();
+    var monto2 = $("#invActb_Monto2").val();
+    var monto3 = $("#invActb_Monto3").val();
+    var monto4 = $("#invActb_Monto4").val();
+    
+    var strPost = "concepto1b=" + concepto1b + 
+            "&concepto2b=" + concepto2b + "&concepto3b=" + concepto3b +
+            "&concepto4b=" + concepto4b + "&monto1=" + monto1 + 
+            "&monto2=" + monto2 + "&monto3=" + monto3 + "&monto4=" + monto4;
+    
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=05B",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {
+                inversionInicialActivos05C();
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function inversionInicialActivos05C() { //pantalla 05 - C
+    var capitalT = $("#invActc_Capital").val();
+    var capitalPP = $("#invActc_pocentaje1").val();
+    var capitalPM = $("#invActc_Monto1").val();
+    var financiamientoP = $("#invActc_pocentaje2").val();
+    var financiamientoPM = $("#invActc_Monto2").val();
+    
+    var strPost = "capital=" + capitalT + 
+            "&pocentaje1=" + capitalPP + "&monto1=" + capitalPM +
+            "&pocentaje2=" + financiamientoP + "&monto2=" + financiamientoPM;
+    
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=05C",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {
+                $("#btnSiguiente").show();
+                $("#btninvAct").hide();
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+$(document).ready(function () {
 
     $("#btnSiguiente").hide();
 
-    $("#btnSiguiente").click(function(){ $("#btnSiguiente").hide();});
+    $("#btnSiguiente").click(function () {
+        $("#btnSiguiente").hide();
+    });
 
-	$("#btnDefinirProy").click(function(){defeinicionProyecto01();}); //pantalla 01
-    $("#btnDefMerc").click(function(){definicionMercado02();}); //pantalla 02
-    
+    $("#btnDefinirProy").click(function () {
+        defeinicionProyecto01();
+    }); //pantalla 01
+    $("#btnDefMerc").click(function () {
+        definicionMercado02();
+    }); //pantalla 02
+    $("#btninvAct").click(function () {
+        inversionInicialActivos05A();
+    }); //pantalla 05
+
 });
 
 //hola
