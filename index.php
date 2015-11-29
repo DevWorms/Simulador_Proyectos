@@ -55,6 +55,8 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
 
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+        <!-- PRUEBA DE COMMIT   -->
+
         <!-- Navigation -->
         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
             <div class="container">
