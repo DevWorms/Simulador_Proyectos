@@ -133,7 +133,7 @@ if($ID == "0607"){ //pantalla 06,07
     $capitales->getCapitales();
 }
 
-if($ID =="08"){
+if($ID =="08"){ //pantalla08
 
     $tipo = $_POST['tipoFinac'];
     $interes = $_POST['interesFinac'];

@@ -241,7 +241,7 @@ function getCapitales() { //pantalla 06,07
     });
 }
 
-function financimiento08() { //pantalla 08 
+function financimiento08() { //pantalla 08 x
     var tipoFinac = $("#tipoFinac").val();
     var interesFinac = $("#interesFinac").val();
     var plazoFinac = $("#plazoFinac").val();
@@ -269,7 +269,7 @@ function financimiento08() { //pantalla 08
         error: function (error) {
             console.log(error);
         }
-    });
+    }); //test
 }
 
 $(document).ready(function () {

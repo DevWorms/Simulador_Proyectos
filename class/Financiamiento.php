@@ -37,7 +37,7 @@
 			}
 			/*if($this->conn->execute($query)){		
 			    $resultado =  $result->fetch_assoc();
-			   echo json_encode($resultado);
+			   echo json_encode($resultado); //e
 			    
 	    	}*/ // no funcina la variable result del script Connector.php
 		}

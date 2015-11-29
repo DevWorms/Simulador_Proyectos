@@ -204,7 +204,7 @@ session_start();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- -->
+                                                    <!-- a-->
                                                     <h2>B. Inversión Inicial Capital de Trabajo</h2>
                                                     <!-- Formulario -->
                                                     <div class="row">
