@@ -191,9 +191,9 @@ function inversionInicialActivos05B() { //pantalla 05 - A
 
 function inversionInicialActivos05C() { //pantalla 05 - C
     var capitalT = $("#invActc_Capital").val();
-    var capitalPP = $("#invActc_pocentaje1").val();
+    var capitalPP = parseFloat($("#invActc_pocentaje1").val())/100;
     var capitalPM = $("#invActc_Monto1").val();
-    var financiamientoP = $("#invActc_pocentaje2").val();
+    var financiamientoP = parseFloat($("#invActc_pocentaje2").val())/100;
     var financiamientoPM = $("#invActc_Monto2").val();
     
     var strPost = "capital=" + capitalT + 
@@ -211,6 +211,59 @@ function inversionInicialActivos05C() { //pantalla 05 - C
             if (info == "1") {
                 $("#btnSiguiente").show();
                 $("#btninvAct").hide();
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function getCapitales() { //pantalla 06,07 
+
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data:"&ID_pantalla=0607",
+        dataType: "json",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            //if(info =! null){
+                alert(info.Monto_propio);
+                $("#capitalPropio").html("$ "+info.Monto_propio);
+                $("#capitalFinanciar").html("$ "+info.Monto_financ);
+            //}
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function financimiento08() { //pantalla 08 
+    var tipoFinac = $("#tipoFinac").val();
+    var interesFinac = $("#interesFinac").val();
+    var plazoFinac = $("#plazoFinac").val();
+    var graciaFinac = $("#graciaFinac").val();
+    var amortizacionFinac = $("#amortizacionFinac").val();
+    
+    var strPost = "tipoFinac=" + tipoFinac + 
+            "&interesFinac=" + interesFinac + "&plazoFinac=" + plazoFinac +
+            "&graciaFinac=" + graciaFinac + "&amortizacionFinac=" + amortizacionFinac;
+    
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=08",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {
+                $("#btnSiguiente").show();
+                getCapitales();
+                $("#btn_financiamiento").hide();
             }
         },
         error: function (error) {
@@ -237,6 +290,9 @@ $(document).ready(function () {
         inversionInicialActivos05A();
     }); //pantalla 05
 
+    $("#btn_financiamiento").click(function(){
+        financimiento08();
+    });//pantalla08
 });
 
 //hola

@@ -131,19 +131,14 @@ session_start();
                                                             <button class="btn btn-success" id="btnDefMerc">LISTO</button>
                                                         </div>
                                                     </div>
-                                                    <!-- -->
                                                 </div>
-                                                <div class="step well">
+                                             <div class="step well">
                                                     Proyección del precio de mercado ( por producto )
-                                                    <!-- Formulario -->
-
-                                                    <!-- -->
+                                                    
                                                 </div>
                                                 <div class="step well">
                                                     Proyección de la Demanda Esperada (ventas esperadas)
-                                                    <!-- Formulario -->
-
-                                                    <!-- -->
+                                                    
                                                 </div>
 
                                                 <div class="step well">
@@ -272,19 +267,63 @@ session_start();
                                                 </div>
 
                                                 <div class="step well">
-                                                    CAPITAL INICIAL PROPIO 
+                                                    <div class="row">
+                                                       <table class="table col-md-11">
+                                                        <h2>Estructura financiera</h2>
+                                                        <tr>
+                                                            <th>Capital inicial propio</th>
+                                                            <th>Capital a financiar</th>
+                                                        </tr>
+                                                           <tr>
+                                                            <td id="capitalPropio"></td>
+                                                            <td id="capitalFinanciar"></td>
+                                                           </tr>
+                                                       </table>
+                                                    </div>
+                                                    <div class="row">
+                                                        <table class="table col-md-11">
+                                                            <tr>
+                                                                <th>Tipo</th>
+                                                                <th>Interes % anual</th>
+                                                                <th>Plazo de pago(a&ntilde;os)</th>
+                                                                <th>A&ntilde;os de gracia</th>
+                                                                <th>Amortizaci&oacute;</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <select class="form-control" id="tipoFinac">
+                                                                        <option value="Normal">Normal</option>
+                                                                        <option value="Emergencia">Emergencia</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td><input type="text" id="interesFinac"></td>
+                                                                <td><input type="number" id="plazoFinac"></td>
+                                                                <td><input type="number" id="graciaFinac"></td>
+                                                                <td>
+                                                                    <select id="amortizacionFinac" class="form-control">
+                                                                        <option value="Porciones iguales">Porciones iguales</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10"></div>
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-success" id="btn_financiamiento">LISTO</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="step well">
+                                                    Tablade pago de la deunda <!--forma09-->
+                                                    Impuestos <!--forma 10 y 10a-->
                                                     <!-- Formulario -->
 
                                                     <!-- -->
                                                 </div>
                                                 <div class="step well">
-                                                    CAPITAL A FINANCIAR
-                                                    <!-- Formulario -->
-
-                                                    <!-- -->
-                                                </div>
-                                                <div class="step well">
-                                                    FINANCIAMIENTO
+                                                    
                                                     <!-- Formulario -->
 
                                                     <!-- -->

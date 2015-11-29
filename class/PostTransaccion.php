@@ -4,7 +4,9 @@ include('Connector.php');
 include('DefinicionProyecto.php');
 include('DefinicionMercado.php');
 include('DefinicionActivo.php');
+include('Financiamiento.php');
 
+error_reporting(0);
 session_start();
 $ID = $_POST['ID_pantalla']; // con esto decide de que pantalla viene la peticion
 
@@ -123,5 +125,23 @@ if ($ID == "05C") { //pantalla 01
     
     $defActivoc = new DefinicionActivoC($capital, $porcentaje1, $porcentaje2, $monto1, $monto2, $_SESSION['proyecto_id']);
     echo $defActivoc->insert_DefinicionActivoC();
+}
+
+if($ID == "0607"){ //pantalla 06,07
+
+    $capitales = new Financiamiento($_SESSION['proyecto_id']);
+    $capitales->getCapitales();
+}
+
+if($ID =="08"){
+
+    $tipo = $_POST['tipoFinac'];
+    $interes = $_POST['interesFinac'];
+    $plazos = $_POST['plazoFinac'];
+    $anios = $_POST['graciaFinac'];
+    $amortizacion = $_POST['amortizacionFinac'];
+    $financiamiento = new Financiamiento($_SESSION['proyecto_id']);
+    $financiamiento->init($tipo,$interes,$plazos,$anios,$amortizacion);
+    echo $financiamiento->insert_financiamiento08();
 }
 ?>
