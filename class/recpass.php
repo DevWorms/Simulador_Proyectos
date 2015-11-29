@@ -21,7 +21,7 @@ if (empty($_SESSION['tipo']) || $_SESSION['tipo'] == "") {
 function generarLinkTemporal($idusuario, $username, $tipo) {
   $token = sha1($idusuario.$username.rand(1,9999999).date('Y-m-d'));
   $enlace = $_SERVER["SERVER_NAME"].'/class/restablecer.php?tipo='.$tipo.'&idusuario='.sha1($idusuario).'&token='.$token;
-  $db = new mysqli('localhost', '', '', 'simuladoruc');
+  $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
   if ($tipo == "prof") {
     $query = "UPDATE profesor set token = '".$token."' WHERE ID_prof = '".$idusuario."' ;";
   } elseif ($_SESSION['tipo'] == "alumno") {

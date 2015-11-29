@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require_once '../class/session.php';
 include_once '../class/Connector.php';
 
@@ -144,7 +145,7 @@ session_start();
 
                                                     <!-- -->
                                                 </div>
-                                                
+
                                                 <div class="step well">
                                                     <h2>A. Inversión Inicial Activos</h2>
                                                     <!-- Formulario -->

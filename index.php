@@ -1,6 +1,6 @@
 <?php
-session_start();
 error_reporting(0);
+session_start();
 
 include('class/Connector.php');
 $db = new Connector();
@@ -88,15 +88,19 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                         <div class="col-md-8 col-md-offset-2">
 
                             <!-- Trigger the modal with a button -->
-                            <?php 
+                            <?php
                             if (!empty($_SESSION['Id']) && !empty($_SESSION['Nombre'])) {
                                 echo '<a href="panel/" type="button" class="btn btn-info btn-lg">Panel de Control</a>
-                                <br><br>';   
+                                <br><br>';
                             }
+                            if (empty($_SESSION['Id']) && empty($_SESSION['Nombre'])) {
                             ?>
                             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ModalProfesores">Acceso Profesores</button>
                             <br><br>
                             <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#ModalAlumnos">Acceso Alumnos</button>
+                            <?php
+                            }
+                            ?>
                             <br><br>
 
                             <a href="#about" class="btn btn-circle page-scroll">
@@ -161,7 +165,8 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                             if ($login_email == null || $login_pass == null) {
                                 notificacion($msj = "Por favor complete todos los campos");
                             } else {
-                                $consulta = "SELECT Nombre, Ap_pat, Ap_mat, Edad, Sexo, Telefono, Celular, email, Domicilio, CP, ID_prof FROM profesor WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
+                                $consulta = "SELECT Nombre, Ap_pat, Ap_mat, Edad, Sexo, Telefono, Celular, email, Domicilio, CP, Materia, ID_prof FROM profesor WHERE email = '" . $login_email . "' AND Password = '" . $login_pass . "';";
+                                notificacion($consulta);
                                 $db->execute($consulta);
                                 /*
                                  * Ejecuta la consulta
@@ -182,12 +187,13 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                         $_SESSION["email"] = $resultado['email'];
                                         $_SESSION["Domicilio"] = $resultado['Domicilio'];
                                         $_SESSION["CP"] = $resultado['CP'];
+                                        $_SESSION["Materia"] = $resultado['Materia'];
                                         $_SESSION["Id"] = $resultado['ID_prof'];
                                         $_SESSION["Tipo_Usuario"] = "profesor";
                                         session_write_close();
                                     }
                                     echo "<script language='javascript'>
-                                        alert('Bienvenido ".$_SESSION['Nombre']."');
+                                        alert('Bienvenido " . $_SESSION['Nombre'] . "');
                                         window.location.href = 'panel/';
                                     </script>";
                                 } else {
@@ -249,7 +255,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                         session_write_close();
                                     }
                                     echo "<script language='javascript'>
-                                        alert('Bienvenido ".$_SESSION['Nombre']."');
+                                        alert('Bienvenido " . $_SESSION['Nombre'] . "');
                                         window.location.href = 'panel/';
                                     </script>";
                                 } else {
@@ -328,7 +334,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                         $password2 = $db->sec($_POST['p_pass2']);
                         if (checkPass($password1, $password2)) { //Valida que las contrasenias sean iguales
                             $email = $db->sec($_POST['p_email']);
-                            if (checkEmail($email)) { 
+                            if (checkEmail($email)) {
                                 /*
                                  * Valida que el email sea correcto
                                  * Revisa que el email no este registrado previamente
@@ -385,6 +391,18 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="email" name='a_email' class="form-control input-lg" placeholder="coreo@ejemplo.com" required="required">
+                                    <?php
+                                    $conn = new Connector();
+                                    $query = "SELECT ID_prof, Nombre, Ap_pat, Materia FROM profesor ORDER BY Materia ASC;";
+                                    if ($conn->execute($query)) {
+                                        echo '<select name="profesor" id="profesor" class="form-control input-lg">'
+                                        . '<option>Materia</option>';
+                                        while ($profesor = $result->fetch_assoc()) {
+                                            echo '<option value="' . $profesor['ID_prof'] . '"> ' . $profesor['Materia'] . ' - ' . $profesor['Nombre'] . ' ' . $profesor['Ap_pat'] . '</option>';
+                                        }
+                                        echo '</select>';
+                                    }
+                                    ?>
                                     <input type="password" name='a_pass' class="form-control input-lg" placeholder="Contraseña" required="required">
                                     <input type="password" name='a_pass2' class="form-control input-lg" placeholder="Confirmar contraseña" required="required">
                                 </div>
@@ -431,29 +449,39 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                         if (checkPass($password1, $password2)) {
                             $email = $db->sec($_POST['a_email']);
                             if (checkEmail($email)) {
-                                if ($db->execute("SELECT email FROM alumno WHERE email = '" . $email . "'")) {
-                                    if ($result->num_rows > 0) {
-                                        notificacion($msj = "El email ya esta registrado");
-                                    } else {
-                                        $nombre = $db->sec($_POST['a_nombre']);
-                                        $apellidoP = $db->sec($_POST['a_apellidoP']);
-                                        $apellidoM = $db->sec($_POST['a_apellidoM']);
-                                        $genero = $db->sec($_POST['a_genero']);
-                                        $edad = $db->sec($_POST['a_edad']);
-                                        $telefono = $db->sec($_POST['a_tel']);
-                                        $celular = $db->sec($_POST['a_cel']);
-                                        $direccion = $db->sec($_POST['a_domicilio']);
-                                        $cp = $db->sec($_POST['a_cp']);
-                                        $query = "INSERT INTO alumno (Nombre, Ap_pat, Ap_mat, Edad, Sexo, Telefono, Celular, email, Domicilio, CP, Password) VALUES ('" . $nombre . "', '" . $apellidoP . "', '" . $apellidoM . "', '" . $edad . "', '" . $genero . "', '" . $telefono . "', '" . $celular . "', '" . $email . "', '" . $direccion . "', '" . $cp . "', '" . $password1 . "');";
-
-                                        if ($db->execute($query)) {
-                                            notificacion($msj = "Su cuenta fue creada exitosamente");
+                                if (!empty($_POST['profesor']) || $_POST['profesor'] != "") {
+                                    if ($db->execute("SELECT email FROM alumno WHERE email = '" . $email . "'")) {
+                                        if ($result->num_rows > 0) {
+                                            notificacion($msj = "El email ya esta registrado");
                                         } else {
-                                            notificacion($msj = "Ocurrio un error al crear la cuenta, Intente nuevamente.");
+                                            $nombre = $db->sec($_POST['a_nombre']);
+                                            $apellidoP = $db->sec($_POST['a_apellidoP']);
+                                            $apellidoM = $db->sec($_POST['a_apellidoM']);
+                                            $genero = $db->sec($_POST['a_genero']);
+                                            $edad = $db->sec($_POST['a_edad']);
+                                            $telefono = $db->sec($_POST['a_tel']);
+                                            $celular = $db->sec($_POST['a_cel']);
+                                            $direccion = $db->sec($_POST['a_domicilio']);
+                                            $cp = $db->sec($_POST['a_cp']);
+                                            $query = "INSERT INTO alumno (Nombre, Ap_pat, Ap_mat, Edad, Sexo, Telefono, Celular, email, Domicilio, CP, Password) VALUES ('" . $nombre . "', '" . $apellidoP . "', '" . $apellidoM . "', '" . $edad . "', '" . $genero . "', '" . $telefono . "', '" . $celular . "', '" . $email . "', '" . $direccion . "', '" . $cp . "', '" . $password1 . "');";
+
+                                            if ($db->execute($query)) {
+                                                $db->execute("SELECT ID_alumno FROM alumno WHERE email = '" . $email . "';");
+                                                $idAlumno = $result->fetch_array();
+                                                $idA = $idAlumno[0];
+
+                                                $query2 = "INSERT INTO historial_clase (ID_prof, ID_alumno) VALUES (" . $_POST['profesor'] . ", " . $idA . ");";
+                                                $db->execute($query2);
+                                                notificacion($msj = "Su cuenta fue creada exitosamente");
+                                            } else {
+                                                notificacion($msj = "Ocurrio un error al crear la cuenta, Intente nuevamente.");
+                                            }
                                         }
+                                    } else {
+                                        notificacion($msj = "No se pudo verificar el email");
                                     }
                                 } else {
-                                    notificacion($msj = "No se pudo verificar el email");
+                                    notificacion($msj = "Selecttiona una Materia");
                                 }
                             }
                         }

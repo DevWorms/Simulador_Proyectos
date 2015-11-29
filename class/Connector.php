@@ -1,11 +1,21 @@
 <?php
 
+define( 'DB_HOST', 'www.devworms.com' );
+define( 'DB_USER', 'rootuc' );
+define( 'DB_PASS', 'toor5' );
+define( 'DB_NAME', 'simuladoruc' );
+
+/*
+ * Ej. Para crear una conexion sencilla
+ * $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+ */
+
 class Connector {
 
     // Datos de conexion a la BBDD
-    protected $DB_HOST = "localhost";
-    protected $DB_USER = "root";
-    protected $DB_PASS = "toor";
+    protected $DB_HOST = 'www.devworms.com';
+    protected $DB_USER = "rootuc";
+    protected $DB_PASS = "toor5";
     protected $DB_NAME = "simuladoruc";
     private $conn = null;
 
