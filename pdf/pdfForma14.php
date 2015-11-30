@@ -139,101 +139,190 @@ $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
     }
 } // FIN Class PDF
 
-$pdf = new PDF('L','mm',array(216,356));
- 
-$pdf->AddPage();
- 
-//Títulos que llevará la cabecera
-$miCabeceraAños = array('', 'Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5');
-$miCabeceraTitulos = array('Producto',
-                            'Unidades',
-                            '%Total Cto. Ventas',
-                            'Costo',
-                            '%Total Cto. Ventas',
-                            'Costo',
-                            '%Total Cto. Ventas',
-                            'Costo',
-                            '%Total Cto. Ventas',
-                            'Costo',
-                            '%Total Cto. Ventas',
-                            'Costo');
-$producto = array('Sueldos y Salarios',
-                  'Comisiones',
-                  'Gastos viaje y rep.',
-                  'Servicios post venta',
-                  '',
-                  'Publicidad y prom',
-                  'atención a clientes',
-                  'Gastos ferias/expo');
-$unidades = array('Salario/h',
-                  'Porcentaje',
-                  'Sevicios',
-                  'Hora/h',
-                  '',
-                  'Renta',
-                  'Hora/h',
-                  'Servicio');
-$porcentajes=array(10,53,0,10,'',35,10,0);
+ $host="www.devworms.com";
+    $usuario="rootuc";
+    $pass="toor5";
+    $database="simuladoruc";
+    $con = new mysqli($host, $usuario, $pass, $database);
+    if ($con->connect_errno)
+    {
+           
+           exit();
+    }
+    @mysqli_query($con, "SET NAMES 'utf8'");
+    //$proyecto=$_SESSION['ID_proyecto'];
+        
+    $consulta = mysqli_query($con, "SELECT ID_proyecto,Periodo,Monto_ventas FROM costos_gastos12 WHERE ID_proyecto = 1");
+
+        if (mysqli_num_rows($consulta) > 0)
+        {
+          $query = "SELECT ID_proyecto,Periodo,Monto_ventas FROM costos_gastos12 WHERE ID_proyecto = 1";
+          $result = $con->query($query);
+          
+          while($row=mysqli_fetch_array($result,MYSQLI_NUM)){
+
+           $rows[]=$row;
+          }
+
+
+                        $pdf = new PDF('L','mm',array(216,356));
+                         
+                        $pdf->AddPage();
+                         
+                        //Títulos que llevará la cabecera
+                        $miCabeceraAños = array('', 'Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5');
+                        $miCabeceraTitulos = array('Producto',
+                                                    'Unidades',
+                                                    '%Total Cto. Ventas',
+                                                    'Costo',
+                                                    '%Total Cto. Ventas',
+                                                    'Costo',
+                                                    '%Total Cto. Ventas',
+                                                    'Costo',
+                                                    '%Total Cto. Ventas',
+                                                    'Costo',
+                                                    '%Total Cto. Ventas',
+                                                    'Costo');
+                        $producto = array('Sueldos y Salarios',
+                                          'Comisiones',
+                                          'Gastos viaje y rep.',
+                                          'Servicios post venta',
+                                          '',
+                                          'Publicidad y prom',
+                                          'atención a clientes',
+                                          'Gastos ferias/expo');
+                        $unidades = array('Salario/h',
+                                          'Porcentaje',
+                                          'Sevicios',
+                                          'Hora/h',
+                                          '',
+                                          'Renta',
+                                          'Hora/h',
+                                          'Servicio');
+                        $porcentajes=array(10,53,0,10,'',35,10,0);
 
 
 
-//Poner la rutina para llenar los campos
+                        //Poner la rutina para llenar los campos
 
-$costo = array('','','','','','','','');
+                        $Anio1 = array('$'.$rows[0][2]*.10,
+                                       '$'.$rows[0][2]*.53,
+                                       '$'.$rows[0][2]*.0,
+                                       '$'.$rows[0][2]*.10,
+                                       '',
+                                       '$'.$rows[0][2]*.35,
+                                       '$'.$rows[0][2]*.10,
+                                       '$'.$rows[0][2]*.0);
 
-//fin de la rutina de los campos
+                        $Anio2 = array('$'.$rows[1][2]*.10,
+                                       '$'.$rows[1][2]*.53,
+                                       '$'.$rows[1][2]*.0,
+                                       '$'.$rows[1][2]*.10,
+                                       '',
+                                       '$'.$rows[1][2]*.35,
+                                       '$'.$rows[1][2]*.10,
+                                       '$'.$rows[1][2]*.0);
 
+                        $Anio3 =array('$'.$rows[2][2]*.10,
+                                       '$'.$rows[2][2]*.53,
+                                       '$'.$rows[2][2]*.0,
+                                       '$'.$rows[2][2]*.10,
+                                       '',
+                                       '$'.$rows[2][2]*.35,
+                                       '$'.$rows[2][2]*.10,
+                                       '$'.$rows[2][2]*.0);
 
-//Totales
-$total = array('Total Cto. Admon','','','','','','','','','');
+                        $Anio4 = array('$'.$rows[3][2]*.10,
+                                       '$'.$rows[3][2]*.53,
+                                       '$'.$rows[3][2]*.0,
+                                       '$'.$rows[3][2]*.10,
+                                       '',
+                                       '$'.$rows[3][2]*.35,
+                                       '$'.$rows[3][2]*.10,
+                                       '$'.$rows[3][2]*.0);
 
-
-$unitario = array('Cto. unit fijo admon','','','','','','','','','');
-//fintotales
-$pdf->SetFont('Arial','B',16);
-
-$pdf->SetXY(170,30);
- 
- $pdf->Cell(30,10,'Forma 14',0,0,'C');
-
- 
- $pdf->SetFont('Arial','',12);
- $pdf->SetXY(20,45);
- $pdf->Cell(130,10,'Proyecto:    '.$Nombre,0,0,'L');
- $pdf->SetXY(160,45);
- $pdf->Cell(130,10, utf8_decode('Producción:    '.$Nombre.''),0,0,'L');
-
- $pdf->SetXY(20,60);
- $pdf->Cell(130,10,'Producto/Servicio:    '.$Nombre,0,0,'L');
-
- //empezamos a dibujar tablas
-
-$pdf->cabeceraHorizontalAños($miCabeceraAños);
-$pdf->cabeceraHorizontalTitulos($miCabeceraTitulos);
-
-$pdf->cabeceraVerticalProducto($producto);
-$pdf->cabeceraVerticalUnidades($unidades);
-
-$pdf->cabeceraVerticalPorcentajes($porcentajes,74,84);
-$pdf->cabeceraVerticalPorcentajes($porcentajes,128,84);
-$pdf->cabeceraVerticalPorcentajes($porcentajes,182,84);
-$pdf->cabeceraVerticalPorcentajes($porcentajes,236,84);
-$pdf->cabeceraVerticalPorcentajes($porcentajes,290,84);
-
-$pdf->cabeceraVerticalCalculos($costo,101,84);
-$pdf->cabeceraVerticalCalculos($costo,155,84);
-$pdf->cabeceraVerticalCalculos($costo,209,84);
-$pdf->cabeceraVerticalCalculos($costo,263,84);
-$pdf->cabeceraVerticalCalculos($costo,317,84);
-
-$pdf->cabeceraHorizontalTotales($total);
-$pdf->cabeceraHorizontalUnitario($unitario);
+                        $Anio5 = array('$'.$rows[4][2]*.10,
+                                       '$'.$rows[4][2]*.53,
+                                       '$'.$rows[4][2]*.0,
+                                       '$'.$rows[4][2]*.10,
+                                       '',
+                                       '$'.$rows[4][2]*.35,
+                                       '$'.$rows[4][2]*.10,
+                                       '$'.$rows[4][2]*.0);
+                        //fin de la rutina de los campos
 
 
+                        //Totales
+                        $total = array('Total Cto. Ventas',
+                                '$'.$rows[0][2],
+                                '',
+                                '$'.$rows[1][2],
+                                '',
+                                '$'.$rows[2][2],
+                                '',
+                                '$'.$rows[3][2],
+                                '',
+                                '$'.$rows[4][2]);
 
-//Métodos llamados con el objeto $pdf
-//$pdf->cabeceraVertical($miCabecera);
-//$pdf->cabeceraHorizontal($miCabecera);
- 
-$pdf->Output('Forma 13','I'); //Salida al navegador
+
+                        $unitario = array('Cto. unit fijo admon','','','','','','','','','');
+                        //fintotales
+                        $pdf->SetFont('Arial','B',16);
+
+                        $pdf->SetXY(170,30);
+                         
+                         $pdf->Cell(30,10,'Forma 14',0,0,'C');
+
+                         
+                         $pdf->SetFont('Arial','',12);
+                         $pdf->SetXY(20,45);
+                         $pdf->Cell(130,10,'Proyecto:    '.$Nombre,0,0,'L');
+                         $pdf->SetXY(160,45);
+                         $pdf->Cell(130,10, utf8_decode('Producción:    '.$Nombre.''),0,0,'L');
+
+                         $pdf->SetXY(20,60);
+                         $pdf->Cell(130,10,'Producto/Servicio:    '.$Nombre,0,0,'L');
+
+                         //empezamos a dibujar tablas
+
+                        $pdf->cabeceraHorizontalAños($miCabeceraAños);
+                        $pdf->cabeceraHorizontalTitulos($miCabeceraTitulos);
+
+                        $pdf->cabeceraVerticalProducto($producto);
+                        $pdf->cabeceraVerticalUnidades($unidades);
+
+                        $pdf->cabeceraVerticalPorcentajes($porcentajes,74,84);
+                        $pdf->cabeceraVerticalPorcentajes($porcentajes,128,84);
+                        $pdf->cabeceraVerticalPorcentajes($porcentajes,182,84);
+                        $pdf->cabeceraVerticalPorcentajes($porcentajes,236,84);
+                        $pdf->cabeceraVerticalPorcentajes($porcentajes,290,84);
+
+                        $pdf->cabeceraVerticalCalculos($Anio1,101,84);
+                        $pdf->cabeceraVerticalCalculos($Anio2,155,84);
+                        $pdf->cabeceraVerticalCalculos($Anio3,209,84);
+                        $pdf->cabeceraVerticalCalculos($Anio4,263,84);
+                        $pdf->cabeceraVerticalCalculos($Anio5,317,84);
+
+                        $pdf->cabeceraHorizontalTotales($total);
+                        //$pdf->cabeceraHorizontalUnitario($unitario);
+
+
+
+                        //Métodos llamados con el objeto $pdf
+                        //$pdf->cabeceraVertical($miCabecera);
+                        //$pdf->cabeceraHorizontal($miCabecera);
+                         
+                        $pdf->Output('Forma 13','I'); //Salida al navegador
+                        $result->close();
+        
+        $con->close();
+
+            }else{
+              echo "error";
+              /* liberar la serie de resultados */
+        $con->close();
+
+/* cerrar la conexión */
+        
+    }
 ?>
