@@ -301,7 +301,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select name="p_genero" class="form-control input-lg">
+                                    <select name="p_genero" alt="Edad" title="Edad" class="form-control input-lg">
                                         <option value="M">Masculino</option>
                                         <option value="F">Femenino</option>
                                     </select>
@@ -418,7 +418,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                         <option value="M">Masculino</option>
                                         <option value="F">Femenino</option>
                                     </select>
-                                    <select name="a_edad" class="form-control input-lg">
+                                    <select name="a_edad" alt="Edad" title="Edad" class="form-control input-lg">
                                         <?php
                                         for ($i = 13; $i < 110; $i ++) {
                                             echo '<option value="' . $i . '">' . $i . '</option>\n';
