@@ -316,12 +316,60 @@ session_start();
                                                     </div>
                                                 </div>
                                                 <div class="step well">
-                                                    Tablade pago de la deunda <!--forma09-->
-                                                    Impuestos <!--forma 10 y 10a-->
-                                                    <!-- Formulario -->
+                                                    <div class="row">
+                                                        <h2>Tabla de Pago de la Deuda</h2><!--forma09-->
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered table-hover" id= "tablaDeuda">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Periodo</th>
+                                                                        <th>Monto</th>
+                                                                        <th>Pago Fijo</th>
+                                                                        <th>Inter&eacute;s</th>
+                                                                        <th>Pago Capital</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div clas="row">
+                                                        <div class="col-md-7">
+                                                            <h2>Impuestos</h2>
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered table-hover" id= "tablaImp">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Tipo de Impuesto</th>
+                                                                            <th>%</th>
+                                                                            <th>Sobre Concepto</th>
+                                                                        </tr>
+                                                                    </thead>
 
-                                                    <!-- -->
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th><input type="text" id="tipoImpf10" class="form-control"></th>
+                                                                            <th><input type="text" id="porcentajef10" class="form-control"></th>
+                                                                            <th><input type="text" id="sobreConcf10" class="form-control"></th>
+                                                                        </tr>                                                                    
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <h3>Tasa de Descuento: </h3>
+                                                            <input type="text" id="tasaDescf11" class="form-control" placeholder="Porcentaje">
+                                                        </div>                            
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10"></div>
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-success" id="btnDeudas">LISTO</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                
                                                 <div class="step well">
                                                     
                                                     <!-- Formulario -->
