@@ -30,7 +30,7 @@
 
 		public function getCapitales(){
 			$query = "SELECT Monto_propio,Monto_financ FROM inv_inic05c WHERE ID_proyecto=".$this->id_proyecto;
-			$conexion_temp= new mysqli("localhost", "root", "dr4g0n", "simuladoruc");
+			$conexion_temp= new mysqli("www.devworms.com", "rootuc", "toor5", "simuladoruc");
 			if($rs=$conexion_temp->query($query)){
 				$resultado =  $rs->fetch_assoc();
 			  	echo json_encode($resultado);
