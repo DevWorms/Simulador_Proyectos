@@ -272,6 +272,81 @@ function financimiento08() { //pantalla 08 x
     }); //test
 }
 
+function impuestos10(){// pantalla 10 y 11
+    var tipoImp = $("#tipoImpf10").val();
+    var porcentaje = $("#porcentajef10").val();
+    var sobreconcep = $("#sobreConcf10").val();
+    var tasaDescu = $("#tasaDescf11").val();
+    var strPost = "tipoImp=" + tipoImp + 
+            "&porcentaje=" + porcentaje + "&sobreconcep=" + sobreconcep +
+            "&tasaDescu=" + tasaDescu;
+
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=0902",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {  
+                getDeuda09();
+                $("#tipoImpf10").prop('disabled', true);
+                $("#porcentajef10").prop('disabled', true);
+                $("#sobreConcf10").prop('disabled', true);
+                $("#tasaDescf11").prop('disabled', true);
+            }else{
+                alert("Lo sentimos ocurrió un error inesperado")
+            }
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    }); 
+}
+
+function getDeuda09() {//pantalla 9
+        
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: "&ID_pantalla=0901",
+        dataType: "json",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            $("#btnSiguiente").show();
+            $("#btnDeudas").hide();
+            llenarTablaDeuda(info);
+        },
+        error: function (error) {
+            alert(error + "no se quepedo");
+            console.log(error);
+        }
+    });
+}
+
+function llenarTablaDeuda(tabla) {//pantalla 9
+    
+    var fila = "";   
+    var ajuste="";
+    for(var i = 0; i < tabla.length; i++){
+        fila = "<tr>";
+        for(var j = 0; j < tabla[0].length; j++){
+            var str=tabla[i][j].split(".");
+            ajuste = str[0];
+            if(str.length==2){
+                ajuste +="."+str[1].substr(0,2);
+            }
+
+            fila += "<td>"+ ajuste +"</td>";
+        }
+        fila += "</tr>";
+        $("#tablaDeuda").append(fila);
+    }    
+}
+
 $(document).ready(function () {
 
     $("#btnSiguiente").hide();
@@ -293,6 +368,9 @@ $(document).ready(function () {
     $("#btn_financiamiento").click(function(){
         financimiento08();
     });//pantalla08
+    $("#btnDeudas").click(function(){
+        impuestos10();
+    });//pantalla09
 });
 
 //hola

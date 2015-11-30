@@ -144,4 +144,19 @@ if($ID =="08"){ //pantalla08
     $financiamiento->init($tipo,$interes,$plazos,$anios,$amortizacion);
     echo $financiamiento->insert_financiamiento08();
 }
+
+if($ID =="0901"){ //pantalla09
+
+    $deudas = new DeudasImpustos($_SESSION['proyecto_id']);
+    echo $deudas->getDeuda();
+}
+
+if($ID =="0902"){ //pantalla09
+    $tipoImp = $_POST['tipoImp'];
+    $porcentaje = $_POST['porcentaje'];
+    $sobreconcep = $_POST['sobreconcep'];
+    $tasaDescu = $_POST['tasaDescu'];
+    $deudas = new DeudasImpustos($_SESSION['proyecto_id']);
+    echo $deudas->impuestos($tipoImp, $porcentaje, $sobreconcep, $tasaDescu);
+}
 ?>
