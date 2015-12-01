@@ -347,6 +347,39 @@ function llenarTablaDeuda(tabla) {//pantalla 9
     }    
 }
 
+$.fn.numerosDecimales = function(){
+    $(this).keypress(function(tecla){
+         if(tecla.charCode >= 48 && tecla.charCode <= 57 || tecla.charCode == 0 || tecla.charCode == 46 ) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    });
+};
+
+$.fn.numerosEnteros = function(){
+    $(this).keypress(function(tecla){
+         if(tecla.charCode >= 48 && tecla.charCode <= 57 || tecla.charCode == 0 ) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    });
+};
+
+$.fn.soloLetrasyEspacio = function(){
+    $(this).keypress(function(tecla){
+         if(tecla.charCode >= 65 & tecla.charCode <= 90 || tecla.charCode >= 97 & tecla.charCode <= 122 || tecla.charCode == 32  || tecla.charCode == 0) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    });
+};
+
 $(document).ready(function () {
 
     $("#btnSiguiente").hide();
@@ -371,6 +404,9 @@ $(document).ready(function () {
     $("#btnDeudas").click(function(){
         impuestos10();
     });//pantalla09
+
+    // ejemplo de validaciones
+    // $("#id").soloLetrasyEspacio();
 });
 
 //hola
