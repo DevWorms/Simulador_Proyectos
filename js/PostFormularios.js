@@ -346,7 +346,7 @@ function llenarTablaDeuda(tabla) {//pantalla 9
         $("#tablaDeuda").append(fila);
     }    
 }
-
+//**** FUNCIONES DE VALIDACION DE CAMPOS ******
 $.fn.numerosDecimales = function(){
     $(this).keypress(function(tecla){
          if(tecla.charCode >= 48 && tecla.charCode <= 57 || tecla.charCode == 0 || tecla.charCode == 46 ) {
@@ -356,7 +356,7 @@ $.fn.numerosDecimales = function(){
             return false;
         }
     });
-};
+}; 
 
 $.fn.numerosEnteros = function(){
     $(this).keypress(function(tecla){
@@ -367,7 +367,7 @@ $.fn.numerosEnteros = function(){
             return false;
         }
     });
-};
+}; 
 
 $.fn.soloLetrasyEspacio = function(){
     $(this).keypress(function(tecla){
@@ -378,7 +378,36 @@ $.fn.soloLetrasyEspacio = function(){
             return false;
         }
     });
-};
+}; 
+
+$.fn.rangoPorcentaje=function(){ // VALIDACION PORCENTAJE DE  0 A 100
+    $.caja = $(this);
+    $(this).keypress(function(tecla){
+        if(parseFloat($(this).val()) < 0 || parseFloat($(this).val()) > 100 ){
+            $.caja.val("");
+        }
+    });
+}; 
+
+$.fn.noEmpty = function(){
+    var valida = 0;
+    var last_index=0;
+
+    $.formulario = $(this).parents(".step").children(".row").children("div").children("input,textarea");
+    $.formulario.each(function(indice,elemento){
+        if($(elemento).val() != ""){
+            valida++;
+        } 
+        last_index = indice;
+    });
+    if(valida == (last_index + 1)){
+       return true;
+    }
+    else{
+        alert("No puede haber campos vacios")
+       return false; 
+    }
+};  
 
 $(document).ready(function () {
 
@@ -388,9 +417,14 @@ $(document).ready(function () {
         $("#btnSiguiente").hide();
     });
 
+
+
     $("#btnDefinirProy").click(function () {
-        defeinicionProyecto01();
+        if($("#btnDefinirProy").noEmpty()){
+            defeinicionProyecto01();
+        }
     }); //pantalla 01
+
     $("#btnDefMerc").click(function () {
         definicionMercado02();
     }); //pantalla 02
@@ -406,7 +440,24 @@ $(document).ready(function () {
     });//pantalla09
 
     // ejemplo de validaciones
-    // $("#id").soloLetrasyEspacio();
+    /* Estas funciones son bajo keypress asi que borrara todo lo que no sea permitido en automatico
+        $("#id").soloLetrasyEspacio();
+        $("#id").soloEnteros();
+        $("#id").numerosDecimales();
+        $("#id").rangoPorcentaje();
+
+        La funcion que sigue valida todos los input y text area que esten detro de div.step well > div.row > div > input,textarea
+        tengo entendio que todos pusiero nsus forms en esa estructura asi que debe servir para todos y regresa un booleano,como 
+        ven funcina a partir de selccionar el boton del div donde estemos ya que de ahi va seleccionando su padre y este a lso input, se usa asi
+
+        $("#btnDefinirProy").click(function () {
+            if($("#btnDefinirProy").noEmpty()){
+                defeinicionProyecto01();
+            }
+        }); 
+         
+         esta es importante por que por l oque veo la BD permite nulos y se peude neviuar un formulario totalmente vacio
+
+    */
 });
 
-//hola
