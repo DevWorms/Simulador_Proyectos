@@ -78,6 +78,91 @@ function definicionMercado02() { //pantalla 02
     });
 }
 
+function proyDemandaEsperada4() {
+    var proyDemandaEsperada_Per1 = $("#proyDemandaEsperada_Per1").val();
+    var proyDemandaEsperada_Per2 = $("#proyDemandaEsperada_Per2").val();
+    var proyDemandaEsperada_Per3 = $("#proyDemandaEsperada_Per3").val();
+    var proyDemandaEsperada_Per4 = $("#proyDemandaEsperada_Per4").val();
+    var proyDemandaEsperada_Per5 = $("#proyDemandaEsperada_Per5").val();
+
+    var proyDemandaEsperada_VtasE1 = $("#proyDemandaEsperada_VtasE1").val();
+    var proyDemandaEsperada_VtasE2 = $("#proyDemandaEsperada_VtasE2").val();
+    var proyDemandaEsperada_VtasE3 = $("#proyDemandaEsperada_VtasE3").val();
+    var proyDemandaEsperada_VtasE4 = $("#proyDemandaEsperada_VtasE4").val();
+    var proyDemandaEsperada_VtasE5 = $("#proyDemandaEsperada_VtasE5").val();
+
+    var proyDemandaEsperada_PrecioVta1 = $("#proyDemandaEsperada_PrecioVta1").val();
+    var proyDemandaEsperada_PrecioVta2 = $("#proyDemandaEsperada_PrecioVta2").val();
+    var proyDemandaEsperada_PrecioVta3 = $("#proyDemandaEsperada_PrecioVta3").val();
+    var proyDemandaEsperada_PrecioVta4 = $("#proyDemandaEsperada_PrecioVta4").val();
+    var proyDemandaEsperada_PrecioVta5 = $("#proyDemandaEsperada_PrecioVta5").val();
+
+    var proyDemandaEsperada_VtasED1 = $("#proyDemandaEsperada_VtasED1").val();
+    var proyDemandaEsperada_VtasED2 = $("#proyDemandaEsperada_VtasED2").val();
+    var proyDemandaEsperada_VtasED3 = $("#proyDemandaEsperada_VtasED3").val();
+    var proyDemandaEsperada_VtasED4 = $("#proyDemandaEsperada_VtasED4").val();
+    var proyDemandaEsperada_VtasED5 = $("#proyDemandaEsperada_VtasED5").val();
+
+    var proyDemandaEsperada_VtasEP1 = $("#proyDemandaEsperada_VtasEP1").val();
+    var proyDemandaEsperada_VtasEP2 = $("#proyDemandaEsperada_VtasEP2").val();
+    var proyDemandaEsperada_VtasEP3 = $("#proyDemandaEsperada_VtasEP3").val();
+    var proyDemandaEsperada_VtasEP4 = $("#proyDemandaEsperada_VtasEP4").val();
+    var proyDemandaEsperada_VtasEP5 = $("#proyDemandaEsperada_VtasEP5").val();
+
+    var proyDemandaEsperada_Monto1 = $("#proyDemandaEsperada_Monto1").val();
+    var proyDemandaEsperada_Monto2 = $("#proyDemandaEsperada_Monto2").val();
+    var proyDemandaEsperada_Monto3 = $("#proyDemandaEsperada_Monto3").val();
+    var proyDemandaEsperada_Monto4 = $("#proyDemandaEsperada_Monto4").val();
+    var proyDemandaEsperada_Monto5 = $("#proyDemandaEsperada_Monto5").val();
+
+    var proyDemandaEsperada_VtasEP21 = $("#proyDemandaEsperada_VtasEP21").val();
+    var proyDemandaEsperada_VtasEP22 = $("#proyDemandaEsperada_VtasEP22").val();
+    var proyDemandaEsperada_VtasEP23 = $("#proyDemandaEsperada_VtasEP23").val();
+    var proyDemandaEsperada_VtasEP24 = $("#proyDemandaEsperada_VtasEP24").val();
+    var proyDemandaEsperada_VtasEP25 = $("#proyDemandaEsperada_VtasEP25").val();
+
+    var proyDemandaEsperada_Monto21 = $("#proyDemandaEsperada_Monto21").val();
+    var proyDemandaEsperada_Monto22 = $("#proyDemandaEsperada_Monto22").val();
+    var proyDemandaEsperada_Monto23 = $("#proyDemandaEsperada_Monto23").val();
+    var proyDemandaEsperada_Monto24 = $("#proyDemandaEsperada_Monto24").val();
+    var proyDemandaEsperada_Monto25 = $("#proyDemandaEsperada_Monto25").val();
+
+    var strPost = "proyDemandaEsperada_VtasEP1=" + proyDemandaEsperada_VtasEP1 + "&proyDemandaEsperada_VtasEP2=" + proyDemandaEsperada_VtasEP2 + "&proyDemandaEsperada_VtasEP3=" + proyDemandaEsperada_VtasEP3 + "&proyDemandaEsperada_VtasEP4=" + proyDemandaEsperada_VtasEP4 + "&proyDemandaEsperada_VtasEP5=" + proyDemandaEsperada_VtasEP5 + "&proyDemandaEsperada_Monto1=" +
+proyDemandaEsperada_Monto1 + "&proyDemandaEsperada_Monto2=" + proyDemandaEsperada_Monto2 + "&proyDemandaEsperada_Monto3=" + proyDemandaEsperada_Monto3 + "&proyDemandaEsperada_Monto4=" + proyDemandaEsperada_Monto4 + "&proyDemandaEsperada_Monto5=" + proyDemandaEsperada_Monto5 + "&proyDemandaEsperada_VtasEP21=" + proyDemandaEsperada_VtasEP21 + "&proyDemandaEsperada_VtasEP22=" +
+proyDemandaEsperada_VtasEP22 + "&proyDemandaEsperada_VtasEP23=" + proyDemandaEsperada_VtasEP23 + "&proyDemandaEsperada_VtasEP24=" + proyDemandaEsperada_VtasEP24 + "&proyDemandaEsperada_VtasEP25=" + proyDemandaEsperada_VtasEP25 + "&proyDemandaEsperada_Monto21=" + proyDemandaEsperada_Monto21 + "&proyDemandaEsperada_Monto22=" + proyDemandaEsperada_Monto22 + "&proyDemandaEsperada_Monto23=" + proyDemandaEsperada_Monto23 + "&proyDemandaEsperada_Monto24=" + proyDemandaEsperada_Monto24 + "&proyDemandaEsperada_Monto25=" + proyDemandaEsperada_Monto25 + "&proyDemandaEsperada_Per1=" + proyDemandaEsperada_Per1 +
+    "&proyDemandaEsperada_Per2=" + proyDemandaEsperada_Per2 + "&proyDemandaEsperada_Per3=" +
+    proyDemandaEsperada_Per3 + "&proyDemandaEsperada_Per4=" + proyDemandaEsperada_Per4 +
+    "&proyDemandaEsperada_Per5=" + proyDemandaEsperada_Per5 + "&proyDemandaEsperada_VtasE1=" +
+    proyDemandaEsperada_VtasE1 + "&proyDemandaEsperada_VtasE2=" + proyDemandaEsperada_VtasE2 +
+    "&proyDemandaEsperada_VtasE3=" + proyDemandaEsperada_VtasE3 + "&proyDemandaEsperada_VtasE4=" +
+    proyDemandaEsperada_VtasE4 + "&proyDemandaEsperada_VtasE5=" + proyDemandaEsperada_VtasE5 +
+    "&proyDemandaEsperada_PrecioVta1=" + proyDemandaEsperada_PrecioVta1 + "&proyDemandaEsperada_PrecioVta2=" +
+    proyDemandaEsperada_PrecioVta2 + "&proyDemandaEsperada_PrecioVta3=" + proyDemandaEsperada_PrecioVta3 +
+    "&proyDemandaEsperada_PrecioVta4=" + proyDemandaEsperada_PrecioVta4 + "&proyDemandaEsperada_PrecioVta5=" +
+    proyDemandaEsperada_PrecioVta5 + "&proyDemandaEsperada_VtasEP1=" + proyDemandaEsperada_VtasEP1 +
+    "&proyDemandaEsperada_VtasEP2=" + proyDemandaEsperada_VtasEP2 + "&proyDemandaEsperada_VtasEP3=" +
+    proyDemandaEsperada_VtasEP3 + "&proyDemandaEsperada_VtasEP4=" + proyDemandaEsperada_VtasEP4 +
+    "&proyDemandaEsperada_VtasEP5=" + proyDemandaEsperada_VtasEP5;
+
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=04",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+            if (info == "1") {
+                $("#btnSiguiente").show();
+                $("#btnproyDemandaEsperada").hide();
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function inversionInicialActivos05A() { //pantalla 05 - A
     var concepto1 = $("#invAct_Concepto1").val();
     var concepto2 = $("#invAct_Concepto2").val();
@@ -119,24 +204,24 @@ function inversionInicialActivos05A() { //pantalla 05 - A
     var total6 = $("#invAct_Total6").val();
     var total7 = $("#invAct_Total7").val();
 
-    var strPost = "concepto1=" + concepto1 + "&concepto2=" + concepto2 + 
-            "&concepto3=" + concepto3 + "&concepto4=" + concepto4 + 
-            "&concepto5=" + concepto5 + "&concepto6=" + concepto6 + 
-            "&concepto7=" + concepto7 + "&unidad1=" + unidad1 + 
-            "&unidad2=" + unidad2 + "&unidad3=" + unidad3 + 
-            "&unidad4=" + unidad4 + "&unidad5=" + unidad5 + 
-            "&unidad6=" + unidad6 + "&unidad7=" + unidad7 + 
-            "&cantidad1=" + cantidad1 + "&cantidad2=" + cantidad2 + 
-            "&cantidad3=" + cantidad3 + "&cantidad4=" + cantidad4 + 
-            "&cantidad5=" + cantidad5 + "&cantidad6=" + cantidad6 + 
-            "&cantidad7=" + cantidad7 + "&precio1=" + precio1 + 
-            "&precio2=" + precio2 + "&precio3=" + precio3 + 
-            "&precio4=" + precio4 + "&precio5=" + precio5 + 
-            "&precio6=" + precio6 + "&precio7=" + precio7 + 
-            "&total1=" + total1 + "&total2=" + total2 + "&total3=" + total3 + 
-            "&total4=" + total4 + "&total5=" + total5 + "&total6=" + total6 + 
+    var strPost = "concepto1=" + concepto1 + "&concepto2=" + concepto2 +
+            "&concepto3=" + concepto3 + "&concepto4=" + concepto4 +
+            "&concepto5=" + concepto5 + "&concepto6=" + concepto6 +
+            "&concepto7=" + concepto7 + "&unidad1=" + unidad1 +
+            "&unidad2=" + unidad2 + "&unidad3=" + unidad3 +
+            "&unidad4=" + unidad4 + "&unidad5=" + unidad5 +
+            "&unidad6=" + unidad6 + "&unidad7=" + unidad7 +
+            "&cantidad1=" + cantidad1 + "&cantidad2=" + cantidad2 +
+            "&cantidad3=" + cantidad3 + "&cantidad4=" + cantidad4 +
+            "&cantidad5=" + cantidad5 + "&cantidad6=" + cantidad6 +
+            "&cantidad7=" + cantidad7 + "&precio1=" + precio1 +
+            "&precio2=" + precio2 + "&precio3=" + precio3 +
+            "&precio4=" + precio4 + "&precio5=" + precio5 +
+            "&precio6=" + precio6 + "&precio7=" + precio7 +
+            "&total1=" + total1 + "&total2=" + total2 + "&total3=" + total3 +
+            "&total4=" + total4 + "&total5=" + total5 + "&total6=" + total6 +
             "&total7=" + total7;
-     
+
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
@@ -160,17 +245,17 @@ function inversionInicialActivos05B() { //pantalla 05 - A
     var concepto2b = $("#invActb_Concepto2").val();
     var concepto3b = $("#invActb_Concepto3").val();
     var concepto4b = $("#invActb_Concepto4").val();
-    
+
     var monto1 = $("#invActb_Monto1").val();
     var monto2 = $("#invActb_Monto2").val();
     var monto3 = $("#invActb_Monto3").val();
     var monto4 = $("#invActb_Monto4").val();
-    
-    var strPost = "concepto1b=" + concepto1b + 
+
+    var strPost = "concepto1b=" + concepto1b +
             "&concepto2b=" + concepto2b + "&concepto3b=" + concepto3b +
-            "&concepto4b=" + concepto4b + "&monto1=" + monto1 + 
+            "&concepto4b=" + concepto4b + "&monto1=" + monto1 +
             "&monto2=" + monto2 + "&monto3=" + monto3 + "&monto4=" + monto4;
-    
+
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
@@ -191,15 +276,15 @@ function inversionInicialActivos05B() { //pantalla 05 - A
 
 function inversionInicialActivos05C() { //pantalla 05 - C
     var capitalT = $("#invActc_Capital").val();
-    var capitalPP = parseFloat($("#invActc_pocentaje1").val())/100;
+    var capitalPP = parseFloat($("#invActc_pocentaje1").val()) / 100;
     var capitalPM = $("#invActc_Monto1").val();
-    var financiamientoP = parseFloat($("#invActc_pocentaje2").val())/100;
+    var financiamientoP = parseFloat($("#invActc_pocentaje2").val()) / 100;
     var financiamientoPM = $("#invActc_Monto2").val();
-    
-    var strPost = "capital=" + capitalT + 
+
+    var strPost = "capital=" + capitalT +
             "&pocentaje1=" + capitalPP + "&monto1=" + capitalPM +
             "&pocentaje2=" + financiamientoP + "&monto2=" + financiamientoPM;
-    
+
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
@@ -219,20 +304,20 @@ function inversionInicialActivos05C() { //pantalla 05 - C
     });
 }
 
-function getCapitales() { //pantalla 06,07 
+function getCapitales() { //pantalla 06,07
 
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
         type: "POST",
-        data:"&ID_pantalla=0607",
+        data: "&ID_pantalla=0607",
         dataType: "json",
         url: "../class/PostTransaccion.php",
         success: function (info) {
             //if(info =! null){
-                alert(info.Monto_propio);
-                $("#capitalPropio").html("$ "+info.Monto_propio);
-                $("#capitalFinanciar").html("$ "+info.Monto_financ);
+            alert(info.Monto_propio);
+            $("#capitalPropio").html("$ " + info.Monto_propio);
+            $("#capitalFinanciar").html("$ " + info.Monto_financ);
             //}
         },
         error: function (error) {
@@ -247,11 +332,11 @@ function financimiento08() { //pantalla 08 x
     var plazoFinac = $("#plazoFinac").val();
     var graciaFinac = $("#graciaFinac").val();
     var amortizacionFinac = $("#amortizacionFinac").val();
-    
-    var strPost = "tipoFinac=" + tipoFinac + 
+
+    var strPost = "tipoFinac=" + tipoFinac +
             "&interesFinac=" + interesFinac + "&plazoFinac=" + plazoFinac +
             "&graciaFinac=" + graciaFinac + "&amortizacionFinac=" + amortizacionFinac;
-    
+
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
@@ -272,12 +357,12 @@ function financimiento08() { //pantalla 08 x
     }); //test
 }
 
-function impuestos10(){// pantalla 10 y 11
+function impuestos10() {// pantalla 10 y 11
     var tipoImp = $("#tipoImpf10").val();
     var porcentaje = $("#porcentajef10").val();
     var sobreconcep = $("#sobreConcf10").val();
     var tasaDescu = $("#tasaDescf11").val();
-    var strPost = "tipoImp=" + tipoImp + 
+    var strPost = "tipoImp=" + tipoImp +
             "&porcentaje=" + porcentaje + "&sobreconcep=" + sobreconcep +
             "&tasaDescu=" + tasaDescu;
 
@@ -289,13 +374,13 @@ function impuestos10(){// pantalla 10 y 11
         dataType: "text",
         url: "../class/PostTransaccion.php",
         success: function (info) {
-            if (info == "1") {  
+            if (info == "1") {
                 getDeuda09();
                 $("#tipoImpf10").prop('disabled', true);
                 $("#porcentajef10").prop('disabled', true);
                 $("#sobreConcf10").prop('disabled', true);
                 $("#tasaDescf11").prop('disabled', true);
-            }else{
+            } else {
                 alert("Lo sentimos ocurrió un error inesperado")
             }
 
@@ -303,11 +388,11 @@ function impuestos10(){// pantalla 10 y 11
         error: function (error) {
             console.log(error);
         }
-    }); 
+    });
 }
 
 function getDeuda09() {//pantalla 9
-        
+
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
@@ -327,26 +412,49 @@ function getDeuda09() {//pantalla 9
     });
 }
 
+function validarPantalla08(){
+
+    $("#interesFinac").numerosDecimales();
+    $("#interesFinac").rangoPorcentaje();
+    $("#plazoFinac").numerosEnteros();
+    $("#graciaFinac").numerosEnteros();
+
+}
+
+function llenarForma4() {
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+
+    $("#proyDemandaEsperada_PrecioVta1").val(precioVta1);
+    $("#proyDemandaEsperada_PrecioVta2").val(precioVta2);
+    $("#proyDemandaEsperada_PrecioVta3").val(precioVta3);
+    $("#proyDemandaEsperada_PrecioVta4").val(precioVta4);
+    $("#proyDemandaEsperada_PrecioVta5").val(precioVta5);
+}
+
 function llenarTablaDeuda(tabla) {//pantalla 9
-    
-    var fila = "";   
-    var ajuste="";
-    for(var i = 0; i < tabla.length; i++){
+
+    var fila = "";
+    var ajuste = "";
+    for (var i = 0; i < tabla.length; i++) {
         fila = "<tr>";
-        for(var j = 0; j < tabla[0].length; j++){
-            var str=tabla[i][j].split(".");
+        for (var j = 0; j < tabla[0].length; j++) {
+            var str = tabla[i][j].split(".");
             ajuste = str[0];
-            if(str.length==2){
-                ajuste +="."+str[1].substr(0,2);
+            if (str.length == 2) {
+                ajuste += "." + str[1].substr(0, 2);
             }
 
-            fila += "<td>"+ ajuste +"</td>";
+            fila += "<td>" + ajuste + "</td>";
         }
         fila += "</tr>";
         $("#tablaDeuda").append(fila);
-    }    
+    }
 }
-
+//**** FUNCIONES DE VALIDACION DE CAMPOS ******
 $.fn.numerosDecimales = function(){
     $(this).keypress(function(tecla){
          if(tecla.charCode >= 48 && tecla.charCode <= 57 || tecla.charCode == 0 || tecla.charCode == 46 ) {
@@ -380,6 +488,35 @@ $.fn.soloLetrasyEspacio = function(){
     });
 };
 
+$.fn.rangoPorcentaje=function(){ // VALIDACION PORCENTAJE DE  0 A 100
+    $.caja = $(this);
+    $(this).keyup(function(tecla){
+        if(parseFloat($.caja.val()) < 0 || parseFloat($.caja.val()) > 100 ){
+            $.caja.val("");
+        }
+    });
+};
+
+$.fn.noEmpty = function(){
+    var valida = 0;
+    var last_index=0;
+
+    $.formulario = $(this).parents(".step").children(".row").children("div").children("input,textarea");
+    $.formulario.each(function(indice,elemento){
+        if($(elemento).val() != ""){
+            valida++;
+        }
+        last_index = indice;
+    });
+    if(valida == (last_index + 1)){
+       return true;
+    }
+    else{
+        alert("No puede haber campos vacios")
+       return false;
+    }
+};
+
 $(document).ready(function () {
 
     $("#btnSiguiente").hide();
@@ -388,25 +525,62 @@ $(document).ready(function () {
         $("#btnSiguiente").hide();
     });
 
+
+
     $("#btnDefinirProy").click(function () {
-        defeinicionProyecto01();
+        if($("#btnDefinirProy").noEmpty()){
+            defeinicionProyecto01();
+        }
     }); //pantalla 01
+
     $("#btnDefMerc").click(function () {
-        definicionMercado02();
+        if($("#btnDefMerc").noEmpty()){
+            definicionMercado02();
+        }
     }); //pantalla 02
+
+    $("#btnproyDemandaEsperada").click(function () {
+        proyDemandaEsperada4();
+    }); //pantalla 04
     $("#btninvAct").click(function () {
         inversionInicialActivos05A();
     }); //pantalla 05
 
-    $("#btn_financiamiento").click(function(){
+    $("#btn_financiamiento").click(function () {
         financimiento08();
     });//pantalla08
+
+    $("#btn_financiamiento").click(function () {
+        financimiento08();
+    });//pantalla08
+
+    $("#btn_financiamiento").click(function(){
+        if($("#btn_financiamiento").noEmpty()){
+            financimiento08();
+        }
+    });//pantalla08
+
+    validarPantalla08();
+
     $("#btnDeudas").click(function(){
+
         impuestos10();
     });//pantalla09
-
-    // ejemplo de validaciones
-    // $("#id").soloLetrasyEspacio();
 });
+    // ejemplo de validaciones
+    /* Estas funciones son bajo keypress asi que borrara todo lo que no sea permitido en automatico
+        $("#id").soloLetrasyEspacio();
+        $("#id").soloEnteros();
+        $("#id").numerosDecimales();
+        $("#id").rangoPorcentaje();
+        La funcion que sigue valida todos los input y text area que esten detro de div.step well > div.row > div > input,textarea
+        tengo entendio que todos pusiero nsus forms en esa estructura asi que debe servir para todos y regresa un booleano,como
+        ven funcina a partir de selccionar el boton del div donde estemos ya que de ahi va seleccionando su padre y este a lso input, se usa asi
+        $("#btnDefinirProy").click(function () {
+            if($("#btnDefinirProy").noEmpty()){
+                defeinicionProyecto01();
+            }
+        });
 
-//hola
+         esta es importante por que por l oque veo la BD permite nulos y se peude neviuar un formulario totalmente vacio
+    */
