@@ -126,24 +126,24 @@ function proyDemandaEsperada4() {
     var proyDemandaEsperada_Monto23 = $("#proyDemandaEsperada_Monto23").val();
     var proyDemandaEsperada_Monto24 = $("#proyDemandaEsperada_Monto24").val();
     var proyDemandaEsperada_Monto25 = $("#proyDemandaEsperada_Monto25").val();
-    
+
     var strPost = "proyDemandaEsperada_VtasEP1=" + proyDemandaEsperada_VtasEP1 + "&proyDemandaEsperada_VtasEP2=" + proyDemandaEsperada_VtasEP2 + "&proyDemandaEsperada_VtasEP3=" + proyDemandaEsperada_VtasEP3 + "&proyDemandaEsperada_VtasEP4=" + proyDemandaEsperada_VtasEP4 + "&proyDemandaEsperada_VtasEP5=" + proyDemandaEsperada_VtasEP5 + "&proyDemandaEsperada_Monto1=" +
 proyDemandaEsperada_Monto1 + "&proyDemandaEsperada_Monto2=" + proyDemandaEsperada_Monto2 + "&proyDemandaEsperada_Monto3=" + proyDemandaEsperada_Monto3 + "&proyDemandaEsperada_Monto4=" + proyDemandaEsperada_Monto4 + "&proyDemandaEsperada_Monto5=" + proyDemandaEsperada_Monto5 + "&proyDemandaEsperada_VtasEP21=" + proyDemandaEsperada_VtasEP21 + "&proyDemandaEsperada_VtasEP22=" +
 proyDemandaEsperada_VtasEP22 + "&proyDemandaEsperada_VtasEP23=" + proyDemandaEsperada_VtasEP23 + "&proyDemandaEsperada_VtasEP24=" + proyDemandaEsperada_VtasEP24 + "&proyDemandaEsperada_VtasEP25=" + proyDemandaEsperada_VtasEP25 + "&proyDemandaEsperada_Monto21=" + proyDemandaEsperada_Monto21 + "&proyDemandaEsperada_Monto22=" + proyDemandaEsperada_Monto22 + "&proyDemandaEsperada_Monto23=" + proyDemandaEsperada_Monto23 + "&proyDemandaEsperada_Monto24=" + proyDemandaEsperada_Monto24 + "&proyDemandaEsperada_Monto25=" + proyDemandaEsperada_Monto25 + "&proyDemandaEsperada_Per1=" + proyDemandaEsperada_Per1 +
-    "&proyDemandaEsperada_Per2=" + proyDemandaEsperada_Per2 + "&proyDemandaEsperada_Per3=" + 
-    proyDemandaEsperada_Per3 + "&proyDemandaEsperada_Per4=" + proyDemandaEsperada_Per4 + 
+    "&proyDemandaEsperada_Per2=" + proyDemandaEsperada_Per2 + "&proyDemandaEsperada_Per3=" +
+    proyDemandaEsperada_Per3 + "&proyDemandaEsperada_Per4=" + proyDemandaEsperada_Per4 +
     "&proyDemandaEsperada_Per5=" + proyDemandaEsperada_Per5 + "&proyDemandaEsperada_VtasE1=" +
-    proyDemandaEsperada_VtasE1 + "&proyDemandaEsperada_VtasE2=" + proyDemandaEsperada_VtasE2 + 
-    "&proyDemandaEsperada_VtasE3=" + proyDemandaEsperada_VtasE3 + "&proyDemandaEsperada_VtasE4=" + 
-    proyDemandaEsperada_VtasE4 + "&proyDemandaEsperada_VtasE5=" + proyDemandaEsperada_VtasE5 + 
+    proyDemandaEsperada_VtasE1 + "&proyDemandaEsperada_VtasE2=" + proyDemandaEsperada_VtasE2 +
+    "&proyDemandaEsperada_VtasE3=" + proyDemandaEsperada_VtasE3 + "&proyDemandaEsperada_VtasE4=" +
+    proyDemandaEsperada_VtasE4 + "&proyDemandaEsperada_VtasE5=" + proyDemandaEsperada_VtasE5 +
     "&proyDemandaEsperada_PrecioVta1=" + proyDemandaEsperada_PrecioVta1 + "&proyDemandaEsperada_PrecioVta2=" +
-    proyDemandaEsperada_PrecioVta2 + "&proyDemandaEsperada_PrecioVta3=" + proyDemandaEsperada_PrecioVta3 + 
-    "&proyDemandaEsperada_PrecioVta4=" + proyDemandaEsperada_PrecioVta4 + "&proyDemandaEsperada_PrecioVta5=" + 
-    proyDemandaEsperada_PrecioVta5 + "&proyDemandaEsperada_VtasEP1=" + proyDemandaEsperada_VtasEP1 + 
-    "&proyDemandaEsperada_VtasEP2=" + proyDemandaEsperada_VtasEP2 + "&proyDemandaEsperada_VtasEP3=" + 
-    proyDemandaEsperada_VtasEP3 + "&proyDemandaEsperada_VtasEP4=" + proyDemandaEsperada_VtasEP4 + 
+    proyDemandaEsperada_PrecioVta2 + "&proyDemandaEsperada_PrecioVta3=" + proyDemandaEsperada_PrecioVta3 +
+    "&proyDemandaEsperada_PrecioVta4=" + proyDemandaEsperada_PrecioVta4 + "&proyDemandaEsperada_PrecioVta5=" +
+    proyDemandaEsperada_PrecioVta5 + "&proyDemandaEsperada_VtasEP1=" + proyDemandaEsperada_VtasEP1 +
+    "&proyDemandaEsperada_VtasEP2=" + proyDemandaEsperada_VtasEP2 + "&proyDemandaEsperada_VtasEP3=" +
+    proyDemandaEsperada_VtasEP3 + "&proyDemandaEsperada_VtasEP4=" + proyDemandaEsperada_VtasEP4 +
     "&proyDemandaEsperada_VtasEP5=" + proyDemandaEsperada_VtasEP5;
-    
+
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
@@ -304,7 +304,7 @@ function inversionInicialActivos05C() { //pantalla 05 - C
     });
 }
 
-function getCapitales() { //pantalla 06,07 
+function getCapitales() { //pantalla 06,07
 
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -418,7 +418,21 @@ function validarPantalla08(){
     $("#interesFinac").rangoPorcentaje();
     $("#plazoFinac").numerosEnteros();
     $("#graciaFinac").numerosEnteros();
-    
+
+}
+
+function llenarForma4() {
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#precioVtaFinal1").val();
+
+    $("#proyDemandaEsperada_PrecioVta1").val(precioVta1);
+    $("#proyDemandaEsperada_PrecioVta2").val(precioVta2);
+    $("#proyDemandaEsperada_PrecioVta3").val(precioVta3);
+    $("#proyDemandaEsperada_PrecioVta4").val(precioVta4);
+    $("#proyDemandaEsperada_PrecioVta5").val(precioVta5);
 }
 
 function llenarTablaDeuda(tabla) {//pantalla 9
@@ -450,7 +464,7 @@ $.fn.numerosDecimales = function(){
             return false;
         }
     });
-}; 
+};
 
 $.fn.numerosEnteros = function(){
     $(this).keypress(function(tecla){
@@ -461,7 +475,7 @@ $.fn.numerosEnteros = function(){
             return false;
         }
     });
-}; 
+};
 
 $.fn.soloLetrasyEspacio = function(){
     $(this).keypress(function(tecla){
@@ -472,7 +486,7 @@ $.fn.soloLetrasyEspacio = function(){
             return false;
         }
     });
-}; 
+};
 
 $.fn.rangoPorcentaje=function(){ // VALIDACION PORCENTAJE DE  0 A 100
     $.caja = $(this);
@@ -481,7 +495,7 @@ $.fn.rangoPorcentaje=function(){ // VALIDACION PORCENTAJE DE  0 A 100
             $.caja.val("");
         }
     });
-}; 
+};
 
 $.fn.noEmpty = function(){
     var valida = 0;
@@ -491,7 +505,7 @@ $.fn.noEmpty = function(){
     $.formulario.each(function(indice,elemento){
         if($(elemento).val() != ""){
             valida++;
-        } 
+        }
         last_index = indice;
     });
     if(valida == (last_index + 1)){
@@ -499,9 +513,9 @@ $.fn.noEmpty = function(){
     }
     else{
         alert("No puede haber campos vacios")
-       return false; 
+       return false;
     }
-};  
+};
 
 $(document).ready(function () {
 
@@ -532,12 +546,14 @@ $(document).ready(function () {
         inversionInicialActivos05A();
     }); //pantalla 05
 
-<<<<<<< HEAD
     $("#btn_financiamiento").click(function () {
         financimiento08();
     });//pantalla08
-    $("#btnDeudas").click(function () {
-=======
+
+    $("#btn_financiamiento").click(function () {
+        financimiento08();
+    });//pantalla08
+
     $("#btn_financiamiento").click(function(){
         if($("#btn_financiamiento").noEmpty()){
             financimiento08();
@@ -547,29 +563,24 @@ $(document).ready(function () {
     validarPantalla08();
 
     $("#btnDeudas").click(function(){
->>>>>>> origin/master
+
         impuestos10();
     });//pantalla09
-
+});
     // ejemplo de validaciones
     /* Estas funciones son bajo keypress asi que borrara todo lo que no sea permitido en automatico
         $("#id").soloLetrasyEspacio();
         $("#id").soloEnteros();
         $("#id").numerosDecimales();
         $("#id").rangoPorcentaje();
-
         La funcion que sigue valida todos los input y text area que esten detro de div.step well > div.row > div > input,textarea
-        tengo entendio que todos pusiero nsus forms en esa estructura asi que debe servir para todos y regresa un booleano,como 
+        tengo entendio que todos pusiero nsus forms en esa estructura asi que debe servir para todos y regresa un booleano,como
         ven funcina a partir de selccionar el boton del div donde estemos ya que de ahi va seleccionando su padre y este a lso input, se usa asi
-
         $("#btnDefinirProy").click(function () {
             if($("#btnDefinirProy").noEmpty()){
                 defeinicionProyecto01();
             }
-        }); 
-         
+        });
+
          esta es importante por que por l oque veo la BD permite nulos y se peude neviuar un formulario totalmente vacio
-
     */
-});
-
