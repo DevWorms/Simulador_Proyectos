@@ -133,7 +133,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
         <footer>
             <div class="container text-center">
                 <hr>
-                <p style="color:#545B60">Copyright &copy; <a href="index.php">Universidad del Caribe</a> 2015</p>
+                <p style="color:#545B60">Copyright &copy; <a href="http://www.unicaribe.edu.mx/" target="_blank">Universidad del Caribe</a> 2015</p>
             </div>
         </footer>
 
@@ -286,7 +286,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="email" name='p_email' class="form-control input-lg" placeholder="coreo@ejemplo.com" required="required">
+                                    <input type="email" name='p_email' class="form-control input-lg" placeholder="correo@ejemplo.com" required="required">
                                     <input type="password" name='p_pass' class="form-control input-lg" placeholder="Contraseña" required="required">
                                     <input type="password" name='p_pass2' class="form-control input-lg" placeholder="Confirmar contraseña" required="required">
                                 </div>
@@ -307,7 +307,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                     </select>
                                     <select name="p_edad" class="form-control input-lg">
                                         <?php
-                                        for ($i = 13; $i < 110; $i ++) {
+                                        for ($i = 22; $i < 70; $i ++) {
                                             echo '<option value="' . $i . '">' . $i . '</option>\n';
                                         }
                                         ?>
@@ -390,7 +390,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="email" name='a_email' class="form-control input-lg" placeholder="coreo@ejemplo.com" required="required">
+                                    <input type="email" name='a_email' class="form-control input-lg" placeholder="correo@ejemplo.com" required="required">
                                     <?php
                                     $conn = new Connector();
                                     $query = "SELECT ID_prof, Nombre, Ap_pat, Materia FROM profesor ORDER BY Materia ASC;";
@@ -420,7 +420,7 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
                                     </select>
                                     <select name="a_edad" alt="Edad" title="Edad" class="form-control input-lg">
                                         <?php
-                                        for ($i = 13; $i < 110; $i ++) {
+                                        for ($i = 17; $i < 61; $i ++) {
                                             echo '<option value="' . $i . '">' . $i . '</option>\n';
                                         }
                                         ?>
