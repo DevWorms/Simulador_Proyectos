@@ -20,7 +20,11 @@ $db = new Connector();
                         <th>Alumno</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
-                        <th>Ver</th>
+                        <th>Tipo</th>
+                        <th>Forma 12</th>
+                        <th>Forma 13</th>
+                        <th>Forma 14</th>
+                        <th>Forma 15</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +49,35 @@ WHERE historial_clase.ID_prof = " . $_SESSION['Id'] . ";")) {
                       					<td >' . $alumno['Ap_pat'] . ' ' . $alumno['Ap_mat'] .  ' ' . $alumno['Nombre'] . '</td>
                       					<td >' . $proyecto["Nombre"] . '</td>
                       					<td >' . $proyecto["Descripcion"] . '</td>
-                      					<td ><a href="?ver=proyecto&id=' . $proyecto["ID_proyecto"] . '">Ver</a></td>
+                                        <td >' . $proyecto["Tipo"] . '</td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma12.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$proyecto["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 12">
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma13.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$proyecto["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 13">
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma14.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$proyecto["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 14">
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma15.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$proyecto["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 15">
+                                                            </form>
+                                                        </td>
                       					</tr>
                       					';
                                             }
