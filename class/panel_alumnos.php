@@ -17,7 +17,10 @@ $db = new Connector();
                         <th>Nombre</th>
                         <th>Descripcion</th>
                         <th>Tipo</th>
-                        <th>Ver</th>
+                        <th>Forma 12</th>
+                        <th>Forma 13</th>
+                        <th>Forma 14</th>
+                        <th>Forma 15</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +50,34 @@ $db = new Connector();
                       					<td >' . $resultado["Nombre"] . '</td>
                       					<td >' . $resultado["Descripcion"] . '</td>
                       					<td >' . $resultado["Tipo"] . '</td>
-                      					<td ><a href="?ver=proyecto&id=' . $resultado["ID_proyecto"] . '">Ver</a></td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma12.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$resultado["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 12">
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma13.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$resultado["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 13">
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma14.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$resultado["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 14">
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="../pdf/pdfForma15.php" method="POST">
+                                                                <input style="display: none;" type="text" name="alumno_id" value="'.$_SESSION['Id'].'">'
+                                                    . '         <input style="display: none;" type="text" name="proyecto_id" value="'.$resultado["ID_proyecto"].'">
+                                                                <input type="submit" class="btn btn-info input-sm" value="Forma 15">
+                                                            </form>
+                                                        </td>
                       					</tr>
                       					';
                                         }
