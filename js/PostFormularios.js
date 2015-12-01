@@ -327,6 +327,15 @@ function getDeuda09() {//pantalla 9
     });
 }
 
+function validarPantalla08(){
+
+    $("#interesFinac").numerosDecimales();
+    $("#interesFinac").rangoPorcentaje();
+    $("#plazoFinac").numerosEnteros();
+    $("#graciaFinac").numerosEnteros();
+    
+}
+
 function llenarTablaDeuda(tabla) {//pantalla 9
     
     var fila = "";   
@@ -382,8 +391,8 @@ $.fn.soloLetrasyEspacio = function(){
 
 $.fn.rangoPorcentaje=function(){ // VALIDACION PORCENTAJE DE  0 A 100
     $.caja = $(this);
-    $(this).keypress(function(tecla){
-        if(parseFloat($(this).val()) < 0 || parseFloat($(this).val()) > 100 ){
+    $(this).keyup(function(tecla){
+        if(parseFloat($.caja.val()) < 0 || parseFloat($.caja.val()) > 100 ){
             $.caja.val("");
         }
     });
@@ -426,15 +435,22 @@ $(document).ready(function () {
     }); //pantalla 01
 
     $("#btnDefMerc").click(function () {
-        definicionMercado02();
+        if($("#btnDefMerc").noEmpty()){
+            definicionMercado02();
+        }
     }); //pantalla 02
     $("#btninvAct").click(function () {
         inversionInicialActivos05A();
     }); //pantalla 05
 
     $("#btn_financiamiento").click(function(){
-        financimiento08();
+        if($("#btn_financiamiento").noEmpty()){
+            financimiento08();
+        }
     });//pantalla08
+
+    validarPantalla08();
+
     $("#btnDeudas").click(function(){
         impuestos10();
     });//pantalla09
