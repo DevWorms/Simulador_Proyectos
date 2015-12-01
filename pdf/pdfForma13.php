@@ -150,14 +150,16 @@ $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
            exit();
     }
     @mysqli_query($con, "SET NAMES 'utf8'");
-    //$proyecto=$_SESSION['ID_proyecto'];
+    $proyecto=$_POST['proyecto_id'];
         
-    $consulta = mysqli_query($con, "SELECT ID_proyecto,Periodo,Monto_admon FROM costos_gastos12 WHERE ID_proyecto = 1");
+    $consulta = mysqli_query($con, "SELECT ID_proyecto,Periodo,Monto_admon FROM costos_gastos12 WHERE ID_proyecto = '$proyecto'");
 
         if (mysqli_num_rows($consulta) > 0)
         {
-          $query = "SELECT ID_proyecto,Periodo,Monto_admon FROM costos_gastos12 WHERE ID_proyecto = 1";
+          $query = "SELECT ID_proyecto,Periodo,Monto_admon FROM costos_gastos12 WHERE ID_proyecto = '$proyecto'";
           $result = $con->query($query);
+
+
           
           while($row=mysqli_fetch_array($result,MYSQLI_NUM)){
 
@@ -290,12 +292,12 @@ $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
                  
                  $pdf->SetFont('Arial','',12);
                  $pdf->SetXY(20,45);
-                 $pdf->Cell(130,10,'Proyecto:    '.$Nombre,0,0,'L');
+                 $pdf->Cell(130,10,'Proyecto:_______________--',0,0,'L');
                  $pdf->SetXY(160,45);
-                 $pdf->Cell(130,10, utf8_decode('Producción:    '.$Nombre.''),0,0,'L');
+                 $pdf->Cell(130,10, utf8_decode('Producción:_______________'),0,0,'L');
 
                  $pdf->SetXY(20,60);
-                 $pdf->Cell(130,10,'Producto/Servicio:    '.$Nombre,0,0,'L');
+                 $pdf->Cell(130,10,'Producto/Servicio:_________________',0,0,'L');
 
                  //empezamos a dibujar tablas
 
