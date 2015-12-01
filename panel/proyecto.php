@@ -62,7 +62,6 @@ session_start();
                                                 <div class="progress">
                                                     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-
                                                 <div class="step well">
                                                     <h2>Definición del Producto / Servicio</h2>
                                                     <div class="row">
@@ -132,13 +131,99 @@ session_start();
                                                         </div>
                                                     </div>
                                                 </div>
-                                             <div class="step well">
-                                                    Proyección del precio de mercado ( por producto )
-                                                    
-                                                </div>
                                                 <div class="step well">
-                                                    Proyección de la Demanda Esperada (ventas esperadas)
-                                                    
+                                                    Proyección del precio de mercado ( por producto )
+
+                                                </div>
+
+                                                <div class="step well">
+                                                    <h2>Proyección de la Demanda Esperada (ventas esperadas)</h2>
+                                                    <div class="row">
+                                                        <table class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th colspan="2">Vta de Contado  </th>
+                                                                    <th colspan="2">Venta a Crédito </th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Periodo</th>
+                                                                    <th>Ventas Esperadas (pza)</th>
+                                                                    <th>Precio Venta</th>
+                                                                    <th>Ventas Esperadas ($)</th>
+                                                                    <th>% Vtas Esp.</th>
+                                                                    <th>Monto</th>
+                                                                    <th>% Vtas Esp.</th>
+                                                                    <th>Monto</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_Per1" id="proyDemandaEsperada_Per1" type="text" class="form-control" disabled="disabled" value="1">
+                                                                        <input name="proyDemandaEsperada_Per2" id="proyDemandaEsperada_Per2" type="text" class="form-control" disabled="disabled" value="2">
+                                                                        <input name="proyDemandaEsperada_Per3" id="proyDemandaEsperada_Per3" type="text" class="form-control" disabled="disabled" value="3">
+                                                                        <input name="proyDemandaEsperada_Per4" id="proyDemandaEsperada_Per4" type="text" class="form-control" disabled="disabled" value="4">
+                                                                        <input name="proyDemandaEsperada_Per5" id="proyDemandaEsperada_Per5" type="text" class="form-control" disabled="disabled" value="5">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasE1" id="proyDemandaEsperada_VtasE1" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE2" id="proyDemandaEsperada_VtasE2" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE3" id="proyDemandaEsperada_VtasE3" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE4" id="proyDemandaEsperada_VtasE4" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE5" id="proyDemandaEsperada_VtasE5" type="text" class="form-control" placeholder="piezas" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_PrecioVta1" id="proyDemandaEsperada_PrecioVta1" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta2" id="proyDemandaEsperada_PrecioVta2" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta3" id="proyDemandaEsperada_PrecioVta3" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta4" id="proyDemandaEsperada_PrecioVta4" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta5" id="proyDemandaEsperada_PrecioVta5" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasED1" id="proyDemandaEsperada_VtasED1" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED2" id="proyDemandaEsperada_VtasED2" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED3" id="proyDemandaEsperada_VtasED3" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED4" id="proyDemandaEsperada_VtasED4" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED5" id="proyDemandaEsperada_VtasED5" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasEP1" id="proyDemandaEsperada_VtasEP1" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP2" id="proyDemandaEsperada_VtasEP2" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP3" id="proyDemandaEsperada_VtasEP3" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP4" id="proyDemandaEsperada_VtasEP4" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP5" id="proyDemandaEsperada_VtasEP5" type="text" class="form-control" placeholder="0%" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_Monto1" id="proyDemandaEsperada_Monto1" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto2" id="proyDemandaEsperada_Monto2" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto3" id="proyDemandaEsperada_Monto3" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto4" id="proyDemandaEsperada_Monto4" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto5" id="proyDemandaEsperada_Monto5" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasEP21" id="proyDemandaEsperada_VtasEP21" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP22" id="proyDemandaEsperada_VtasEP22" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP23" id="proyDemandaEsperada_VtasEP23" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP24" id="proyDemandaEsperada_VtasEP24" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP25" id="proyDemandaEsperada_VtasEP25" type="text" class="form-control" placeholder="0%" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_Monto21" id="proyDemandaEsperada_Monto21" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto22" id="proyDemandaEsperada_Monto22" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto23" id="proyDemandaEsperada_Monto23" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto24" id="proyDemandaEsperada_Monto24" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto25" id="proyDemandaEsperada_Monto25" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <button class="btn btn-success" id="btnproyDemandaEsperada"> LISTO </button>
+                                                    </div>
+
                                                 </div>
 
                                                 <div class="step well">
@@ -153,13 +238,13 @@ session_start();
                                                                 <input name="invAct_Concepto4" id="invAct_Concepto4" type="text" class="form-control" disabled="disabled" value="Compra de Maquinaria y Herramienta">
                                                                 <input name="invAct_Concepto5" id="invAct_Concepto5" type="text" class="form-control" disabled="disabled" value="Constuccion / Edificacion">
                                                                 <input name="invAct_Concepto6" id="invAct_Concepto6" type="text" class="form-control" disabled="disabled" value="Compra de Terreno">
-                                                                <input name="invAct_Concepto7" id="invAct_Concepto7" type="text" class="form-control" disabled="disabled" value="Gastos de Instalación">
+                                                                <input name="invAct_Concepto7" id="invAct_Concepto7" type="text" class="form-control" disabled="disabled" value="Gastos de Instalacion">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3"> 
                                                             <div class="form-group">
                                                                 <input name="invAct_Unidad1" id="invAct_Unidad1" type="text" class="form-control" disabled="disabled" value="mueble">
-                                                                <input name="invAct_Unidad2" id="invAct_Unidad2" type="text" class="form-control" disabled="disabled" value="Vehículo">
+                                                                <input name="invAct_Unidad2" id="invAct_Unidad2" type="text" class="form-control" disabled="disabled" value="Vehiculo">
                                                                 <input name="invAct_Unidad3" id="invAct_Unidad3" type="text" class="form-control" disabled="disabled" value="equipo">
                                                                 <input name="invAct_Unidad4" id="invAct_Unidad4" type="text" class="form-control" disabled="disabled" value="equipo">
                                                                 <input name="invAct_Unidad5" id="invAct_Unidad5" type="text" class="form-control" disabled="disabled" value="m2">
@@ -268,17 +353,17 @@ session_start();
 
                                                 <div class="step well">
                                                     <div class="row">
-                                                       <table class="table col-md-11">
-                                                        <h2>Estructura financiera</h2>
-                                                        <tr>
-                                                            <th>Capital inicial propio</th>
-                                                            <th>Capital a financiar</th>
-                                                        </tr>
-                                                           <tr>
-                                                            <td id="capitalPropio"></td>
-                                                            <td id="capitalFinanciar"></td>
-                                                           </tr>
-                                                       </table>
+                                                        <table class="table col-md-11">
+                                                            <h2>Estructura financiera</h2>
+                                                            <tr>
+                                                                <th>Capital inicial propio</th>
+                                                                <th>Capital a financiar</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td id="capitalPropio"></td>
+                                                                <td id="capitalFinanciar"></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                     <div class="row">
                                                         <table class="table col-md-11">
@@ -306,7 +391,7 @@ session_start();
                                                                 </td>
                                                             </tr>
                                                         </table>
-                                                        
+
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-10"></div>
@@ -369,9 +454,9 @@ session_start();
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="step well">
-                                                    
+
                                                     <!-- Formulario -->
 
                                                     <!-- -->
@@ -407,6 +492,7 @@ session_start();
         <!-- script references -->
         <script src="js/jquery.min.js"></script>
         <script src="js/calcularTotal.js"></script>
+        <script src="js/vtasEsperadas.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="js/multistep.js"></script>
         <script src="../js/PostFormularios.js"></script>
