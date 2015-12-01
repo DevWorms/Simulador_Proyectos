@@ -115,15 +115,34 @@ function checkPass($pass1, $pass2) { //Valida que las contrasenias sean iguales
 
 
         <div style="padding-top:60px;">
-            <h1 style="text-align:center;">Departamento de Economía y Negocios</h1>
+            <h1 style="text-align:center; color:#6F6F6F;">Departamento de Economía y Negocios</h1>
         </div>
 
         <!-- About Section -->
-        <section id="about" class="container content-section text-center" style="padding-top: 100px;">
+        <section id="about" class="container content-section text-center" style="padding-top: 60px;">
             <div class="row"><hr>
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-10 col-lg-offset-1">
                     <h2 style="color:#5BC0DE">ACERCA DEL SIMULADOR</h2>
-                    <p style="color:#5CB85C">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum ex, fringilla sed cursus id, eleifend quis dui. Nulla a erat auctor, pretium sem sagittis, fermentum lacus. Etiam mi dui, interdum nec dictum condimentum, malesuada nec libero. Fusce accumsan sem ut arcu volutpat, porttitor luctus lacus pulvinar. Nunc sit amet aliquam elit. Cras eget dolor gravida, posuere dui et, volutpat urna. Nam nunc metus, condimentum et rutrum faucibus, imperdiet sit amet orci. Sed pulvinar tortor eget diam gravida sagittis id a augue. Proin sit amet elementum dui, nec vestibulum elit.</p>
+                    <p style="color:#5CB85C">
+
+                        La inversión con fines productivos, generadora de beneficios económicos, es parte fundamental de cualquier empresa. Erogar recursos con la expectativa de recuperarlo y obtener un beneficio económico, conlleva un riesgo. ¿Cuál es el riesgo de iniciar un nuevo proyecto?, ¿cuál es el tiempo de recuperación de los recursos invertidos?, ¿cuál es el beneficio esperado, derivado de la inversión?, son preguntas que se deben responder de forma objetiva.
+                        <br><br>
+                        Es por ello que la ejecución de un proceso de formulación de un proyecto de inversión permite una adecuada toma de decisión respecto de dónde invertir, cuánto invertir y cómo invertir. De tal forma que el proceso de formulación de un proyecto de inversión proporciona los elementos de caracter financiero necesarios para una adecuada toma de decisiones.
+                        <br><br>
+                        La automatización de éste proceso de formulación de proyectos de inversión representa un facilitador en la generación de la información útil para la evaluación de dichos proyectos, partiendo de valoraciones económicas, tales como el Valor Presente Neto ( VPN ), y la Tasa Interna de Retorno ( TIR ).
+                        <br><br>
+                        Desde el punto de vista académico, el aprendizaje del proceso de formulación y evaluación de proyectos de inversión es un tema fundamental de las áreas administrativa, contable, económica y financiera, para los estudiosos de la empresa. Una buena forma de adquirir ese aprendizaje, es en base a la simulación de proyectos, con valores reales o supuestos, que permitan la comprensión del proceso y su lógica, así como facilitar la toma de decisiones.
+                        <br><br>
+                        El presente sistema Simulador de Proyectos de Inversión ofrece al estudiante la posibilidad de realizar ejercicios de simulación, con datos reales o supuestos y de forma automatizada, con la finalidad de formular y evaluar precisamente proyectos de inversión que permitan generar información útil respecto del Punto de Equilibrio (PE), el Valor Presente Neto (VPN), así como la Tasa Interna de Retorno (TIR), a efecto de tomar decisiones respecto a la inversión planteada.
+                        <br><br>
+                        El sisrtema permite hacer proyecciones respecto al precio de mercado, la demanda esperada, la inversión en activos, el capital de trabajo y el financiamiento, así como la proyección de los costos de producción, de los gastos de administración, de los gastos de ventas, y de las depreciaciones y amortizaciones.
+                        <br><br>
+                        Derivado de estas proyecciones, el sistema realiza en forma automática la proyección de los Estados Financieros, tales como el Balance General y el Estado de Resultados, así como el Flujo de Efectivo. Finalmente, el sistema simulador genera, igualmente de forma automática, los datos que sirven para el análisis financiero, tales como  el Punto de Equilibrio, el Valor Presente Neto y la Tasa Interna de Retorno.
+                        <br><br>
+                        El proceso de aprendizaje radica en desarrollar las habilidades y los conocimientos respecto del Proceso de Formulación y Evaluación de Proyectos de Inversión, con un enfoque directivo para la adecuada toma de decisiones, respecto de la información generada por la aplicación..
+
+
+                    </p>
                 </div>
             </div>
         </section>

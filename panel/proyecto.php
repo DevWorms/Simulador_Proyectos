@@ -19,6 +19,8 @@ session_start();
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         <link href="css/styles.css" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
     </head>
     <body>
         <div class="navbar navbar-fixed-top header" id="subnav">
@@ -132,10 +134,75 @@ session_start();
                                                         </div>
                                                     </div>
                                                 </div>
-                                             <div class="step well">
-                                                    Proyección del precio de mercado ( por producto )
+
+
+                                                <div class="step well">
+                                                    <h2>Proyección del precio de mercado ( por producto )</h2>
+
+                                                    <div class="row" ng-app="">
+                                                        
+                                                        <div class="col-md-1" style="text-align:center;">
+                                                            <br>
+                                                            Período
+                                                            <input type="text" id="proymerc_periodo1" class="form-control" style="text-align:center;" placeholder="1" disabled><br>
+                                                            <input type="text" id="proymerc_periodo2" class="form-control" style="text-align:center;" placeholder="2" disabled><br>
+                                                            <input type="text" id="proymerc_periodo3" class="form-control" style="text-align:center;" placeholder="3" disabled><br>
+                                                            <input type="text" id="proymerc_periodo4" class="form-control" style="text-align:center;" placeholder="4" disabled><br>
+                                                            <input type="text" id="proymerc_periodo5" class="form-control" style="text-align:center;" placeholder="5" disabled><br>                                                           
+                                                        </div>
+
+                                                        <div class="col-md-2" style="text-align:center;" >
+                                                            <br>
+                                                            Unidad de Venta
+                                                            <input type="text" id="proymerc_univenta1" class="form-control" style="text-align:center;" placeholder="Ingresa Unidad" ng-model="uni_venta"><br>
+                                                            <input type="text" id="proymerc_univenta2" class="form-control" style="text-align:center;" placeholder="Ingresa Unidad" value="{{uni_venta}}" disabled><br>
+                                                            <input type="text" id="proymerc_univenta3" class="form-control" style="text-align:center;" placeholder="Ingresa Unidad" value="{{uni_venta}}" disabled><br>
+                                                            <input type="text" id="proymerc_univenta4" class="form-control" style="text-align:center;" placeholder="Ingresa Unidad" value="{{uni_venta}}" disabled><br>
+                                                            <input type="text" id="proymerc_univenta5" class="form-control" style="text-align:center;" placeholder="Ingresa Unidad" value="{{uni_venta}}" disabled><br> 
+                                                        </div>
+
+                                                        <div class="col-md-3" style="text-align:center;">
+                                                            <br>
+                                                            Precio promedio de mercado ($)
+                                                            <input type="text" id="proymerc_precio1" class="form-control" style="text-align:center;" placeholder="Ingresa Precio Promedio (PPM1)" ng-model="prec_promedio1"><br>
+                                                            <input type="text" id="proymerc_precio5" class="form-control" style="text-align:center;" placeholder="PPM2 = P1" value="{{p1}}" disabled><br> 
+                                                            <input type="text" id="proymerc_precio2" class="form-control" style="text-align:center;" placeholder="PPM3 = P2" disabled><br>
+                                                            <input type="text" id="proymerc_precio3" class="form-control" style="text-align:center;" placeholder="PPM4 = P3" disabled><br>
+                                                            <input type="text" id="proymerc_precio4" class="form-control" style="text-align:center;" placeholder="PPM5 = P4" disabled><br>
+                                                        </div>
+
+                                                        <div class="col-md-2" style="text-align:center;">
+                                                            <br>
+                                                            Inflación (%)
+                                                            <input type="text" id="proymerc_inflacion1" class="form-control" style="text-align:center;" value="0" disabled><br>
+                                                            <input type="text" id="proymerc_inflacion2" class="form-control" style="text-align:center;" placeholder="Inflación 2 (I2)" ng-model="inflacion2"><br>
+                                                            <input type="text" id="proymerc_inflacion3" class="form-control" style="text-align:center;" placeholder="Inflación 3 (I3)" ng-model="inflacion3"><br>
+                                                            <input type="text" id="proymerc_inflacion4" class="form-control" style="text-align:center;" placeholder="Inflación 4 (I4)" ng-model="inflacion4"><br>
+                                                            <input type="text" id="proymerc_inflacion5" class="form-control" style="text-align:center;" placeholder="Inflación 5 (I5)" ng-model="inflacion5"><br> 
+
+                                                        </div>
+
+                                                        <div class="col-md-3" style="text-align:center;">
+                                                            <br>
+                                                            Precio de venta ($)
+                                                            <input type="text" id="proymerc_precioventa1" class="form-control" style="text-align:center;" placeholder="PV1 = [ (PPM1) * 0 ] + PV1"  value="{{prec_promedio1}}" disabled><br>
+                                                            <input type="text" id="proymerc_precioventa2" class="form-control" style="text-align:center;" value="PV2 = [ (PPM2) * {{inflacion2}} ] + PV2" disabled><br>
+                                                            <input type="text" id="proymerc_precioventa3" class="form-control" style="text-align:center;" value="PV3 = [ (PPM3) * {{inflacion3}} ] + PV3" disabled><br>
+                                                            <input type="text" id="proymerc_precioventa4" class="form-control" style="text-align:center;" value="PV4 = [ (PPM4) * {{inflacion4}} ] + PV4" disabled><br>
+                                                            <input type="text" id="proymerc_precioventa5" class="form-control" style="text-align:center;" value="PV5 = [ (PPM5) * {{inflacion5}} ] + PV5" disabled><br> 
+
+                                                        </div>
+
+                                                        <div class="col-md-12" style="text-align:center;">
+                                                            <br>
+                                                            <button class="btn btn-success" id="btnProyPrecMerc"> LISTO </button>
+                                                        </div>
+
+                                                    </div>
                                                     
                                                 </div>
+
+
                                                 <div class="step well">
                                                     Proyección de la Demanda Esperada (ventas esperadas)
                                                     
