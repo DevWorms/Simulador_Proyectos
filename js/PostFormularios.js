@@ -481,11 +481,11 @@ function validarPantalla08(){
 }
 
 function llenarForma4() {
-    var precioVta1 = $("#precioVtaFinal1").val();
-    var precioVta1 = $("#precioVtaFinal1").val();
-    var precioVta1 = $("#precioVtaFinal1").val();
-    var precioVta1 = $("#precioVtaFinal1").val();
-    var precioVta1 = $("#precioVtaFinal1").val();
+    var precioVta1 = $("#proymerc_precioventa1").val();
+    var precioVta1 = $("#proymerc_precioventa2").val();
+    var precioVta1 = $("#proymerc_precioventa3").val();
+    var precioVta1 = $("#proymerc_precioventa4").val();
+    var precioVta1 = $("#proymerc_precioventa5").val();
 
     $("#proyDemandaEsperada_PrecioVta1").val(precioVta1);
     $("#proyDemandaEsperada_PrecioVta2").val(precioVta2);
