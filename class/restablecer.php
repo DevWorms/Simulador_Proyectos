@@ -64,7 +64,7 @@ include 'Connector.php';
             if($tipo == "prof") {
               $sql = "UPDATE profesor SET Password = '".$password1."', token = '' WHERE ID_prof = ".$id_tipo;
             } elseif ($tipo=="alumno") {
-              $sql = "UPDATE aLumno SET Password = '".$password1."', token = '' WHERE ID_alumno = ".$id_tipo;
+              $sql = "UPDATE alumno SET Password = '".$password1."', token = '' WHERE ID_alumno = ".$id_tipo;
             }
             $db = new Connector();
             if ($db->execute($sql)) {
