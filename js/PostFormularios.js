@@ -80,41 +80,65 @@ function definicionMercado02() { //pantalla 02
 
 function proyMercado3() {
     //
-    var proyMerc_per1 = $("#proymerc_periodo1").val();
-    var proyMerc_univenta1 =$("#proymerc_univenta1").val();
-    var proyMerc_precio1 =$("#proymerc_precio1").val();
-    var proyMerc_inflacion1 =$("#proymerc_inflacion1").val();
-    var proyMerc_pventa1 =$("#proymerc_precioventa1").val();
-    
+    var proyMerc_per1 = $("#proymerc_periodo1").val();    
     var proyMerc_per2 = $("#proymerc_periodo2").val();
     var proyMerc_per3 = $("#proymerc_periodo3").val();
     var proyMerc_per4 = $("#proymerc_periodo4").val();
     var proyMerc_per5 = $("#proymerc_periodo5").val();
 
     
+    var proyMerc_univenta1 =$("#proymerc_univenta1").val();
     var proyMerc_univenta2 =$("#proymerc_univenta2").val();
     var proyMerc_univenta3 =$("#proymerc_univenta3").val();
     var proyMerc_univenta4 =$("#proymerc_univenta4").val();
     var proyMerc_univenta5 =$("#proymerc_univenta5").val();
 
     
+    var proyMerc_precio1 =$("#proymerc_precio1").val();
     var proyMerc_precio2 =$("#proymerc_precio2").val();
     var proyMerc_precio3 =$("#proymerc_precio3").val();
     var proyMerc_precio4 =$("#proymerc_precio4").val();
     var proyMerc_precio5 =$("#proymerc_precio5").val();
 
     
+    var proyMerc_inflacion1 =$("#proymerc_inflacion1").val();
     var proyMerc_inflacion2 =$("#proymerc_inflacion2").val();
     var proyMerc_inflacion3 =$("#proymerc_inflacion3").val();
     var proyMerc_inflacion4 =$("#proymerc_inflacion4").val();
     var proyMerc_inflacion5 =$("#proymerc_inflacion5").val();
 
     
+    var proyMerc_pventa1 =$("#proymerc_precioventa1").val();
     var proyMerc_pventa2 =$("#proymerc_precioventa2").val();
     var proyMerc_pventa3 =$("#proymerc_precioventa3").val();
     var proyMerc_pventa4 =$("#proymerc_precioventa4").val();
     var proyMerc_pventa5 =$("#proymerc_precioventa5").val();
 
+    var strPost = "proymerc_periodo1=" + proyMerc_per1 +
+    "&proymerc_periodo2=" + proyMerc_per2 +
+    "&proymerc_periodo3=" + proyMerc_per3 +
+    "&proymerc_periodo4=" + proyMerc_per4 +
+    "&proymerc_periodo5=" + proyMerc_per5 +
+    "&proymerc_univenta1=" + proyMerc_univenta1 +
+    "&proymerc_univenta2=" + proyMerc_univenta2 +
+    "&proymerc_univenta3=" + proyMerc_univenta3 +
+    "&proymerc_univenta4=" + proyMerc_univenta4 +
+    "&proymerc_univenta5=" + proyMerc_univenta5 +
+    "&proymerc_precio1=" + proyMerc_precio1 +
+    "&proymerc_precio2=" + proyMerc_precio2 +
+    "&proymerc_precio3=" + proyMerc_precio3 +
+    "&proymerc_precio4=" + proyMerc_precio4 +
+    "&proymerc_precio5=" + proyMerc_precio5 +
+    "&proymerc_inflacion1=" + proyMerc_inflacion1 +
+    "&proymerc_inflacion2=" + proyMerc_inflacion2 +
+    "&proymerc_inflacion3=" + proyMerc_inflacion3 +
+    "&proymerc_inflacion4=" + proyMerc_inflacion4 +
+    "&proymerc_inflacion5=" + proyMerc_inflacion5 +
+    "&proymerc_precioventa1=" + proyMerc_pventa1 +
+    "&proymerc_precioventa2=" + proyMerc_pventa2 +
+    "&proymerc_precioventa3=" + proyMerc_pventa3 +
+    "&proymerc_precioventa4=" + proyMerc_pventa4 +
+    "&proymerc_precioventa5=" + proyMerc_pventa5;
 
 
     $.ajax({scriptCharset: "utf-8",
@@ -127,7 +151,7 @@ function proyMercado3() {
         success: function (info) {
             if (info == "1") {
                 $("#btnSiguiente").show();
-                $("#btnproyDemandaEsperada").hide();
+                $("#btnProyPrecMerc").hide();
             }
         },
         error: function (error) {
