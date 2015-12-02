@@ -115,8 +115,6 @@ function proyMercado3() {
     var proyMerc_pventa4 =$("#proymerc_precioventa4").val();
     var proyMerc_pventa5 =$("#proymerc_precioventa5").val();
 
-    var strPost =
-
 
 
     $.ajax({scriptCharset: "utf-8",
