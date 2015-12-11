@@ -100,7 +100,7 @@ function enviarEmail( $email, $link ){
               $sql = "SELECT * FROM profesor WHERE email = '".$email."' ;";
               $clave="ID_prof";
             } elseif ($_SESSION['tipo'] == "alumno") {
-              $sql = "SELECT * FROM alumno WHERE email = '".$email."' ;";
+              $sql = "SELECT * FROM alumno WHERE email = '".$email."' ;";//aqui habia error
               $clave="ID_alumno";
             }
             $db->execute($sql);

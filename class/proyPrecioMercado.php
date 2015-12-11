@@ -30,7 +30,11 @@ class proyPrecioMercado {
     private $id_proyecto;
     private $conn;
 
-    public function __construct($proyMerc_per1,$proyMerc_per2,$proyMerc_per3,$proyMerc_per4,$proyMerc_per5,$proyMerc_univenta1,$proyMerc_univenta2,$proyMerc_univenta3,$proyMerc_univenta4;$proyMerc_univenta5,$proyMerc_precio1,$proyMerc_precio2,$proyMerc_precio3,$proyMerc_precio4,$proyMerc_precio5,$proyMerc_inflacion1,$proyMerc_inflacion2,$proyMerc_inflacion3,$proyMerc_inflacion4,$proyMerc_inflacion5,$proyMerc_pventa1,$proyMerc_pventa2,$proyMerc_pventa3,$proyMerc_pventa4,$proyMerc_pventa5,$id_proyecto){
+    public function __construct($proyMerc_per1,$proyMerc_per2,$proyMerc_per3,$proyMerc_per4,$proyMerc_per5,
+        $proyMerc_univenta1,$proyMerc_univenta2,$proyMerc_univenta3,$proyMerc_univenta4,$proyMerc_univenta5,
+        $proyMerc_precio1,$proyMerc_precio2,$proyMerc_precio3,$proyMerc_precio4,$proyMerc_precio5,
+        $proyMerc_inflacion1,$proyMerc_inflacion2,$proyMerc_inflacion3,$proyMerc_inflacion4,$proyMerc_inflacion5,
+        $proyMerc_pventa1,$proyMerc_pventa2,$proyMerc_pventa3,$proyMerc_pventa4,$proyMerc_pventa5,$id_proyecto){
 
     	$this->conn = new Connector();
 
@@ -108,13 +112,14 @@ class proyPrecioMercado {
 
     public function insert_proyPrecMerc() {
 
-    	$query = "INSERT INTO proy_dem03 (ID_proyecto, ID_periodo, Unidad_venta, 
+    	$query = "INSERT INTO proy_merc03(ID_proyecto, ID_periodo, Unidad_venta, 
                 Precio, Inflacion, Precio_venta) VALUES
                 ('".$this->id_proyecto."',  '".$this->proyMerc_per1."',  '".$this->proyMerc_univenta1."',  '".$this->proyMerc_precio1."',  '".$this->proyMerc_inflacion1."',  '".$this->proyMerc_pventa1."'),
                 ('".$this->id_proyecto."',  '".$this->proyMerc_per2."',  '".$this->proyMerc_univenta2."',  '".$this->proyMerc_precio2."',  '".$this->proyMerc_inflacion2."',  '".$this->proyMerc_pventa2."'),
                 ('".$this->id_proyecto."',  '".$this->proyMerc_per3."',  '".$this->proyMerc_univenta3."',  '".$this->proyMerc_precio3."',  '".$this->proyMerc_inflacion3."',  '".$this->proyMerc_pventa3."'),
                 ('".$this->id_proyecto."',  '".$this->proyMerc_per4."',  '".$this->proyMerc_univenta4."',  '".$this->proyMerc_precio4."',  '".$this->proyMerc_inflacion4."',  '".$this->proyMerc_pventa4."'),
                 ('".$this->id_proyecto."',  '".$this->proyMerc_per5."',  '".$this->proyMerc_univenta5."',  '".$this->proyMerc_precio5."',  '".$this->proyMerc_inflacion5."',  '".$this->proyMerc_pventa5."');";
+
 
         return $this->conn->execute($query);
 

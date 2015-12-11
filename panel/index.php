@@ -34,7 +34,6 @@ $db = new Connector();
                         <li><a href="logout.php">Cerrar Sesión</a></li>
                     </ul>
 
-
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse2">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>

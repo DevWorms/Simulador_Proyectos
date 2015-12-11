@@ -51,7 +51,7 @@ if ($ID == "02") { //pantalla 02
     }
 }
 
-if($ID == "03") {
+if ($ID == "03") { //pantalla 03
     $proyMerc_per1 = $_POST('proymerc_periodo1');    
     $proyMerc_per2 = $_POST('proymerc_periodo2');
     $proyMerc_per3 = $_POST('proymerc_periodo3');
@@ -87,14 +87,12 @@ if($ID == "03") {
     $proyMerc_pventa5 =$_POST('#proymerc_precioventa5');
 
     $proyMercado = new proyPrecioMercado(
-            $proyMerc_per1,$proyMerc_per2,$proyMerc_per3,$proyMerc_per4,$proyMerc_per5,$proyMerc_univenta1,
-            $proyMerc_univenta2,$proyMerc_univenta3,$proyMerc_univenta4;$proyMerc_univenta5,$proyMerc_precio1,
+            $proyMerc_per1, $proyMerc_per2, $proyMerc_per3, $proyMerc_per4, $proyMerc_per5, $proyMerc_univenta1,
+            $proyMerc_univenta2, $proyMerc_univenta3, $proyMerc_univenta4, $proyMerc_univenta5,$proyMerc_precio1,
             $proyMerc_precio2,$proyMerc_precio3,$proyMerc_precio4,$proyMerc_precio5,$proyMerc_inflacion1,
             $proyMerc_inflacion2,$proyMerc_inflacion3,$proyMerc_inflacion4,$proyMerc_inflacion5,
             $proyMerc_pventa1,$proyMerc_pventa2,$proyMerc_pventa3,$proyMerc_pventa4,$proyMerc_pventa5,$id_proyecto,
             $_SESSION['proyecto_id']);
-        )
-
     echo $proyMercado->insert_proyPrecMerc();
 }
 
