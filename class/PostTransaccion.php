@@ -52,47 +52,46 @@ if ($ID == "02") { //pantalla 02
 }
 
 if ($ID == "03") { //pantalla 03
-    $proyMerc_per1 = $_POST('proymerc_periodo1');    
-    $proyMerc_per2 = $_POST('proymerc_periodo2');
-    $proyMerc_per3 = $_POST('proymerc_periodo3');
-    $proyMerc_per4 = $_POST('proymerc_periodo4');
-    $proyMerc_per5 = $_POST('proymerc_periodo5');
+    $proymerc_periodo1 = $_POST['proymerc_periodo1'];    
+    $proymerc_periodo2 = $_POST['proymerc_periodo2'];
+    $proymerc_periodo3 = $_POST['proymerc_periodo3'];
+    $proymerc_periodo4 = $_POST['proymerc_periodo4'];
+    $proymerc_periodo5 = $_POST['proymerc_periodo5'];
 
     
-    $proyMerc_univenta1 =$_POST('proymerc_univenta1');
-    $proyMerc_univenta2 =$_POST('proymerc_univenta2');
-    $proyMerc_univenta3 =$_POST('proymerc_univenta3');
-    $proyMerc_univenta4 =$_POST('proymerc_univenta4');
-    $proyMerc_univenta5 =$_POST('proymerc_univenta5');
+    $proymerc_univenta1 =$_POST['proymerc_univenta1'];
+    $proymerc_univenta2 =$_POST['proymerc_univenta2'];
+    $proymerc_univenta3 =$_POST['proymerc_univenta3'];
+    $proymerc_univenta4 =$_POST['proymerc_univenta4'];
+    $proymerc_univenta5 =$_POST['proymerc_univenta5'];
 
     
-    $proyMerc_precio1 =$_POST('proymerc_precio1');
-    $proyMerc_precio2 =$_POST('proymerc_precio2');
-    $proyMerc_precio3 =$_POST('proymerc_precio3');
-    $proyMerc_precio4 =$_POST('proymerc_precio4');
-    $proyMerc_precio5 =$_POST('proymerc_precio5');
+    $proymerc_precio1 =$_POST['proymerc_precio1'];
+    $proymerc_precio2 =$_POST['proymerc_precio2'];
+    $proymerc_precio3 =$_POST['proymerc_precio3'];
+    $proymerc_precio4 =$_POST['proymerc_precio4'];
+    $proymerc_precio5 =$_POST['proymerc_precio5'];
 
     
-    $proyMerc_inflacion1 =$_POST('proymerc_inflacion1');
-    $proyMerc_inflacion2 =$_POST('proymerc_inflacion2');
-    $proyMerc_inflacion3 =$_POST('proymerc_inflacion3');
-    $proyMerc_inflacion4 =$_POST('proymerc_inflacion4');
-    $proyMerc_inflacion5 =$_POST('proymerc_inflacion5');
+    $proymerc_inflacion1 =$_POST['proymerc_inflacion1'];
+    $proymerc_inflacion2 =$_POST['proymerc_inflacion2'];
+    $proymerc_inflacion3 =$_POST['proymerc_inflacion3'];
+    $proymerc_inflacion4 =$_POST['proymerc_inflacion4'];
+    $proymerc_inflacion5 =$_POST['proymerc_inflacion5'];
 
    
-    $proyMerc_pventa1 =$_POST('#proymerc_precioventa1');
-    $proyMerc_pventa2 =$_POST('#proymerc_precioventa2');
-    $proyMerc_pventa3 =$_POST('#proymerc_precioventa3');
-    $proyMerc_pventa4 =$_POST('#proymerc_precioventa4');
-    $proyMerc_pventa5 =$_POST('#proymerc_precioventa5');
+    $proymerc_precioventa1 =$_POST['proymerc_precioventa1'];
+    $proymerc_precioventa2 =$_POST['proymerc_precioventa2'];
+    $proymerc_precioventa3 =$_POST['proymerc_precioventa3'];
+    $proymerc_precioventa4 =$_POST['proymerc_precioventa4'];
+    $proymerc_precioventa5 =$_POST['proymerc_precioventa5'];
 
     $proyMercado = new proyPrecioMercado(
-            $proyMerc_per1, $proyMerc_per2, $proyMerc_per3, $proyMerc_per4, $proyMerc_per5, $proyMerc_univenta1,
-            $proyMerc_univenta2, $proyMerc_univenta3, $proyMerc_univenta4, $proyMerc_univenta5,$proyMerc_precio1,
-            $proyMerc_precio2,$proyMerc_precio3,$proyMerc_precio4,$proyMerc_precio5,$proyMerc_inflacion1,
-            $proyMerc_inflacion2,$proyMerc_inflacion3,$proyMerc_inflacion4,$proyMerc_inflacion5,
-            $proyMerc_pventa1,$proyMerc_pventa2,$proyMerc_pventa3,$proyMerc_pventa4,$proyMerc_pventa5,$id_proyecto,
-            $_SESSION['proyecto_id']);
+            $proymerc_periodo1, $proymerc_periodo2, $proymerc_periodo3, $proymerc_periodo4, $proymerc_periodo5, 
+            $proymerc_univenta1, $proymerc_univenta2, $proymerc_univenta3, $proymerc_univenta4, $proymerc_univenta5,
+            $proymerc_precio1, $proymerc_precio2,$proymerc_precio3,$proymerc_precio4,$proymerc_precio5,
+            $proymerc_inflacion1, $proymerc_inflacion2,$proymerc_inflacion3,$proymerc_inflacion4,$proymerc_inflacion5,
+            $proymerc_precioventa1,$proymerc_precioventa2,$proymerc_precioventa3,$proymerc_precioventa4,$proymerc_precioventa5);
     echo $proyMercado->insert_proyPrecMerc();
 }
 

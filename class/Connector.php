@@ -7,7 +7,7 @@ define( 'DB_PASS', 'toor5' );
 define( 'DB_NAME', 'simuladoruc' );
 */
 define( 'DB_HOST', '127.0.0.1' );
-define( 'DB_USER', '' );
+define( 'DB_USER', 'root' );
 define( 'DB_PASS', '' );
 define( 'DB_NAME', 'simuladoruc' );
 /*
@@ -27,7 +27,7 @@ class Connector {
     */
 
     protected $DB_HOST = '127.0.0.1';
-    protected $DB_USER = "";
+    protected $DB_USER = "root";
     protected $DB_PASS = "";
     protected $DB_NAME = "simuladoruc";
     private $conn = null;

@@ -36,13 +36,13 @@
     	}
 
 		public function insert_proyectodef_01(){
-
-			$query = "INSERT INTO proyectodef_01(Concepto,Descripcion,Tipo,Unidad_medida,Caracteristicas,
-					Nombre,ID_alumno) VALUES('".$this->nombre."','".$this->descripcion."','".$this->tipo."','".
+			
+        $query = "INSERT INTO proyectodef_01(Concepto,Descripcion,Tipo,Unidad_medida,Caracteristicas,
+					Nombre,ID_alumno) VALUES ('".$this->nombre."','".$this->descripcion."','".$this->tipo."','".
 					$this->unidad_medida."','".$this->caracteristicas."','".$this->nombre."',".$this->id_alumno.")";
 
-			
 			return $this->conn->execute($query);
+
 		}
 
 	}
