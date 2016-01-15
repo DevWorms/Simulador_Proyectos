@@ -27,7 +27,6 @@ class proyPrecioMercado {
 	private $proyMerc_pventa3;
 	private $proyMerc_pventa4;
 	private $proyMerc_pventa5;
-    private $id_proyecto;
     private $conn;
 
     public function __construct($proyMerc_per1,$proyMerc_per2,$proyMerc_per3,$proyMerc_per4,$proyMerc_per5,

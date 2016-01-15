@@ -141,7 +141,8 @@ $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
         }
     }
 } // FIN Class PDF
-         $host="www.devworms.com";
+
+    $host="www.devworms.com";
     $usuario="rootuc";
     $pass="toor5";
     $database="simuladoruc";

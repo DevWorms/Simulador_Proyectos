@@ -83,7 +83,8 @@
                                                         <button class="btn btn-success" id="btnDefinirProy"> LISTO </button>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> 
+
 
                                             <!-- **********************  PANTALLA 2  **********************-->
                                             <div class="step well">
@@ -166,7 +167,7 @@
 
                                                     <div class="col-md-3" style="text-align:center;">
                                                         <br>
-                                                        Precio promedio de mercado ($)
+                                                        Precio promedio de mercado (00.00)
                                                         <input type="text" id="proymerc_precio1" class="form-control" style="text-align:center;" placeholder="Ingresa Precio Promedio (PPM1)" ng-model="prec_promedio1"><br>
                                                         <input type="text" id="proymerc_precio5" class="form-control" style="text-align:center;" placeholder="PPM2 = P1" ng-model="prec_promedio2"><br> 
                                                         <input type="text" id="proymerc_precio2" class="form-control" style="text-align:center;" placeholder="PPM3 = (PPM2 + P2)" ng-model="prec_promedio3"><br>
@@ -176,7 +177,7 @@
 
                                                     <div class="col-md-2" style="text-align:center;">
                                                         <br>
-                                                        Inflación (%)
+                                                        Inflación (00.00)
                                                         <input type="text" id="proymerc_inflacion1" class="form-control" style="text-align:center;" value=".00" disabled><br>
                                                         <input type="text" id="proymerc_inflacion2" class="form-control" style="text-align:center;" placeholder="Inflación 2 (I2)" ng-model="inflacion2"><br>
                                                         <input type="text" id="proymerc_inflacion3" class="form-control" style="text-align:center;" placeholder="Inflación 3 (I3)" ng-model="inflacion3"><br>
@@ -185,14 +186,26 @@
 
                                                     </div>
 
-                                                    <div class="col-md-3" style="text-align:center;">
+                                                    <div class="col-md-1" style="text-align:center;">
+                                                        <br>
+                                                        ( + )
+                                                        <input type="text" class="form-control" style="text-align:center;" placeholder="PV1 = [ (PPM1) * 0 ] + PV1"  value="{{prec_promedio1}}" disabled><br>
+                                                        <input type="text" class="form-control" style="text-align:center;" value="{{inflacion2 * prec_promedio2}}" disabled><br>
+                                                        <input type="text" class="form-control" style="text-align:center;" value="{{inflacion3 * prec_promedio3}}" disabled><br>
+                                                        <input type="text" class="form-control" style="text-align:center;" value="{{inflacion4 * prec_promedio4}}" disabled><br>
+                                                        <input type="text" class="form-control" style="text-align:center;" value="{{inflacion5 * prec_promedio5}}" disabled><br> 
+                                                    </div>
+
+
+
+                                                    <div class="col-md-2" style="text-align:center;">
                                                         <br>
                                                         Precio de venta ($)
                                                         <input type="text" id="proymerc_precioventa1" class="form-control" style="text-align:center;" placeholder="PV1 = [ (PPM1) * 0 ] + PV1"  value="{{prec_promedio1}}" disabled><br>
-                                                        <input type="text" id="proymerc_precioventa2" class="form-control" style="text-align:center;" value="{{inflacion2 * prec_promedio2}}" disabled><br>
-                                                        <input type="text" id="proymerc_precioventa3" class="form-control" style="text-align:center;" value="{{inflacion3 * prec_promedio3}}" disabled><br>
-                                                        <input type="text" id="proymerc_precioventa4" class="form-control" style="text-align:center;" value="{{inflacion4 * prec_promedio4}}" disabled><br>
-                                                        <input type="text" id="proymerc_precioventa5" class="form-control" style="text-align:center;" value="{{inflacion5 * prec_promedio5}}" disabled><br> 
+                                                        <input type="text" id="proymerc_precioventa2" class="form-control" style="text-align:center;"><br>
+                                                        <input type="text" id="proymerc_precioventa3" class="form-control" style="text-align:center;"><br>
+                                                        <input type="text" id="proymerc_precioventa4" class="form-control" style="text-align:center;"><br>
+                                                        <input type="text" id="proymerc_precioventa5" class="form-control" style="text-align:center;"><br> 
                                                     </div>
 
                                                     <div class="col-md-12" style="text-align:center;">
@@ -210,9 +223,94 @@
 
                                             <!-- **********************  PANTALLA 4  **********************-->
                                             <div class="step well">
-                                                Proyección de la Demanda Esperada (ventas esperadas)
-                                                
-                                            </div>
+                                                    <h2>Proyección de la Demanda Esperada (ventas esperadas)</h2>
+                                                    <div class="row">
+                                                        <table class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th colspan="2">Vta de Contado  </th>
+                                                                    <th colspan="2">Venta a Crédito </th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Periodo</th>
+                                                                    <th>Ventas Esperadas (pza)</th>
+                                                                    <th>Precio Venta</th>
+                                                                    <th>Ventas Esperadas ($)</th>
+                                                                    <th>% Vtas Esp.</th>
+                                                                    <th>Monto</th>
+                                                                    <th>% Vtas Esp.</th>
+                                                                    <th>Monto</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_Per1" id="proyDemandaEsperada_Per1" type="text" class="form-control" disabled="disabled" value="1">
+                                                                        <input name="proyDemandaEsperada_Per2" id="proyDemandaEsperada_Per2" type="text" class="form-control" disabled="disabled" value="2">
+                                                                        <input name="proyDemandaEsperada_Per3" id="proyDemandaEsperada_Per3" type="text" class="form-control" disabled="disabled" value="3">
+                                                                        <input name="proyDemandaEsperada_Per4" id="proyDemandaEsperada_Per4" type="text" class="form-control" disabled="disabled" value="4">
+                                                                        <input name="proyDemandaEsperada_Per5" id="proyDemandaEsperada_Per5" type="text" class="form-control" disabled="disabled" value="5">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasE1" id="proyDemandaEsperada_VtasE1" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE2" id="proyDemandaEsperada_VtasE2" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE3" id="proyDemandaEsperada_VtasE3" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE4" id="proyDemandaEsperada_VtasE4" type="text" class="form-control" placeholder="piezas" value="">
+                                                                        <input name="proyDemandaEsperada_VtasE5" id="proyDemandaEsperada_VtasE5" type="text" class="form-control" placeholder="piezas" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_PrecioVta1" id="proyDemandaEsperada_PrecioVta1" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta2" id="proyDemandaEsperada_PrecioVta2" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta3" id="proyDemandaEsperada_PrecioVta3" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta4" id="proyDemandaEsperada_PrecioVta4" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                        <input name="proyDemandaEsperada_PrecioVta5" id="proyDemandaEsperada_PrecioVta5" type="text" class="form-control" disabled="disabled" placeholder="$0.00" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasED1" id="proyDemandaEsperada_VtasED1" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED2" id="proyDemandaEsperada_VtasED2" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED3" id="proyDemandaEsperada_VtasED3" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED4" id="proyDemandaEsperada_VtasED4" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_VtasED5" id="proyDemandaEsperada_VtasED5" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasEP1" id="proyDemandaEsperada_VtasEP1" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP2" id="proyDemandaEsperada_VtasEP2" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP3" id="proyDemandaEsperada_VtasEP3" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP4" id="proyDemandaEsperada_VtasEP4" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP5" id="proyDemandaEsperada_VtasEP5" type="text" class="form-control" placeholder="0%" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_Monto1" id="proyDemandaEsperada_Monto1" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto2" id="proyDemandaEsperada_Monto2" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto3" id="proyDemandaEsperada_Monto3" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto4" id="proyDemandaEsperada_Monto4" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto5" id="proyDemandaEsperada_Monto5" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_VtasEP21" id="proyDemandaEsperada_VtasEP21" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP22" id="proyDemandaEsperada_VtasEP22" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP23" id="proyDemandaEsperada_VtasEP23" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP24" id="proyDemandaEsperada_VtasEP24" type="text" class="form-control" placeholder="0%" value="">
+                                                                        <input name="proyDemandaEsperada_VtasEP25" id="proyDemandaEsperada_VtasEP25" type="text" class="form-control" placeholder="0%" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="proyDemandaEsperada_Monto21" id="proyDemandaEsperada_Monto21" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto22" id="proyDemandaEsperada_Monto22" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto23" id="proyDemandaEsperada_Monto23" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto24" id="proyDemandaEsperada_Monto24" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                        <input name="proyDemandaEsperada_Monto25" id="proyDemandaEsperada_Monto25" type="text" class="form-control" placeholder="$0.00" value="" disabled="disabled">
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <button class="btn btn-success" id="btnproyDemandaEsperada"> LISTO </button>
+                                                    </div>
+
+                                                </div>
 
 
                                             <!-- **********************  PANTALLAS 5A, 5B, 5C  **********************-->
@@ -242,26 +340,26 @@
                                                             <input name="invAct_Unidad7" id="invAct_Unidad7" type="text" class="form-control" disabled="disabled" value="m2">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"> 
+                                                    <div class="col-md-2">
                                                         <div class="form-group">
-                                                            <input name="invAct_Cantidad1" id="invAct_Cantidad1" type="text" class="form-control" placeholder="Cantidad">
-                                                            <input name="invAct_Cantidad2" id="invAct_Cantidad2" type="text" class="form-control" placeholder="Cantidad">
-                                                            <input name="invAct_Cantidad3" id="invAct_Cantidad3" type="text" class="form-control" placeholder="Cantidad">
-                                                            <input name="invAct_Cantidad4" id="invAct_Cantidad4" type="text" class="form-control" placeholder="Cantidad">
-                                                            <input name="invAct_Cantidad5" id="invAct_Cantidad5" type="text" class="form-control" placeholder="Cantidad">
-                                                            <input name="invAct_Cantidad6" id="invAct_Cantidad6" type="text" class="form-control" placeholder="Cantidad">
-                                                            <input name="invAct_Cantidad7" id="invAct_Cantidad7" type="text" class="form-control" placeholder="Cantidad">
+                                                            <input name="invAct_Cantidad1" id="invAct_Cantidad1" type="text" class="form-control" placeholder="Cantidad" >
+                                                            <input name="invAct_Cantidad2" id="invAct_Cantidad2" type="text" class="form-control" placeholder="Cantidad" >
+                                                            <input name="invAct_Cantidad3" id="invAct_Cantidad3" type="text" class="form-control" placeholder="Cantidad" >
+                                                            <input name="invAct_Cantidad4" id="invAct_Cantidad4" type="text" class="form-control" placeholder="Cantidad" >
+                                                            <input name="invAct_Cantidad5" id="invAct_Cantidad5" type="text" class="form-control" placeholder="Cantidad" >
+                                                            <input name="invAct_Cantidad6" id="invAct_Cantidad6" type="text" class="form-control" placeholder="Cantidad" >
+                                                            <input name="invAct_Cantidad7" id="invAct_Cantidad7" type="text" class="form-control" placeholder="Cantidad" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2"> 
                                                         <div class="form-group">
-                                                            <input name="invAct_Precio1" id="invAct_Precio1" type="text" class="form-control" placeholder="Precio">
-                                                            <input name="invAct_Precio2" id="invAct_Precio2" type="text" class="form-control" placeholder="Precio">
-                                                            <input name="invAct_Precio3" id="invAct_Precio3" type="text" class="form-control" placeholder="Precio">
-                                                            <input name="invAct_Precio4" id="invAct_Precio4" type="text" class="form-control" placeholder="Precio">
-                                                            <input name="invAct_Precio5" id="invAct_Precio5" type="text" class="form-control" placeholder="Precio">
-                                                            <input name="invAct_Precio6" id="invAct_Precio6" type="text" class="form-control" placeholder="Precio">
-                                                            <input name="invAct_Precio7" id="invAct_Precio7" type="text" class="form-control" placeholder="Precio">
+                                                            <input name="invAct_Precio1" id="invAct_Precio1" type="text" class="form-control" placeholder="Precio" >
+                                                            <input name="invAct_Precio2" id="invAct_Precio2" type="text" class="form-control" placeholder="Precio" >
+                                                            <input name="invAct_Precio3" id="invAct_Precio3" type="text" class="form-control" placeholder="Precio" >
+                                                            <input name="invAct_Precio4" id="invAct_Precio4" type="text" class="form-control" placeholder="Precio" >
+                                                            <input name="invAct_Precio5" id="invAct_Precio5" type="text" class="form-control" placeholder="Precio" >
+                                                            <input name="invAct_Precio6" id="invAct_Precio6" type="text" class="form-control" placeholder="Precio" >
+                                                            <input name="invAct_Precio7" id="invAct_Precio7" type="text" class="form-control" placeholder="Precio" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2"> 
@@ -292,10 +390,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4"> 
-                                                        <div class="form-group">
-                                                            <input name="invActb_Monto1" id="invActb_Monto1" type="text" class="form-control" placeholder="Mnoto: $0.00" value="">
-                                                            <input name="invActb_Monto2" id="invActb_Monto2" type="text" class="form-control" placeholder="Mnoto: $0.00" value="">
-                                                            <input name="invActb_Monto3" id="invActb_Monto3" type="text" class="form-control" placeholder="Mnoto: $0.00" value="">
+                                                        <div class="form-group">    
+                                                            <input name="invActb_Monto1" id="invActb_Monto1" type="text" class="form-control" placeholder="Monto: $0.00" >
+                                                            <input name="invActb_Monto2" id="invActb_Monto2" type="text" class="form-control" placeholder="Monto: $0.00" >
+                                                            <input name="invActb_Monto3" id="invActb_Monto3" type="text" class="form-control" placeholder="Monto: $0.00" >
                                                             <input name="invActb_Monto4" id="invActb_Monto4" type="text" class="form-control" disabled="disabled" placeholder="Total: $0.00" value="">
                                                         </div>
                                                     </div>
@@ -323,11 +421,11 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
+                                                                <tr> 
                                                                     <td><input name="invActc_Capital" id="invActc_Capital" type="text" class="form-control" disabled="disabled" placeholder="Total: $0.00" value=""></td>
-                                                                    <td><input name="invActc_pocentaje1" id="invActc_pocentaje1" type="text" class="form-control" placeholder="Porcentaje" value=""></td>
+                                                                    <td><input name="invActc_pocentaje1" id="invActc_pocentaje1" type="text" class="form-control" placeholder="Porcentaje" ></td>
                                                                     <td><input name="invActc_Monto1" id="invActc_Monto1" type="text" class="form-control" disabled="disabled" placeholder="Total: $0.00" value=""></td>
-                                                                    <td><input name="invActc_pocentaje2" id="invActc_pocentaje2" type="text" class="form-control" placeholder="Porcentaje" value=""></td>
+                                                                    <td><input name="invActc_pocentaje2" id="invActc_pocentaje2" type="text" class="form-control" placeholder="Porcentaje" ></td>
                                                                     <td><input name="invActc_Monto2" id="invActc_Monto2" type="text" class="form-control" disabled="disabled" placeholder="Total: $0.00" value=""></td>
                                                                 </tr>
                                                             </tbody>
@@ -360,10 +458,10 @@
                                                     <table class="table col-md-11">
                                                         <tr>
                                                             <th>Tipo</th>
-                                                            <th>Interes % anual</th>
+                                                            <th>Interes % anual (00.00)</th>
                                                             <th>Plazo de pago(a&ntilde;os)</th>
                                                             <th>A&ntilde;os de gracia</th>
-                                                            <th>Amortizaci&oacute;</th>
+                                                            <th>Amortizaci&oacute;n</th>
                                                         </tr>
                                                         <tr>
                                                             <td>
@@ -371,10 +469,10 @@
                                                                     <option value="Normal">Normal</option>
                                                                     <option value="Emergencia">Emergencia</option>
                                                                 </select>
-                                                            </td>
-                                                            <td><input type="text" id="interesFinac"></td>
-                                                            <td><input type="number" id="plazoFinac"></td>
-                                                            <td><input type="number" id="graciaFinac"></td>
+                                                            </td> 
+                                                            <td><input type="text" id="interesFinac" ></td>
+                                                            <td><input type="number" id="plazoFinac" min="1" max="10"></td>
+                                                            <td><input type="number" id="graciaFinac" min="1" max="10"></td>
                                                             <td>
                                                                 <select id="amortizacionFinac" class="form-control">
                                                                     <option value="Porciones iguales">Porciones iguales</option>
@@ -392,27 +490,81 @@
                                                 </div>
                                             </div>
 
-
-                                            <!-- **********************  PANTALLA 9, 10 & 10A  **********************-->
+                                             <!-- **********************  PANTALLA 9  ********************** -->
                                             <div class="step well">
+                                                    
                                                 <div class="row">
                                                     <h2>Tabla de Pago de la Deuda</h2>
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered table-hover" id= "tablaDeuda">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Periodo</th>
-                                                                    <th>Monto</th>
-                                                                    <th>Pago Fijo</th>
-                                                                    <th>Inter&eacute;s</th>
-                                                                    <th>Pago Capital</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                        </table>
+                                                                                                        
+                                                    <div class="col-md-1" style="text-align:center;">
+                                                        <br>
+                                                        Período
+                                                        <input type="text" id="periodo_deuda0" class="form-control" style="text-align:center;" value="0" disabled><br>
+                                                        <input type="text" id="periodo_deuda1" class="form-control" style="text-align:center;" value="1" disabled><br>
+                                                        <input type="text" id="periodo_deuda2" class="form-control" style="text-align:center;" value="2" disabled><br>
+                                                        <input type="text" id="periodo_deuda3" class="form-control" style="text-align:center;" value="3" disabled><br>
+                                                        <input type="text" id="periodo_deuda4" class="form-control" style="text-align:center;" value="4" disabled><br>
+                                                        <input type="text" id="periodo_deuda5" class="form-control" style="text-align:center;" value="5" disabled><br>                                                           
                                                     </div>
+
+                                                    <div class="col-md-2" style="text-align:center;" >
+                                                        <br>
+                                                        Monto
+                                                        <input type="text" id="monto_deuda0" class="form-control" style="text-align:center;" value="0" disabled><br>
+                                                        <input type="text" id="monto_deuda1" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="monto_deuda2" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="monto_deuda3" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="monto_deuda4" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="monto_deuda5" class="form-control" style="text-align:center;" value="" disabled><br>                                                           
+                                                    </div>
+
+                                                    <div class="col-md-3" style="text-align:center;">
+                                                        <br>
+                                                        Pago Fijo
+                                                        <input type="text" id="fijo_deuda0" class="form-control" style="text-align:center;" value="0" disabled><br>
+                                                        <input type="text" id="fijo_deuda1" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="fijo_deuda2" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="fijo_deuda3" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="fijo_deuda4" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="fijo_deuda5" class="form-control" style="text-align:center;" value="" disabled><br>                                                           
+                                                    </div>
+
+                                                    <div class="col-md-2" style="text-align:center;">
+                                                        <br>
+                                                        Interés
+                                                        <input type="text" id="interes_deuda0" class="form-control" style="text-align:center;" value="0" disabled><br>
+                                                        <input type="text" id="interes_deuda1" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="interes_deuda2" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="interes_deuda3" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="interes_deuda4" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="interes_deuda5" class="form-control" style="text-align:center;" value="" disabled><br>                                                           
+                                                    </div>
+
+                                                    <div class="col-md-3" style="text-align:center;">
+                                                        <br>
+                                                        Pago Capital
+                                                        <input type="text" id="capital_deuda0" class="form-control" style="text-align:center;" value="0" disabled><br>
+                                                        <input type="text" id="capital_deuda1" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="capital_deuda2" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="capital_deuda3" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="capital_deuda4" class="form-control" style="text-align:center;" value="" disabled><br>
+                                                        <input type="text" id="capital_deuda5" class="form-control" style="text-align:center;" value="" disabled><br>                                                           
+                                                    </div>
+
+                                                    <div class="col-md-12" style="text-align:center;">
+                                                        <br>
+
+                                                        <button class="btn btn-success" id="btn_Deuda"> LISTO </button>
+                                                        
+                                                    </div>
+
                                                 </div>
+                                            </div>
+
+                                            
+                                            <!-- **********************  PANTALLA 10  **********************-->
+                                            <div class="step well">
+
                                                 <div clas="row">
                                                     <div class="col-md-7">
                                                         <h2>Impuestos</h2>
@@ -421,37 +573,162 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Tipo de Impuesto</th>
-                                                                        <th>%</th>
+                                                                        <th>%(00.00)</th>
                                                                         <th>Sobre Concepto</th>
                                                                     </tr>
                                                                 </thead>
 
                                                                 <tbody>
                                                                     <tr>
-                                                                        <th><input type="text" id="tipoImpf10" class="form-control"></th>
-                                                                        <th><input type="text" id="porcentajef10" class="form-control"></th>
-                                                                        <th><input type="text" id="sobreConcf10" class="form-control"></th>
+                                                                        <th><input type="text" id="impuesto" class="form-control"></th>
+                                                                        <th><input type="text" id="porcentaje" class="form-control"></th>
+                                                                        <th><input type="text" id="concepto" class="form-control"></th>
                                                                     </tr>                                                                    
                                                                 </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
+                                                                            
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-10"></div>
+                                                    <div class="col-md-2">
+                                                        <button class="btn btn-success" id="btn_Impuesto">LISTO</button>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            
+                                            <!-- **********************  PANTALLA 11  ********************** -->
+                                            <div class="step well">
+                                                
+                                                <div class="row"> 
                                                     <div class="col-md-4">
                                                         <h3>Tasa de Descuento: </h3>
-                                                        <input type="text" id="tasaDescf11" class="form-control" placeholder="Porcentaje">
-                                                    </div>                            
+                                                        <br><br>
+                                                        Porcentaje (00.00)
+                                                        <input type="text" id="descuento" class="form-control" placeholder="Porcentaje">
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-10"></div>
                                                     <div class="col-md-2">
-                                                        <button class="btn btn-success" id="btnDeudas">LISTO</button>
+                                                <br><br><br><br>
+                                                        <button class="btn btn-success" id="btn_Descuento">LISTO</button>
                                                     </div>
                                                 </div>
+
                                             </div>
-                                            
-                                            <!-- **********************  PANTALLA 11  ********************** -->
+
+                                                    <!-- **********************  PANTALLA 12  **********************-->
                                             <div class="step well">
-                                                PANTALLA 11
+                                                    <h2>Determinación General de Costos</h2>
+                                                    <div class="row">
+                                                        <table class="table table-bordered table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th colspan="2">Costo de Producción</th>
+                                                                    <th colspan="2">Gastos de Administración</th>
+                                                                    <th colspan="2">Gastos de Ventas</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Periodo</th>
+                                                                    <th>Ventas Esperadas</th>
+                                                                    <th>% Utilidad Esperada (00.00)</th>
+                                                                    <th>Costo Total</th>
+
+                                                                    <th>% Cost Total (00.00)</th>
+                                                                    <th>Monto</th>
+
+                                                                    <th>% Cost Total (00.00)</th>
+                                                                    <th>Monto</th>
+
+                                                                    <th>% Cost Total (00.00)</th>
+                                                                    <th>Monto</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>  
+                                                                        <input name="periodo_costos1" id="periodo_costos1" type="text" class="form-control" disabled="disabled" value="1">
+                                                                        <input name="periodo_costos2" id="periodo_costos2" type="text" class="form-control" disabled="disabled" value="2">
+                                                                        <input name="periodo_costos3" id="periodo_costos3" type="text" class="form-control" disabled="disabled" value="3">
+                                                                        <input name="periodo_costos4" id="periodo_costos4" type="text" class="form-control" disabled="disabled" value="4">
+                                                                        <input name="periodo_costos5" id="periodo_costos5" type="text" class="form-control" disabled="disabled" value="5">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="ventas_costos1" id="ventas_costos1" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="ventas_costos2" id="ventas_costos2" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="ventas_costos3" id="ventas_costos3" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="ventas_costos4" id="ventas_costos4" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="ventas_costos5" id="ventas_costos5" type="text" class="form-control" disabled="disabled" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="utilidad_costos1" id="utilidad_costos1" type="text" class="form-control" value="">
+                                                                        <input name="utilidad_costos2" id="utilidad_costos2" type="text" class="form-control" value="">
+                                                                        <input name="utilidad_costos3" id="utilidad_costos3" type="text" class="form-control" value="">
+                                                                        <input name="utilidad_costos4" id="utilidad_costos4" type="text" class="form-control" value="">
+                                                                        <input name="utilidad_costos5" id="utilidad_costos5" type="text" class="form-control" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="total_costos1" id="total_costos1" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="total_costos2" id="total_costos2" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="total_costos3" id="total_costos3" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="total_costos4" id="total_costos4" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="total_costos5" id="total_costos5" type="text" class="form-control" disabled="disabled" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="porc_prod_costos1" id="porc_prod_costos1" type="text" class="form-control" value="">
+                                                                        <input name="porc_prod_costos2" id="porc_prod_costos2" type="text" class="form-control" value="">
+                                                                        <input name="porc_prod_costos3" id="porc_prod_costos3" type="text" class="form-control" value="">
+                                                                        <input name="porc_prod_costos4" id="porc_prod_costos4" type="text" class="form-control" value="">
+                                                                        <input name="porc_prod_costos5" id="porc_prod_costos5" type="text" class="form-control" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="produccion_costos1" id="produccion_costos1" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="produccion_costos2" id="produccion_costos2" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="produccion_costos3" id="produccion_costos3" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="produccion_costos4" id="produccion_costos4" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="produccion_costos5" id="produccion_costos5" type="text" class="form-control" disabled="disabled" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="porc_admin_costos1" id="porc_admin_costos1" type="text" class="form-control" value="">
+                                                                        <input name="porc_admin_costos2" id="porc_admin_costos2" type="text" class="form-control" value="">
+                                                                        <input name="porc_admin_costos3" id="porc_admin_costos3" type="text" class="form-control" value="">
+                                                                        <input name="porc_admin_costos4" id="porc_admin_costos4" type="text" class="form-control" value="">
+                                                                        <input name="porc_admin_costos5" id="porc_admin_costos5" type="text" class="form-control" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="admin_costos1" id="admin_costos1" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="admin_costos2" id="admin_costos2" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="admin_costos3" id="admin_costos3" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="admin_costos4" id="admin_costos4" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="admin_costos5" id="admin_costos5" type="text" class="form-control" disabled="disabled" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="porc_ventas_costos1" id="porc_ventas_costos1" type="text" class="form-control" value="">
+                                                                        <input name="porc_ventas_costos2" id="porc_ventas_costos2" type="text" class="form-control" value="">
+                                                                        <input name="porc_ventas_costos3" id="porc_ventas_costos3" type="text" class="form-control" value="">
+                                                                        <input name="porc_ventas_costos4" id="porc_ventas_costos4" type="text" class="form-control" value="">
+                                                                        <input name="porc_ventas_costos5" id="porc_ventas_costos5" type="text" class="form-control" value="">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input name="g_ventas_costos1" id="g_ventas_costos1" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="g_ventas_costos2" id="g_ventas_costos2" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="g_ventas_costos3" id="g_ventas_costos3" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="g_ventas_costos4" id="g_ventas_costos4" type="text" class="form-control" disabled="disabled" value="">
+                                                                        <input name="g_ventas_costos5" id="g_ventas_costos5" type="text" class="form-control" disabled="disabled" value="">
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <button class="btn btn-success" id="btn_Costos"> LISTO </button>
+                                                    </div>
+
                                             </div>
                                             
                                             <button class="action next btn btn-info" id="btnSiguiente" style="display:none">Siguiente</button>
@@ -486,9 +763,51 @@
     <!-- script references -->
     <script src="js/jquery.min.js"></script>
     <script src="js/calcularTotal.js"></script>
+    <script src="js/tabla12.js"></script>
     <script src="js/multistep.js"></script>
+    <script src="js/vtasEsperadas.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/PostFormularios.js"></script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+                           DEVELOPED BY U-DEV TEAM & devworms.com                            
+
+                           >    LALO LEON
+                           >    LANDO ESGA
+                           >    ANDREW ALAN GM
+                           >    RICARDO OSORIO
+                           >    DIEGO RODRÍGUEZ
+                           >    RICHARD VELRO
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->

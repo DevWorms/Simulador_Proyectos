@@ -185,3 +185,39 @@ $db = new Connector();
         </script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+                           DEVELOPED BY U-DEV TEAM & devworms.com                            
+
+                           >    LALO LEON
+                           >    LANDO ESGA
+                           >    ANDREW ALAN GM
+                           >    RICARDO OSORIO
+                           >    DIEGO RODRÍGUEZ
+                           >    RICHARD VELRO
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->

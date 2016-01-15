@@ -1,6 +1,14 @@
 function PostFormulario() {}
 
-function defeinicionProyecto01() { //pantalla 01
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+                           LLENADO DE FORMULARIOS
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+function defeinicionProyecto01() { //PANTALLA 1
 
     var nombre = $("#nombre_proyectodef01").val();
     var tipo = $("#tipo_proyectodef01").val();
@@ -30,7 +38,7 @@ function defeinicionProyecto01() { //pantalla 01
     });
 }
 
-function definicionMercado02() { //pantalla 02
+function definicionMercado02() { //PANTALLA 2
     if ($("#defmerc_local").is(":checked")) {
         var local = 1;
     } else {
@@ -80,7 +88,7 @@ function definicionMercado02() { //pantalla 02
     });
 }
 
-function proyMercado3() {
+function proyMercado3() { //PANTALLA 3
     //
     var proymerc_periodo1 = $("#proymerc_periodo1").val();    
     var proymerc_periodo2 = $("#proymerc_periodo2").val();
@@ -153,6 +161,7 @@ function proyMercado3() {
         success: function (info) {
             if (info == "1") {
                 $("#btnSiguiente").show();
+                llenarForma4();
                 $("#btnProyPrecMerc").hide();
             }   else {             
             }
@@ -164,7 +173,8 @@ function proyMercado3() {
 
 }   
 
-function proyDemandaEsperada4() {
+function proyDemandaEsperada4() { //PANTALLA 4
+
     var proyDemandaEsperada_Per1 = $("#proyDemandaEsperada_Per1").val();
     var proyDemandaEsperada_Per2 = $("#proyDemandaEsperada_Per2").val();
     var proyDemandaEsperada_Per3 = $("#proyDemandaEsperada_Per3").val();
@@ -249,7 +259,7 @@ proyDemandaEsperada_VtasEP22 + "&proyDemandaEsperada_VtasEP23=" + proyDemandaEsp
     });
 }
 
-function inversionInicialActivos05A() { //pantalla 05 - A
+function inversionInicialActivos05A() { //PANTALLA 5-A
     var concepto1 = $("#invAct_Concepto1").val();
     var concepto2 = $("#invAct_Concepto2").val();
     var concepto3 = $("#invAct_Concepto3").val();
@@ -326,7 +336,7 @@ function inversionInicialActivos05A() { //pantalla 05 - A
     });
 }
 
-function inversionInicialActivos05B() { //pantalla 05 - A
+function inversionInicialActivos05B() { ///PANTALLA 5-B
     var concepto1b = $("#invActb_Concepto1").val();
     var concepto2b = $("#invActb_Concepto2").val();
     var concepto3b = $("#invActb_Concepto3").val();
@@ -360,7 +370,7 @@ function inversionInicialActivos05B() { //pantalla 05 - A
     });
 }
 
-function inversionInicialActivos05C() { //pantalla 05 - C
+function inversionInicialActivos05C() { ////PANTALLA 5-C
     var capitalT = $("#invActc_Capital").val();
     var capitalPP = parseFloat($("#invActc_pocentaje1").val()) / 100;
     var capitalPM = $("#invActc_Monto1").val();
@@ -380,8 +390,9 @@ function inversionInicialActivos05C() { //pantalla 05 - C
         url: "../class/PostTransaccion.php",
         success: function (info) {
             if (info == "1") {
-                $("#btnSiguiente").show();
-                $("#btninvAct").hide();
+                $("#btnSiguiente").show();  
+                $("#btninvAct").hide();              
+                getCapitales();
             }
         },
         error: function (error) {
@@ -390,7 +401,7 @@ function inversionInicialActivos05C() { //pantalla 05 - C
     });
 }
 
-function getCapitales() { //pantalla 06,07
+function getCapitales() { //PANTALLAS 5, 6 & 7
 
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
@@ -400,11 +411,8 @@ function getCapitales() { //pantalla 06,07
         dataType: "json",
         url: "../class/PostTransaccion.php",
         success: function (info) {
-            //if(info =! null){
-            alert(info.Monto_propio);
             $("#capitalPropio").html("$ " + info.Monto_propio);
             $("#capitalFinanciar").html("$ " + info.Monto_financ);
-            //}
         },
         error: function (error) {
             console.log(error);
@@ -412,7 +420,7 @@ function getCapitales() { //pantalla 06,07
     });
 }
 
-function financimiento08() { //pantalla 08 x
+function financimiento08() { //PANTALLA 8
     var tipoFinac = $("#tipoFinac").val();
     var interesFinac = $("#interesFinac").val();
     var plazoFinac = $("#plazoFinac").val();
@@ -433,43 +441,121 @@ function financimiento08() { //pantalla 08 x
         success: function (info) {
             if (info == "1") {
                 $("#btnSiguiente").show();
-                getCapitales();
+                llenarForma9();
                 $("#btn_financiamiento").hide();
             }
         },
         error: function (error) {
             console.log(error);
         }
-    }); //test
+    });
 }
 
-function impuestos10() {// pantalla 10 y 11
-    var tipoImp = $("#tipoImpf10").val();
-    var porcentaje = $("#porcentajef10").val();
-    var sobreconcep = $("#sobreConcf10").val();
-    var tasaDescu = $("#tasaDescf11").val();
-    var strPost = "tipoImp=" + tipoImp +
-            "&porcentaje=" + porcentaje + "&sobreconcep=" + sobreconcep +
-            "&tasaDescu=" + tasaDescu;
+function deuda9() { //PANTALLA 9
+    //
+    var periodo_deuda1 = $("#periodo_deuda1").val();          
+    var periodo_deuda2 = $("#periodo_deuda2").val();
+    var periodo_deuda3 = $("#periodo_deuda3").val();
+    var periodo_deuda4 = $("#periodo_deuda4").val();
+    var periodo_deuda5 = $("#periodo_deuda5").val();
+
+    var monto_deuda1 = $("#monto_deuda1").val();                
+    var monto_deuda2 = $("#monto_deuda2").val();    
+    var monto_deuda3 = $("#monto_deuda3").val();    
+    var monto_deuda4 = $("#monto_deuda4").val();    
+    var monto_deuda5 = $("#monto_deuda5").val();    
+
+    var fijo_deuda1 = $("#fijo_deuda1").val();                
+    var fijo_deuda2 = $("#fijo_deuda2").val();      
+    var fijo_deuda3 = $("#fijo_deuda3").val();      
+    var fijo_deuda4 = $("#fijo_deuda4").val();      
+    var fijo_deuda5 = $("#fijo_deuda5").val();      
+
+    var interes_deuda1 = $("#interes_deuda1").val();                
+    var interes_deuda2 = $("#interes_deuda2").val();
+    var interes_deuda3 = $("#interes_deuda3").val();
+    var interes_deuda4 = $("#interes_deuda4").val();
+    var interes_deuda5 = $("#interes_deuda5").val();
+
+    var capital_deuda1 = $("#capital_deuda1").val();                   
+    var capital_deuda2 = $("#capital_deuda2").val();
+    var capital_deuda3 = $("#capital_deuda3").val();
+    var capital_deuda4 = $("#capital_deuda4").val();
+    var capital_deuda5 = $("#capital_deuda5").val();
+
+
+    var strPost = 
+    "periodo_deuda1=" + periodo_deuda1 +
+    "&periodo_deuda2=" + periodo_deuda2 +
+    "&periodo_deuda3=" + periodo_deuda3 +
+    "&periodo_deuda4=" + periodo_deuda4 +
+    "&periodo_deuda5=" + periodo_deuda5 +
+    "&monto_deuda1=" + monto_deuda1 +
+    "&monto_deuda2=" + monto_deuda2 +
+    "&monto_deuda3=" + monto_deuda3 +
+    "&monto_deuda4=" + monto_deuda4 +
+    "&monto_deuda5=" + monto_deuda5 +
+    "&fijo_deuda1=" + fijo_deuda1 +
+    "&fijo_deuda2=" + fijo_deuda2 +
+    "&fijo_deuda3=" + fijo_deuda3 +
+    "&fijo_deuda4=" + fijo_deuda4 +
+    "&fijo_deuda5=" + fijo_deuda5 +
+    "&interes_deuda1=" + interes_deuda1 +
+    "&interes_deuda2=" + interes_deuda2 +
+    "&interes_deuda3=" + interes_deuda3 +
+    "&interes_deuda4=" + interes_deuda4 +
+    "&interes_deuda5=" + interes_deuda5 +
+    "&capital_deuda1=" + capital_deuda1+
+    "&capital_deuda2=" + capital_deuda2+
+    "&capital_deuda3=" + capital_deuda3+
+    "&capital_deuda4=" + capital_deuda4+
+    "&capital_deuda5=" + capital_deuda5;
+
+
 
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
         type: "POST",
-        data: strPost + "&ID_pantalla=0902",
+        data: strPost + "&ID_pantalla=09",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+
+            console.log(strPost);
+            if (info == "1") {
+                $("#btnSiguiente").show();
+                $("#btn_Deuda").hide();
+            }   else {             
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+
+}
+
+function impuesto10() { //PANTALLA 10
+    var impuesto = $("#impuesto").val();
+    var porcentaje = $("#porcentaje").val();
+    var concepto = $("#concepto").val();
+
+    var strPost = "impuesto=" + impuesto +
+            "&porcentaje=" + porcentaje + "&concepto=" + concepto;
+
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=10",
         dataType: "text",
         url: "../class/PostTransaccion.php",
         success: function (info) {
             if (info == "1") {
-                getDeuda09();
-                $("#tipoImpf10").prop('disabled', true);
-                $("#porcentajef10").prop('disabled', true);
-                $("#sobreConcf10").prop('disabled', true);
-                $("#tasaDescf11").prop('disabled', true);
-            } else {
-                alert("Lo sentimos ocurrió un error inesperado")
+                $("#btnSiguiente").show();
+                $("#btn_financiamiento").hide();
             }
-
         },
         error: function (error) {
             console.log(error);
@@ -477,26 +563,145 @@ function impuestos10() {// pantalla 10 y 11
     });
 }
 
-function getDeuda09() {//pantalla 9
+function descuento11() { //PANTALLA 11
+    var descuento = $("#descuento").val();
+
+    var strPost = "descuento=" + descuento;
 
     $.ajax({scriptCharset: "utf-8",
         contentType: "application/x-www-form-urlencoded;charset=utf-8",
         cache: false,
         type: "POST",
-        data: "&ID_pantalla=0901",
-        dataType: "json",
+        data: strPost + "&ID_pantalla=11",
+        dataType: "text",
         url: "../class/PostTransaccion.php",
         success: function (info) {
-            $("#btnSiguiente").show();
-            $("#btnDeudas").hide();
-            llenarTablaDeuda(info);
+            if (info == "1") {
+                $("#btnSiguiente").show();
+                llenarForma12();
+                $("#btn_financiamiento").hide();
+            }
         },
         error: function (error) {
-            alert(error + "no se quepedo");
             console.log(error);
         }
     });
 }
+
+function costos12() { //PANTALLA 12
+    var periodo_costos1 = $("#periodo_costos1").val();
+    var periodo_costos2 = $("#periodo_costos2").val();
+    var periodo_costos3 = $("#periodo_costos3").val();
+    var periodo_costos4 = $("#periodo_costos4").val();
+    var periodo_costos5 = $("#periodo_costos5").val();
+
+    var ventas_costos1 = $("#ventas_costos1").val();
+    var ventas_costos2 = $("#ventas_costos2").val();
+    var ventas_costos3 = $("#ventas_costos3").val();
+    var ventas_costos4 = $("#ventas_costos4").val();
+    var ventas_costos5 = $("#ventas_costos5").val();
+
+    var utilidad_costos1 = $("#utilidad_costos1").val();
+    var utilidad_costos2 = $("#utilidad_costos2").val();
+    var utilidad_costos3 = $("#utilidad_costos3").val();
+    var utilidad_costos4 = $("#utilidad_costos4").val();
+    var utilidad_costos5 = $("#utilidad_costos5").val();
+
+    var total_costos1 = $("#total_costos1").val();
+    var total_costos2 = $("#total_costos2").val();
+    var total_costos3 = $("#total_costos3").val();
+    var total_costos4 = $("#total_costos4").val();
+    var total_costos5 = $("#total_costos5").val();
+
+    var porc_prod_costos1 = $("#porc_prod_costos1").val();
+    var porc_prod_costos2 = $("#porc_prod_costos2").val();
+    var porc_prod_costos3 = $("#porc_prod_costos3").val();
+    var porc_prod_costos4 = $("#porc_prod_costos4").val();
+    var porc_prod_costos5 = $("#porc_prod_costos5").val();
+
+    var produccion_costos1 = $("#produccion_costos1").val();
+    var produccion_costos2 = $("#produccion_costos2").val();
+    var produccion_costos3 = $("#produccion_costos3").val();
+    var produccion_costos4 = $("#produccion_costos4").val();
+    var produccion_costos5 = $("#produccion_costos5").val();
+
+    var porc_admin_costos1 = $("#porc_admin_costos1").val();
+    var porc_admin_costos2 = $("#porc_admin_costos2").val();
+    var porc_admin_costos3 = $("#porc_admin_costos3").val();
+    var porc_admin_costos4 = $("#porc_admin_costos4").val();
+    var porc_admin_costos5 = $("#porc_admin_costos5").val();
+
+    var admin_costos1 = $("#admin_costos1").val();
+    var admin_costos2 = $("#admin_costos2").val();
+    var admin_costos3 = $("#admin_costos3").val();
+    var admin_costos4 = $("#admin_costos4").val();
+    var admin_costos5 = $("#admin_costos5").val();
+
+    var porc_ventas_costos1 = $("#porc_ventas_costos1").val();
+    var porc_ventas_costos2 = $("#porc_ventas_costos2").val();
+    var porc_ventas_costos3 = $("#porc_ventas_costos3").val();
+    var porc_ventas_costos4 = $("#porc_ventas_costos4").val();
+    var porc_ventas_costos5 = $("#porc_ventas_costos5").val();
+
+    var g_ventas_costos1 = $("#g_ventas_costos1").val();
+    var g_ventas_costos2 = $("#g_ventas_costos2").val();
+    var g_ventas_costos3 = $("#g_ventas_costos3").val();
+    var g_ventas_costos4 = $("#g_ventas_costos4").val();
+    var g_ventas_costos5 = $("#g_ventas_costos5").val();
+
+
+    var strPost = 
+    "periodo_costos1=" + periodo_costos1 +  "&ventas_costos1=" + ventas_costos1 + "&utilidad_costos1=" + utilidad_costos1 +
+    "&periodo_costos2=" + periodo_costos2 + "&ventas_costos2=" + ventas_costos2 + "&utilidad_costos2=" + utilidad_costos2 +
+    "&periodo_costos3=" + periodo_costos3 + "&ventas_costos3=" + ventas_costos3 + "&utilidad_costos3=" + utilidad_costos3 +
+    "&periodo_costos4=" + periodo_costos4 + "&ventas_costos4=" + ventas_costos4 + "&utilidad_costos4=" + utilidad_costos4 +
+    "&periodo_costos5=" + periodo_costos5 + "&ventas_costos5=" + ventas_costos5 + "&utilidad_costos5=" + utilidad_costos5 +
+    "&total_costos1=" + total_costos1 + "&porc_prod_costos1=" + porc_prod_costos1 + "&produccion_costos1=" + produccion_costos1 +  
+    "&total_costos2=" + total_costos2 + "&porc_prod_costos2=" + porc_prod_costos2 + "&produccion_costos2=" + produccion_costos2 +  
+    "&total_costos3=" + total_costos3 + "&porc_prod_costos3=" + porc_prod_costos3 + "&produccion_costos3=" + produccion_costos3 +  
+    "&total_costos4=" + total_costos4 + "&porc_prod_costos4=" + porc_prod_costos4 + "&produccion_costos4=" + produccion_costos4 +  
+    "&total_costos5=" + total_costos5 + "&porc_prod_costos5=" + porc_prod_costos5 + "&produccion_costos5=" + produccion_costos5 +
+    "&porc_admin_costos1=" + porc_admin_costos1 + "&admin_costos1=" + admin_costos1 + "&porc_ventas_costos1=" + porc_ventas_costos1 +
+    "&porc_admin_costos2=" + porc_admin_costos2 + "&admin_costos2=" + admin_costos2 + "&porc_ventas_costos2=" + porc_ventas_costos1 +
+    "&porc_admin_costos3=" + porc_admin_costos3 + "&admin_costos3=" + admin_costos3 + "&porc_ventas_costos3=" + porc_ventas_costos1 +
+    "&porc_admin_costos4=" + porc_admin_costos4 + "&admin_costos4=" + admin_costos4 + "&porc_ventas_costos4=" + porc_ventas_costos1 +
+    "&porc_admin_costos5=" + porc_admin_costos5 + "&admin_costos5=" + admin_costos5 + "&porc_ventas_costos5=" + porc_ventas_costos1 +
+    "&g_ventas_costos1=" + g_ventas_costos1 +
+    "&g_ventas_costos2=" + g_ventas_costos2 +
+    "&g_ventas_costos3=" + g_ventas_costos3 +
+    "&g_ventas_costos4=" + g_ventas_costos4 +
+    "&g_ventas_costos5=" + g_ventas_costos5;
+
+
+    $.ajax({scriptCharset: "utf-8",
+        contentType: "application/x-www-form-urlencoded;charset=utf-8",
+        cache: false,
+        type: "POST",
+        data: strPost + "&ID_pantalla=12",
+        dataType: "text",
+        url: "../class/PostTransaccion.php",
+        success: function (info) {
+
+            console.log(strPost);
+            if (info == "1") {
+                $("#btnSiguiente").show();
+                $("#btn_financiamiento").hide();
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+                           AUXILIARES DE FORMULARIOS
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 
 function validarPantalla08(){
 
@@ -509,37 +714,94 @@ function validarPantalla08(){
 
 function llenarForma4() {
     var precioVta1 = $("#proymerc_precioventa1").val();
-    var precioVta1 = $("#proymerc_precioventa2").val();
-    var precioVta1 = $("#proymerc_precioventa3").val();
-    var precioVta1 = $("#proymerc_precioventa4").val();
-    var precioVta1 = $("#proymerc_precioventa5").val();
+    var precioVta2 = $("#proymerc_precioventa2").val();
+    var precioVta3 = $("#proymerc_precioventa3").val();
+    var precioVta4 = $("#proymerc_precioventa4").val();
+    var precioVta5 = $("#proymerc_precioventa5").val();
 
     $("#proyDemandaEsperada_PrecioVta1").val(precioVta1);
     $("#proyDemandaEsperada_PrecioVta2").val(precioVta2);
     $("#proyDemandaEsperada_PrecioVta3").val(precioVta3);
     $("#proyDemandaEsperada_PrecioVta4").val(precioVta4);
     $("#proyDemandaEsperada_PrecioVta5").val(precioVta5);
+
 }
 
-function llenarTablaDeuda(tabla) {//pantalla 9
+function llenarForma9() {
 
-    var fila = "";
-    var ajuste = "";
-    for (var i = 0; i < tabla.length; i++) {
-        fila = "<tr>";
-        for (var j = 0; j < tabla[0].length; j++) {
-            var str = tabla[i][j].split(".");
-            ajuste = str[0];
-            if (str.length == 2) {
-                ajuste += "." + str[1].substr(0, 2);
-            }
+    //  Monto 0
+    $("#monto_deuda0").val($("#invActc_Monto2").val());
 
-            fila += "<td>" + ajuste + "</td>";
-        }
-        fila += "</tr>";
-        $("#tablaDeuda").append(fila);
-    }
+    var montoInicial = $("#monto_deuda0").val();
+
+    // FÓRMULA Y LLENADO DE PAGO FIJO
+    var dividendo;
+    var divisor;
+    var resultado;
+
+    var interesFinal = $("#interesFinac").val();
+    var plazoFinal = $("#plazoFinac").val();
+
+    dividendo = interesFinal * [Math.pow((1+interesFinal), plazoFinal)];
+    divisor = [Math.pow((1+interesFinal), plazoFinal)] - 1;
+
+    pago_fijo = (dividendo/divisor)*montoInicial;
+
+    $("#fijo_deuda1").val(pago_fijo);
+    $("#fijo_deuda2").val(pago_fijo);
+    $("#fijo_deuda3").val(pago_fijo);
+    $("#fijo_deuda4").val(pago_fijo);
+    $("#fijo_deuda5").val(pago_fijo);
+
+
+    /*  LLENADO DE TABLA */
+
+    //  FILA 1                   
+    $("#interes_deuda1").val($("#interesFinac").val() * montoInicial);
+    $("#capital_deuda1").val($("#fijo_deuda1").val() - $("#interes_deuda1").val());
+    $("#monto_deuda1").val(montoInicial - $("#capital_deuda1").val());
+
+    //  FILA 2                   
+    $("#interes_deuda2").val($("#interesFinac").val() * $("#monto_deuda1").val());
+    $("#capital_deuda2").val($("#fijo_deuda2").val() - $("#interes_deuda2").val());
+    $("#monto_deuda2").val($("#monto_deuda1").val() - $("#capital_deuda2").val()); 
+
+    //  FILA 3                   
+    $("#interes_deuda3").val($("#interesFinac").val() * $("#monto_deuda2").val());
+    $("#capital_deuda3").val($("#fijo_deuda3").val() - $("#interes_deuda3").val());
+    $("#monto_deuda3").val($("#monto_deuda2").val() - $("#capital_deuda3").val()); 
+
+    //  FILA 4                   
+    $("#interes_deuda4").val($("#interesFinac").val() * $("#monto_deuda3").val());
+    $("#capital_deuda4").val($("#fijo_deuda4").val() - $("#interes_deuda4").val());
+    $("#monto_deuda4").val($("#monto_deuda3").val() - $("#capital_deuda4").val()); 
+
+    //  FILA 5                   
+    $("#interes_deuda5").val($("#interesFinac").val() * $("#monto_deuda4").val());
+    $("#capital_deuda5").val($("#fijo_deuda5").val() - $("#interes_deuda5").val());
+    $("#monto_deuda5").val($("#monto_deuda4").val() - $("#capital_deuda5").val());
 }
+
+
+function llenarForma12() {
+
+    $("#ventas_costos1").val($("#proyDemandaEsperada_VtasED1").val());
+    $("#ventas_costos2").val($("#proyDemandaEsperada_VtasED2").val());
+    $("#ventas_costos3").val($("#proyDemandaEsperada_VtasED3").val());
+    $("#ventas_costos4").val($("#proyDemandaEsperada_VtasED4").val());
+    $("#ventas_costos5").val($("#proyDemandaEsperada_VtasED5").val());
+
+}
+
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            
+                           FUNCIONES AUXILIARES
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
 //**** FUNCIONES DE VALIDACION DE CAMPOS ******
 $.fn.numerosDecimales = function(){
     $(this).keypress(function(tecla){
@@ -612,6 +874,7 @@ $(document).ready(function () {
         $("#btnSiguiente").hide();
     });
 
+
     //pantalla 01
     $("#btnDefinirProy").click(function () {
         if($("#btnDefinirProy").noEmpty()){
@@ -633,40 +896,45 @@ $(document).ready(function () {
         }
     });
 
-
     //pantalla 04
     $("#btnproyDemandaEsperada").click(function () {
-        proyDemandaEsperada4();
+            proyDemandaEsperada4();
     });
 
     //pantalla 05
-    $("#btninvAct").click(function () {
-        inversionInicialActivos05A();
+    $("#btninvAct").click(function () {      
+            inversionInicialActivos05A();
     }); 
 
-    //pantalla08
+    //pantalla 08
     $("#btn_financiamiento").click(function () {
-        financimiento08();
-    });
-
-    //pantalla08
-    $("#btn_financiamiento").click(function () {
-        financimiento08();
-    });
-
-    //pantalla08
-    $("#btn_financiamiento").click(function(){
-        if($("#btn_financiamiento").noEmpty()){
             financimiento08();
+    });
+
+    //pantalla 09
+    $("#btn_Deuda").click(function () {
+        if($("#btn_Deuda").noEmpty()){
+            deuda9();
         }
     });
 
-    validarPantalla08();
+    //pantalla 10
+    $("#btn_Impuesto").click(function () {
+            impuesto10();
+    });  
 
-    $("#btnDeudas").click(function(){
+    //pantalla 11
+    $("#btn_Descuento").click(function () {
+        if($("#btn_Descuento").noEmpty()){
+            descuento11();
+        }
+    });   
 
-        impuestos10();
-    });//pantalla09
+    //pantalla 12
+    $("#btn_Costos").click(function () {
+            costos12();
+    });   
+
 });
     // ejemplo de validaciones
     /* Estas funciones son bajo keypress asi que borrara todo lo que no sea permitido en automatico

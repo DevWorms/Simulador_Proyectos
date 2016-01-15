@@ -7,6 +7,10 @@ include('DefinicionActivo.php');
 include('Financiamiento.php');
 include('proyDemandaEsperada.php');
 include('proyPrecioMercado.php');
+include('Impuesto.php');
+include('Descuento.php');
+include('Deudas.php');
+include('Costos.php');
 
 error_reporting(0);
 session_start();
@@ -246,17 +250,133 @@ if ($ID == "08") { //pantalla08
     echo $financiamiento->insert_financiamiento08();
 }
 
-if ($ID == "0901") { //pantalla09
-    $deudas = new DeudasImpustos($_SESSION['proyecto_id']);
-    echo $deudas->getDeuda();
+if ($ID == "09") { //pantalla09
+
+    $periodo_deuda1 = $_POST['periodo_deuda1'];
+    $periodo_deuda2 = $_POST['periodo_deuda2'];
+    $periodo_deuda3 = $_POST['periodo_deuda3'];
+    $periodo_deuda4 = $_POST['periodo_deuda4'];
+    $periodo_deuda5 = $_POST['periodo_deuda5'];
+
+    $monto_deuda1 = $_POST['monto_deuda1'];
+    $monto_deuda2 = $_POST['monto_deuda2'];
+    $monto_deuda3 = $_POST['monto_deuda3'];
+    $monto_deuda4 = $_POST['monto_deuda4'];
+    $monto_deuda5 = $_POST['monto_deuda5'];
+
+    $fijo_deuda1 = $_POST['fijo_deuda1'];
+    $fijo_deuda2 = $_POST['fijo_deuda2'];
+    $fijo_deuda3 = $_POST['fijo_deuda3'];
+    $fijo_deuda4 = $_POST['fijo_deuda4'];
+    $fijo_deuda5 = $_POST['fijo_deuda5'];
+
+    $interes_deuda1 = $_POST['interes_deuda1'];
+    $interes_deuda2 = $_POST['interes_deuda2'];
+    $interes_deuda3 = $_POST['interes_deuda3'];
+    $interes_deuda4 = $_POST['interes_deuda4'];
+    $interes_deuda5 = $_POST['interes_deuda5'];
+
+    $capital_deuda1 = $_POST['capital_deuda1'];
+    $capital_deuda2 = $_POST['capital_deuda2'];
+    $capital_deuda3 = $_POST['capital_deuda3'];
+    $capital_deuda4 = $_POST['capital_deuda4'];
+    $capital_deuda5 = $_POST['capital_deuda5'];
+
+
+    $deudas = new Deudas($periodo_deuda1, $monto_deuda1, $fijo_deuda1, $interes_deuda1, $capital_deuda1, 
+                            $periodo_deuda2, $monto_deuda2, $fijo_deuda2, $interes_deuda2, $capital_deuda2,
+                            $periodo_deuda3, $monto_deuda3, $fijo_deuda3, $interes_deuda3, $capital_deuda3,
+                            $periodo_deuda4, $monto_deuda4, $fijo_deuda4, $interes_deuda4, $capital_deuda4,
+                            $periodo_deuda5, $monto_deuda5, $fijo_deuda5, $interes_deuda5, $capital_deuda5);
+
+    echo $deudas->insert_Deudas();
+
 }
 
-if ($ID == "0902") { //pantalla09
-    $tipoImp = $_POST['tipoImp'];
+if ($ID == "10") { //pantalla10
+    $impuesto = $_POST['impuesto'];
     $porcentaje = $_POST['porcentaje'];
-    $sobreconcep = $_POST['sobreconcep'];
-    $tasaDescu = $_POST['tasaDescu'];
-    $deudas = new DeudasImpustos($_SESSION['proyecto_id']);
-    echo $deudas->impuestos($tipoImp, $porcentaje, $sobreconcep, $tasaDescu);
+    $concepto = $_POST['concepto'];
+
+    $impuesto = new Impuesto($impuesto, $porcentaje, $concepto);
+    echo $impuesto->insert_Impuesto();
 }
+
+if ($ID == "11") { //pantalla10
+    $descuento = $_POST['descuento'];
+
+    $descontar = new Descuento($descuento);
+    echo $descontar->insert_Descuento();
+}
+
+
+
+if ($ID == "12") { //pantalla10
+    $periodo_costos1 = $_POST['periodo_costos1'];
+    $periodo_costos2 = $_POST['periodo_costos2'];
+    $periodo_costos3 = $_POST['periodo_costos3'];
+    $periodo_costos4 = $_POST['periodo_costos4'];
+    $periodo_costos5 = $_POST['periodo_costos5'];
+    $ventas_costos1 = $_POST['ventas_costos1'];
+    $ventas_costos2 = $_POST['ventas_costos2'];
+    $ventas_costos3 = $_POST['ventas_costos3'];
+    $ventas_costos4 = $_POST['ventas_costos4'];
+    $ventas_costos5 = $_POST['ventas_costos5'];
+    $utilidad_costos1 = $_POST['utilidad_costos1'];
+    $utilidad_costos2 = $_POST['utilidad_costos2'];
+    $utilidad_costos3 = $_POST['utilidad_costos3'];
+    $utilidad_costos4 = $_POST['utilidad_costos4'];
+    $utilidad_costos5 = $_POST['utilidad_costos5'];    
+    $total_costos1 = $_POST['total_costos1'];
+    $total_costos2 = $_POST['total_costos2'];
+    $total_costos3 = $_POST['total_costos3'];
+    $total_costos4 = $_POST['total_costos4'];
+    $total_costos5 = $_POST['total_costos5'];    
+    $porc_prod_costos1 = $_POST['porc_prod_costos1'];
+    $porc_prod_costos2 = $_POST['porc_prod_costos2'];
+    $porc_prod_costos3 = $_POST['porc_prod_costos3'];
+    $porc_prod_costos4 = $_POST['porc_prod_costos4'];
+    $porc_prod_costos5 = $_POST['porc_prod_costos5'];    
+    $produccion_costos1 = $_POST['produccion_costos1'];
+    $produccion_costos2 = $_POST['produccion_costos2'];
+    $produccion_costos3 = $_POST['produccion_costos3'];
+    $produccion_costos4 = $_POST['produccion_costos4'];
+    $produccion_costos5 = $_POST['produccion_costos5'];    
+    $porc_admin_costos1 = $_POST['porc_admin_costos1'];
+    $porc_admin_costos2 = $_POST['porc_admin_costos2'];
+    $porc_admin_costos3 = $_POST['porc_admin_costos3'];
+    $porc_admin_costos4 = $_POST['porc_admin_costos4'];
+    $porc_admin_costos5 = $_POST['porc_admin_costos5'];    
+    $admin_costos1 = $_POST['admin_costos1'];
+    $admin_costos2 = $_POST['admin_costos2'];
+    $admin_costos3 = $_POST['admin_costos3'];
+    $admin_costos4 = $_POST['admin_costos4'];
+    $admin_costos5 = $_POST['admin_costos5'];    
+    $porc_ventas_costos1 = $_POST['porc_ventas_costos1'];
+    $porc_ventas_costos2 = $_POST['porc_ventas_costos2'];
+    $porc_ventas_costos3 = $_POST['porc_ventas_costos3'];
+    $porc_ventas_costos4 = $_POST['porc_ventas_costos4'];
+    $porc_ventas_costos5 = $_POST['porc_ventas_costos5'];    
+    $g_ventas_costos1 = $_POST['g_ventas_costos1'];
+    $g_ventas_costos2 = $_POST['g_ventas_costos2'];
+    $g_ventas_costos3 = $_POST['g_ventas_costos3'];
+    $g_ventas_costos4 = $_POST['g_ventas_costos4'];
+    $g_ventas_costos5 = $_POST['g_ventas_costos5'];
+
+    $costo = new Costos($periodo_costos1,$periodo_costos2,$periodo_costos3,$periodo_costos4,$periodo_costos5,
+                        $ventas_costos1,$ventas_costos2, $ventas_costos3, $ventas_costos4, $ventas_costos5, 
+                        $utilidad_costos1,$utilidad_costos2,$utilidad_costos3,$utilidad_costos4,$utilidad_costos5, 
+                        $total_costos1,$total_costos2,$total_costos3,$total_costos4,$total_costos5,
+                        $porc_prod_costos1,$porc_prod_costos2,$porc_prod_costos3,$porc_prod_costos4,$porc_prod_costos5, 
+                        $produccion_costos1,$produccion_costos2,$produccion_costos3,$produccion_costos4,$produccion_costos5, 
+                        $porc_admin_costos1,$porc_admin_costos2,$porc_admin_costos3,$porc_admin_costos4,$porc_admin_costos5, 
+                        $admin_costos1,$admin_costos2,$admin_costos3,$admin_costos4,$admin_costos5,
+                        $porc_ventas_costos1,$porc_ventas_costos2,$porc_ventas_costos3,$porc_ventas_costos4,$porc_ventas_costos5, 
+                        $g_ventas_costos1,$g_ventas_costos2,$g_ventas_costos3,$g_ventas_costos4,$g_ventas_costos5);
+
+
+    echo $costo->insert_Costos();
+}
+
+
 ?>
